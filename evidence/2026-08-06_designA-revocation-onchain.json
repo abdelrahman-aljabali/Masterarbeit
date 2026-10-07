@@ -1,0 +1,81 @@
+{
+  "tool": ".revocation-run.mjs",
+  "startedAt": "2026-08-06T18:28:00.950Z",
+  "chainId": 80002,
+  "registry": "0xf4e0Ab431a2F5df241fa0E9c6A87DBa86b0E0d93",
+  "productDid": "did:web:trustdpp.co:prod_b48b5bd5525d679a",
+  "productId": "0xebdca24465ff87fccbc7f1923308fee2eb45eff3d63c208af60bec6eb2954792",
+  "revokedIssuer": {
+    "company": "Karimov Cotton Farm",
+    "did": "did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+    "address": "0xa79046E84DAC70B21540C3c96d6AD42e82D1bd0b"
+  },
+  "operator": "0xB147280bCDC2dE966e8E2131Bedb1D02a1997360",
+  "relayer": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca",
+  "transactions": [
+    {
+      "allowed": false,
+      "outboxId": "cmshummj4005fgkmqd13okqsg",
+      "status": "confirmed",
+      "txHash": "0x8e0f9e6f90eaedccf42aae6f727dc5cff198e537995b38d663ea90d5f1e38893",
+      "blockNumber": "44222458",
+      "createdAt": "2026-08-06 18:28:04.625+00",
+      "confirmedAt": "2026-08-06 18:28:31.293+00",
+      "lastError": null
+    },
+    {
+      "allowed": true,
+      "outboxId": "cmshunaze005jgkmqsg2pibua",
+      "status": "confirmed",
+      "txHash": "0x86c77b4bad12eba3ea4d43afc68c321465e91af52064fb0e887117718dd03c83",
+      "blockNumber": "44222487",
+      "createdAt": "2026-08-06 18:28:36.314+00",
+      "confirmedAt": "2026-08-06 18:29:01.31+00",
+      "lastError": null
+    }
+  ],
+  "states": {
+    "before": {
+      "exitCode": 0,
+      "verdict": "VERIFIED",
+      "counts": {
+        "pass": 40,
+        "fail": 0,
+        "skip": 0
+      },
+      "failed": [],
+      "farmSignature": "PASS — ES256K-R recovers to 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b, which is what the issuer DID names",
+      "farmAuthorization": "PASS — authorized[0xebdca244…][0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b] == true"
+    },
+    "revoked": {
+      "exitCode": 1,
+      "verdict": "FAILED",
+      "counts": {
+        "pass": 39,
+        "fail": 1,
+        "skip": 0
+      },
+      "failed": [
+        "credential[1].authorization"
+      ],
+      "farmSignature": "PASS — ES256K-R recovers to 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b, which is what the issuer DID names",
+      "farmAuthorization": "FAIL — the chain says NO: authorized[][0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b] is false and the product's controller is 0xb147280bcdc2de966e8e2131bedb1d02a1997360"
+    },
+    "restored": {
+      "exitCode": 0,
+      "verdict": "VERIFIED",
+      "counts": {
+        "pass": 40,
+        "fail": 0,
+        "skip": 0
+      },
+      "failed": [],
+      "farmSignature": "PASS — ES256K-R recovers to 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b, which is what the issuer DID names",
+      "farmAuthorization": "PASS — authorized[0xebdca244…][0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b] == true"
+    }
+  },
+  "relayerBalanceBefore": "0.086858454909107023",
+  "relayerBalanceAfter": "0.083335674901709185",
+  "relayerSpentPol": "0.0035227800073978355",
+  "finishedAt": "2026-08-06T18:29:08.188Z"
+}

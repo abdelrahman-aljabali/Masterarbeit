@@ -1,0 +1,90 @@
+{
+  "tool": "timeit (thesis harness)",
+  "label": "scale-online-20",
+  "takenAt": "2026-09-17T21:01:13.198Z",
+  "mode": "online",
+  "bundle": {
+    "path": "synth-20.json",
+    "bytes": 43957
+  },
+  "rpcHost": "polygon-amoy-bor-rpc.publicnode.com",
+  "chainId": 80002,
+  "provenance": {
+    "git": {
+      "commit": "b3977816e9c634a69a621520c76148bc0be3e9e4",
+      "dirty": true
+    },
+    "node": "v25.1.0",
+    "machine": {
+      "platform": "darwin 25.5.0",
+      "arch": "arm64",
+      "cpuModel": "Apple M1 Pro",
+      "loadAvg1m": 5.45263671875
+    }
+  },
+  "protocol": {
+    "warmups": 3,
+    "n": 30,
+    "timing": "process start to exit, hrtime, ms"
+  },
+  "verdicts": [
+    "FAILED"
+  ],
+  "exitCodes": [
+    1
+  ],
+  "wallClock": {
+    "n": 30,
+    "min": 12705.421,
+    "p25": 13067.178718750001,
+    "median": 13101.4260415,
+    "p75": 13220.8008855,
+    "iqr": 153.62216674999945,
+    "p95": 13264.0719878,
+    "max": 13290.936667,
+    "quantileDefinition": "Hyndman-Fan type 7 (linear interpolation)"
+  },
+  "nodeStartupFloor": {
+    "n": 30,
+    "min": 36.995709,
+    "p25": 38.1881985,
+    "median": 38.6303125,
+    "p75": 39.1614995,
+    "iqr": 0.9733009999999993,
+    "p95": 40.564475,
+    "max": 41.155125,
+    "quantileDefinition": "Hyndman-Fan type 7 (linear interpolation)"
+  },
+  "samples": [
+    12989.275,
+    13290.936667,
+    13198.417542,
+    13097.669584,
+    13091.634583,
+    12966.871167,
+    13232.81,
+    13065.459875,
+    13143.404041,
+    13102.385625,
+    13035.216417,
+    13160.393,
+    13108.85475,
+    13242.290209,
+    12705.421,
+    13228.262,
+    13072.33525,
+    13085.607208,
+    13259.416834,
+    13100.466458,
+    12933.883959,
+    13238.0385,
+    12936.502458,
+    13267.88075,
+    13111.677959,
+    13092.898458,
+    12957.711708,
+    13110.052,
+    13085.745833,
+    13258.51375
+  ]
+}

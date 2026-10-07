@@ -1,0 +1,29 @@
+{
+  "blockNumber": 44629028,
+  "chainId": 80002,
+  "deployer": "0xd1B3849Ba046fC85175211A14d064E743E9bd6ca",
+  "eip712Name": "TrustAnchorRegistry",
+  "eip712Version": "1",
+  "ethereumDidRegistry": "0x8c7F06eDe1C36FDc7d36AAb77D2Ac5bfB0aABb65",
+  "ethereumDidRegistryIsCanonical": false,
+  "ethereumDidRegistryTx": "0xdd0a9f6cc0cfe35d8a8c7598c30abbb998c2af5d51b266d57a6dbe6df6125076",
+  "evmVersion": "shanghai",
+  "explorer": {
+    "ethereumDidRegistry": "https://amoy.polygonscan.com/address/0x8c7F06eDe1C36FDc7d36AAb77D2Ac5bfB0aABb65#code",
+    "trustAnchorRegistry": "https://amoy.polygonscan.com/address/0x03dd7e09263a24e5e6aBACA533EeE9d992b85479#code"
+  },
+  "network": "amoy",
+  "solcVersion": "0.8.28",
+  "supersedes": {
+    "blockNumber": 44055315,
+    "note": "Claims, authorizations and Anchored logs written before 2026-08-11 live at the superseded address and are still readable there. Nothing was migrated on chain; the EthereumDIDRegistry did NOT move, so every did:ethr and every issued credential is unaffected.",
+    "reason": "setIssuers batch authorization; the registry is immutable, so a new capability is a new deployment",
+    "trustAnchorRegistry": "0xf4e0Ab431a2F5df241fa0E9c6A87DBa86b0E0d93",
+    "trustAnchorRegistryTx": "0xc89038e6a5c375a4e3158d942768b87e1f4614ae7af4a967a9c565dfb09a441b",
+    "verifiedAt": "2026-08-04"
+  },
+  "trustAnchorRegistry": "0x03dd7e09263a24e5e6aBACA533EeE9d992b85479",
+  "trustAnchorRegistryTx": "0x45068a7cc897a3a486eb606b455f74663bd11033f54991aeb01b77e7e53d21fa",
+  "verified": true,
+  "verifiedAt": "2026-08-11"
+}

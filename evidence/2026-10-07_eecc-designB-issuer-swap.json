@@ -1,0 +1,212 @@
+{
+ "takenAt": "2026-10-07",
+ "endpoint": "https://ssi.eecc.de/api/verifier/",
+ "source": "credential[2] of 2026-09-17_designB-prod-projection-input.json (issuer did:web:app.trustdpp.co:org_Q4sUjzvUDAaw)",
+ "cases": {
+  "original": {
+   "verified": true,
+   "errors": [],
+   "raw": {
+    "verified": true,
+    "results": [
+     {
+      "proof": {
+       "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://app.trustdpp.co/contexts/dpp-v3.jsonld"
+       ],
+       "type": "DataIntegrityProof",
+       "created": "2026-07-30T15:03:09Z",
+       "proofValue": "zaWQCrnhW72JgyuhWorz53fuhYhtvhDDTDvNFcALzDgSGhUhhYeyKf2vXfzytJLwoHCAavoNpBxFvn78GtwGrYTm",
+       "cryptosuite": "eddsa-rdfc-2022",
+       "proofPurpose": "assertionMethod",
+       "verificationMethod": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw#key-1"
+      },
+      "verified": true,
+      "verificationMethod": {
+       "id": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw#key-1",
+       "type": "Multikey",
+       "controller": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw",
+       "publicKeyMultibase": "z6Mkk4T4AxTouGQadCe9j3YCDpa6NUynqrvGmMdCEipHBD5b",
+       "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/multikey/v1"
+       ]
+      },
+      "purposeResult": {
+       "valid": true,
+       "controller": {
+        "@context": [
+         "https://www.w3.org/ns/did/v1",
+         "https://w3id.org/security/multikey/v1"
+        ],
+        "id": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw",
+        "controller": "did:web:app.trustdpp.co",
+        "verificationMethod": [
+         {
+          "id": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw#key-1",
+          "type": "Multikey",
+          "controller": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw",
+          "publicKeyMultibase": "z6Mkk4T4AxTouGQadCe9j3YCDpa6NUynqrvGmMdCEipHBD5b"
+         }
+        ],
+        "assertionMethod": [
+         "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw#key-1"
+        ],
+        "service": [
+         {
+          "id": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw#org",
+          "type": "SupplyChainActor",
+          "serviceEndpoint": "https://app.trustdpp.co",
+          "name": "Nordic"
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "statusResult": {
+     "verified": true,
+     "results": [
+      {
+       "verified": true,
+       "credentialStatus": {
+        "id": "https://app.trustdpp.co/status/org_Q4sUjzvUDAaw/1#41748",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": "41748",
+        "statusListCredential": "https://app.trustdpp.co/status/org_Q4sUjzvUDAaw/1"
+       }
+      }
+     ]
+    }
+   }
+  },
+  "issuer_swapped_proof_untouched": {
+   "verified": false,
+   "errors": [
+    "Invalid signature."
+   ],
+   "raw": {
+    "verified": false,
+    "results": [
+     {
+      "proof": {
+       "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://app.trustdpp.co/contexts/dpp-v3.jsonld"
+       ],
+       "type": "DataIntegrityProof",
+       "created": "2026-07-30T15:03:09Z",
+       "proofValue": "zaWQCrnhW72JgyuhWorz53fuhYhtvhDDTDvNFcALzDgSGhUhhYeyKf2vXfzytJLwoHCAavoNpBxFvn78GtwGrYTm",
+       "cryptosuite": "eddsa-rdfc-2022",
+       "proofPurpose": "assertionMethod",
+       "verificationMethod": "did:web:app.trustdpp.co:org_Q4sUjzvUDAaw#key-1"
+      },
+      "verified": false,
+      "error": {
+       "name": "Error",
+       "message": "Invalid signature.",
+       "stack": "Error: Invalid signature.\n    at DataIntegrityProof.verifyProof (file:///usr/src/app/node_modules/@digitalbazaar/data-integrity/lib/DataIntegrityProof.js:303:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async /usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:272:53\n    at async Promise.all (index 0)\n    at async _verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:260:3)\n    at async ProofSet.verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:191:23)\n    at async Object.verify (/usr/src/app/node_modules/jsonld-signatures/lib/jsonld-signatures.js:169:18)\n    at async Verifier.verifyCredential (file:///usr/src/app/dist/services/verifier/index.js:209:22)\n    at async Promise.all (index 0)\n    at async verify (file:///usr/src/app/dist/routes/verify/index.js:43:29)"
+      }
+     }
+    ],
+    "error": {
+     "name": "VerificationError",
+     "errors": [
+      {
+       "name": "Error",
+       "message": "Invalid signature.",
+       "stack": "Error: Invalid signature.\n    at DataIntegrityProof.verifyProof (file:///usr/src/app/node_modules/@digitalbazaar/data-integrity/lib/DataIntegrityProof.js:303:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async /usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:272:53\n    at async Promise.all (index 0)\n    at async _verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:260:3)\n    at async ProofSet.verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:191:23)\n    at async Object.verify (/usr/src/app/node_modules/jsonld-signatures/lib/jsonld-signatures.js:169:18)\n    at async Verifier.verifyCredential (file:///usr/src/app/dist/services/verifier/index.js:209:22)\n    at async Promise.all (index 0)\n    at async verify (file:///usr/src/app/dist/routes/verify/index.js:43:29)"
+      }
+     ]
+    },
+    "statusResult": {
+     "verified": true,
+     "results": [
+      {
+       "verified": true,
+       "credentialStatus": {
+        "id": "https://app.trustdpp.co/status/org_Q4sUjzvUDAaw/1#41748",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": "41748",
+        "statusListCredential": "https://app.trustdpp.co/status/org_Q4sUjzvUDAaw/1"
+       }
+      }
+     ]
+    },
+    "errors": [
+     {
+      "name": "Error",
+      "message": "Invalid signature.",
+      "stack": "Error: Invalid signature.\n    at DataIntegrityProof.verifyProof (file:///usr/src/app/node_modules/@digitalbazaar/data-integrity/lib/DataIntegrityProof.js:303:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async /usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:272:53\n    at async Promise.all (index 0)\n    at async _verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:260:3)\n    at async ProofSet.verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:191:23)\n    at async Object.verify (/usr/src/app/node_modules/jsonld-signatures/lib/jsonld-signatures.js:169:18)\n    at async Verifier.verifyCredential (file:///usr/src/app/dist/services/verifier/index.js:209:22)\n    at async Promise.all (index 0)\n    at async verify (file:///usr/src/app/dist/routes/verify/index.js:43:29)"
+     }
+    ]
+   }
+  },
+  "issuer_and_verificationMethod_swapped": {
+   "verified": false,
+   "errors": [
+    "Invalid signature."
+   ],
+   "raw": {
+    "verified": false,
+    "results": [
+     {
+      "proof": {
+       "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://app.trustdpp.co/contexts/dpp-v3.jsonld"
+       ],
+       "type": "DataIntegrityProof",
+       "created": "2026-07-30T15:03:09Z",
+       "proofValue": "zaWQCrnhW72JgyuhWorz53fuhYhtvhDDTDvNFcALzDgSGhUhhYeyKf2vXfzytJLwoHCAavoNpBxFvn78GtwGrYTm",
+       "cryptosuite": "eddsa-rdfc-2022",
+       "proofPurpose": "assertionMethod",
+       "verificationMethod": "did:web:app.trustdpp.co:org_69BhhcDsdXil#key-1"
+      },
+      "verified": false,
+      "error": {
+       "name": "Error",
+       "message": "Invalid signature.",
+       "stack": "Error: Invalid signature.\n    at DataIntegrityProof.verifyProof (file:///usr/src/app/node_modules/@digitalbazaar/data-integrity/lib/DataIntegrityProof.js:303:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async /usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:272:53\n    at async Promise.all (index 0)\n    at async _verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:260:3)\n    at async ProofSet.verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:191:23)\n    at async Object.verify (/usr/src/app/node_modules/jsonld-signatures/lib/jsonld-signatures.js:169:18)\n    at async Verifier.verifyCredential (file:///usr/src/app/dist/services/verifier/index.js:209:22)\n    at async Promise.all (index 0)\n    at async verify (file:///usr/src/app/dist/routes/verify/index.js:43:29)"
+      }
+     }
+    ],
+    "error": {
+     "name": "VerificationError",
+     "errors": [
+      {
+       "name": "Error",
+       "message": "Invalid signature.",
+       "stack": "Error: Invalid signature.\n    at DataIntegrityProof.verifyProof (file:///usr/src/app/node_modules/@digitalbazaar/data-integrity/lib/DataIntegrityProof.js:303:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async /usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:272:53\n    at async Promise.all (index 0)\n    at async _verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:260:3)\n    at async ProofSet.verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:191:23)\n    at async Object.verify (/usr/src/app/node_modules/jsonld-signatures/lib/jsonld-signatures.js:169:18)\n    at async Verifier.verifyCredential (file:///usr/src/app/dist/services/verifier/index.js:209:22)\n    at async Promise.all (index 0)\n    at async verify (file:///usr/src/app/dist/routes/verify/index.js:43:29)"
+      }
+     ]
+    },
+    "statusResult": {
+     "verified": true,
+     "results": [
+      {
+       "verified": true,
+       "credentialStatus": {
+        "id": "https://app.trustdpp.co/status/org_Q4sUjzvUDAaw/1#41748",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": "41748",
+        "statusListCredential": "https://app.trustdpp.co/status/org_Q4sUjzvUDAaw/1"
+       }
+      }
+     ]
+    },
+    "errors": [
+     {
+      "name": "Error",
+      "message": "Invalid signature.",
+      "stack": "Error: Invalid signature.\n    at DataIntegrityProof.verifyProof (file:///usr/src/app/node_modules/@digitalbazaar/data-integrity/lib/DataIntegrityProof.js:303:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async /usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:272:53\n    at async Promise.all (index 0)\n    at async _verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:260:3)\n    at async ProofSet.verify (/usr/src/app/node_modules/jsonld-signatures/lib/ProofSet.js:191:23)\n    at async Object.verify (/usr/src/app/node_modules/jsonld-signatures/lib/jsonld-signatures.js:169:18)\n    at async Verifier.verifyCredential (file:///usr/src/app/dist/services/verifier/index.js:209:22)\n    at async Promise.all (index 0)\n    at async verify (file:///usr/src/app/dist/routes/verify/index.js:43:29)"
+     }
+    ]
+   }
+  }
+ }
+}

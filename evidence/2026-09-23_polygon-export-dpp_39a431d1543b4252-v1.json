@@ -1,0 +1,207 @@
+{
+  "passportId": "dpp_39a431d1543b4252",
+  "version": 1,
+  "hash": "4c4ada23f0dde1db337a318cb27fe63c34e61b39be3113f2463b59c7d10fe57f",
+  "snapshot": {
+    "espr": {
+      "delegatedAct": "ESPR Textiles Delegated Act (expected 2027)",
+      "article9Compliant": false,
+      "article11gCompliant": false
+    },
+    "tiers": [
+      {
+        "roles": [
+          "cotton-farming"
+        ],
+        "fields": {},
+        "tierName": "[DEMONSTRATION ACCOUNT] Karimov Cotton Farm",
+        "tierRole": "Cotton Farm",
+        "issuerDid": "did:ethr:0x89:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+        "tierIndex": 0
+      },
+      {
+        "roles": [
+          "spinning"
+        ],
+        "fields": {},
+        "tierName": "[DEMONSTRATION ACCOUNT] Dhaka Spinning Mills",
+        "tierRole": "Spinning Mill",
+        "issuerDid": "did:ethr:0x89:0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+        "tierIndex": 1
+      },
+      {
+        "roles": [
+          "weaving",
+          "dyeing"
+        ],
+        "fields": {},
+        "tierName": "[DEMONSTRATION ACCOUNT] Anatolia Denim Mill",
+        "tierRole": "Weaving & Wet Processing",
+        "issuerDid": "did:ethr:0x89:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+        "tierIndex": 2
+      },
+      {
+        "roles": [
+          "garment"
+        ],
+        "fields": {},
+        "tierName": "[DEMONSTRATION ACCOUNT] Saigon Garment Works",
+        "tierRole": "Cut, Sew & Assembly",
+        "issuerDid": "did:ethr:0x89:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6",
+        "tierIndex": 3
+      }
+    ],
+    "fields": {
+      "textile.env.co2": 14.2,
+      "textile.char.size": "W32 L32",
+      "textile.char.weight": 612,
+      "textile.char.careDry": "Do not tumble dry",
+      "textile.env.takeback": "Return worn-out jeans to any Zyton store or partner collection point — we repair, resell or fiber-recycle every pair. €10 store credit per return.",
+      "textile.supply.legTo": "Berlin DC, Germany",
+      "textile.char.careIron": "Iron max 150 °C",
+      "textile.char.careWash": "Wash 30°",
+      "textile.char.lifeType": "Guaranteed lifetime",
+      "textile.char.lifeUnit": "year",
+      "textile.identity.name": "Zyton Denim Jeans",
+      "textile.metadata.eoId": "VAT DE812345678",
+      "textile.char.colourHex": "#1d2a44",
+      "textile.char.lifeValue": 5,
+      "textile.compliance.doc": "DoC-NR-DN-2026-DE-003",
+      "textile.packaging.role": "Primary",
+      "textile.supply.legFrom": "Porto, Portugal",
+      "textile.supply.legMode": "rail",
+      "textile.char.careBleach": "Do not bleach",
+      "textile.char.colourName": "Indigo Rinse",
+      "textile.char.spareParts": "Available",
+      "textile.identity.partId": "NR-DN-2026-IND-32",
+      "textile.metadata.eoName": "Zyton GmbH",
+      "textile.metadata.status": "published",
+      "textile.char.repairScore": "B",
+      "textile.compliance.reach": "Compliant — no SVHC · ZDHC MRSL L3 · screened 2026-02-01",
+      "textile.env.microplastic": false,
+      "textile.env.programmeUrl": "https://zyton.de/take-back",
+      "textile.fabric.weightGsm": 458,
+      "textile.identity.classId": "50161500",
+      "textile.identity.codeKey": "GTIN",
+      "textile.metadata.version": "1",
+      "textile.packaging.weight": 48,
+      "textile.char.careDryClean": "Do not dry clean",
+      "textile.env.recyclability": 87,
+      "textile.identity.category": "Trousers & Jeans",
+      "textile.marketing.hashtag": "#WearItLonger",
+      "textile.marketing.website": "https://zyton.de",
+      "textile.metadata.language": "English",
+      "textile.composition.fibers": [
+        {
+          "pct": 98,
+          "color": "#1d2a44",
+          "label": "Organic Cotton"
+        },
+        {
+          "pct": 2,
+          "color": "#00B4C8",
+          "label": "Elastane"
+        }
+      ],
+      "textile.fabric.processType": "Shuttle loom weaving",
+      "textile.identity.codeValue": "4056205024378",
+      "textile.identity.shortDesc": "Raw selvedge denim jeans · 13.5 oz · straight fit · indigo rope-dyed",
+      "textile.metadata.eoAddress": "Friedrichstraße 12, 10117 Berlin, Germany",
+      "textile.metadata.eoContact": "compliance@zyton.de",
+      "textile.metadata.issueDate": "2026-09-23",
+      "textile.packaging.disposal": "Paper recycling bin",
+      "textile.packaging.material": "paper",
+      "textile.supply.legDistance": 2480,
+      "textile.char.safetyWarnings": "Meets EU General Product Safety Regulation 2023/988. No safety hazards.",
+      "textile.env.eolInstructions": "Return to any textile collection point or Zyton take-back for €10 store credit. Mechanically recyclable — remove metal hardware before recycling.",
+      "textile.env.recycledContent": 20,
+      "textile.fabric.construction": "Woven",
+      "textile.identity.productDid": "did:web:web3.trustdpp.co:prod_39a431d1543b4252",
+      "textile.marketing.instagram": "@zyton",
+      "textile.marketing.statement": "Built to outlive trends. Repair it, rewear it, return it.",
+      "textile.metadata.expiryDate": "2036-03-28",
+      "textile.metadata.passportId": "urn:uuid:71cf1c5a-2117-506a-8eff-3f44a3f6fafa",
+      "textile.operation.facilityId": "GLN 4056205000012",
+      "textile.char.careInstructions": "Machine wash cold 30°C inside-out, gentle cycle. No bleach, no tumble dry. Hang to dry. Wash less to extend life.",
+      "textile.packaging.recycledPct": 100,
+      "textile.composition.substances": [
+        {
+          "name": "No SVHC detected above 0.1% w/w",
+          "hazard": "REACH candidate list screened 2026-02-01 · ZDHC MRSL L3"
+        }
+      ],
+      "textile.identity.classStandard": "GPC",
+      "textile.identity.countryOrigin": "PT — Portugal",
+      "textile.identity.responsibleEo": "Zyton GmbH",
+      "textile.char.repairInstructions": "Free repairs (re-hemming, patching, hardware) at any Zyton service centre or authorised EU partner.",
+      "textile.compliance.delegatedAct": "ESPR Textiles Delegated Act (in force 2030)",
+      "textile.composition.svhcPresent": false,
+      "textile.packaging.recyclability": "A",
+      "textile.operation.manufacturerId": "VAT PT509876543",
+      "textile.compliance.certifications": [
+        {
+          "scope": "98% Organic Cotton, 2% Elastane",
+          "number": "GOTS-C-0041127",
+          "scheme": "GOTS — Global Organic Textile Standard",
+          "certifier": "Control Union Certifications",
+          "expiryDate": "2027-03-31",
+          "evidenceUrl": "https://global-standard.org/certification"
+        }
+      ],
+      "textile.fabric.constructionDetail": "13.5 oz selvedge twill, rope-dyed warp"
+    },
+    "product": {
+      "id": "prod_39a431d1543b4252",
+      "did": "did:web:web3.trustdpp.co:prod_39a431d1543b4252",
+      "sku": "DEMO-A-MUDZEH51",
+      "name": "Zyton Denim Jeans",
+      "category": "Fashion & Apparel > Clothing > Trousers & Jeans",
+      "productLine": "Design A ceremony"
+    },
+    "packaging": null,
+    "previousVersionHash": null
+  },
+  "credentials": [
+    {
+      "id": "data:application/vc+jwt,eyJhbGciOiJFUzI1NkstUiIsInR5cCI6InZjK2p3dCIsImtpZCI6ImRpZDpldGhyOjB4ODk6MHhiMTQ3MjgwYmNkYzJkZTk2NmU4ZTIxMzFiZWRiMWQwMmExOTk3MzYwI2NvbnRyb2xsZXIifQ.eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3dlYjMudHJ1c3RkcHAuY28vY29udGV4dHMvZHBwLXYzLmpzb25sZCJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRHBwVGllckNyZWRlbnRpYWwiXSwiaXNzdWVyIjoiZGlkOmV0aHI6MHg4OToweGIxNDcyODBiY2RjMmRlOTY2ZThlMjEzMWJlZGIxZDAyYTE5OTczNjAiLCJ2YWxpZEZyb20iOiIyMDI2LTA5LTIzVDEwOjUwOjI1LjA1M1oiLCJ2YWxpZFVudGlsIjoiMjAzNi0wMy0yOFQwMDowMDowMC4wMDBaIiwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vd2ViMy50cnVzdGRwcC5jby9zY2hlbWFzL2RwcC10aWVyLWNyZWRlbnRpYWwudjIuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hIn0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiIsInJvbGUiOiJicmFuZCIsInByb2R1Y3QiOnsiY29kZUtleSI6IkdUSU4iLCJjb2RlVmFsdWUiOiI0MDU2MjA1MDI0Mzc4IiwibmFtZSI6Ilp5dG9uIERlbmltIEplYW5zIiwiY2F0ZWdvcnkiOiJUcm91c2VycyAmIEplYW5zIiwiZGVzY3JpcHRpb24iOiJSYXcgc2VsdmVkZ2UgZGVuaW0gamVhbnMgwrcgMTMuNSBveiDCtyBzdHJhaWdodCBmaXQgwrcgaW5kaWdvIHJvcGUtZHllZCIsInBhcnRJZCI6Ik5SLUROLTIwMjYtSU5ELTMyIiwiY2xhc3NpZmljYXRpb24iOnsic3RhbmRhcmQiOiJHUEMiLCJjb2RlIjoiNTAxNjE1MDAifSwiZGlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiJ9LCJvcmlnaW4iOnsicmVzcG9uc2libGVPcGVyYXRvciI6Ilp5dG9uIEdtYkgifSwiZWNvbm9taWNPcGVyYXRvciI6eyJuYW1lIjoiWnl0b24gR21iSCIsImNvbnRhY3QiOiJjb21wbGlhbmNlQHp5dG9uLmRlIiwiYWRkcmVzcyI6IkZyaWVkcmljaHN0cmHDn2UgMTIsIDEwMTE3IEJlcmxpbiwgR2VybWFueSIsImlkZW50aWZpZXIiOiJWQVQgREU4MTIzNDU2NzgifSwicGFzc3BvcnQiOnsiZXhwaXJlc0F0IjoiMjAzNi0wMy0yOCIsImxhbmd1YWdlIjoiRW5nbGlzaCIsImlkIjoidXJuOnV1aWQ6NzFjZjFjNWEtMjExNy01MDZhLThlZmYtM2Y0NGEzZjZmYWZhIiwidmVyc2lvbiI6IjEiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJpc3N1ZWRBdCI6IjIwMjYtMDktMjMifSwibGlmZXRpbWUiOnsia2luZCI6Ikd1YXJhbnRlZWQgbGlmZXRpbWUiLCJ2YWx1ZSI6NSwidW5pdCI6InllYXIifSwiZGltZW5zaW9ucyI6eyJ3ZWlnaHRHIjo2MTJ9LCJhcHBlYXJhbmNlIjp7InNpemUiOiJXMzIgTDMyIn0sInJlcGFpcmFiaWxpdHkiOnsic2NvcmUiOiJCIiwic3BhcmVQYXJ0cyI6IkF2YWlsYWJsZSIsImluc3RydWN0aW9uc1VybCI6IkZyZWUgcmVwYWlycyAocmUtaGVtbWluZywgcGF0Y2hpbmcsIGhhcmR3YXJlKSBhdCBhbnkgWnl0b24gc2VydmljZSBjZW50cmUgb3IgYXV0aG9yaXNlZCBFVSBwYXJ0bmVyLiJ9LCJ1c2UiOnsiY2FyZUluc3RydWN0aW9ucyI6Ik1hY2hpbmUgd2FzaCBjb2xkIDMwwrBDIGluc2lkZS1vdXQsIGdlbnRsZSBjeWNsZS4gTm8gYmxlYWNoLCBubyB0dW1ibGUgZHJ5LiBIYW5nIHRvIGRyeS4gV2FzaCBsZXNzIHRvIGV4dGVuZCBsaWZlLiIsInNhZmV0eVdhcm5pbmdzIjoiTWVldHMgRVUgR2VuZXJhbCBQcm9kdWN0IFNhZmV0eSBSZWd1bGF0aW9uIDIwMjMvOTg4LiBObyBzYWZldHkgaGF6YXJkcy4iLCJjYXJlIjp7Indhc2giOiJXYXNoIDMwwrAiLCJibGVhY2giOiJEbyBub3QgYmxlYWNoIiwiZHJ5IjoiRG8gbm90IHR1bWJsZSBkcnkiLCJpcm9uIjoiSXJvbiBtYXggMTUwIMKwQyIsImRyeUNsZWFuIjoiRG8gbm90IGRyeSBjbGVhbiJ9fSwiZW52aXJvbm1lbnRhbCI6eyJjbzJlS2ciOjE0LjIsInJlY3ljbGFiaWxpdHlQY3QiOjg3fSwiY2lyY3VsYXJpdHkiOnsicHJvZ3JhbW1lVXJsIjoiaHR0cHM6Ly96eXRvbi5kZS90YWtlLWJhY2siLCJlbmRPZkxpZmUiOiJSZXR1cm4gdG8gYW55IHRleHRpbGUgY29sbGVjdGlvbiBwb2ludCBvciBaeXRvbiB0YWtlLWJhY2sgZm9yIOKCrDEwIHN0b3JlIGNyZWRpdC4gTWVjaGFuaWNhbGx5IHJlY3ljbGFibGUg4oCUIHJlbW92ZSBtZXRhbCBoYXJkd2FyZSBiZWZvcmUgcmVjeWNsaW5nLiIsInRha2ViYWNrIjoiUmV0dXJuIHdvcm4tb3V0IGplYW5zIHRvIGFueSBaeXRvbiBzdG9yZSBvciBwYXJ0bmVyIGNvbGxlY3Rpb24gcG9pbnQg4oCUIHdlIHJlcGFpciwgcmVzZWxsIG9yIGZpYmVyLXJlY3ljbGUgZXZlcnkgcGFpci4g4oKsMTAgc3RvcmUgY3JlZGl0IHBlciByZXR1cm4uIn0sImNvbXBsaWFuY2UiOnsiZGVsZWdhdGVkQWN0IjoiRVNQUiBUZXh0aWxlcyBEZWxlZ2F0ZWQgQWN0IChpbiBmb3JjZSAyMDMwKSIsInJlYWNoIjoiQ29tcGxpYW50IOKAlCBubyBTVkhDIMK3IFpESEMgTVJTTCBMMyDCtyBzY3JlZW5lZCAyMDI2LTAyLTAxIiwiZGVjbGFyYXRpb25PZkNvbmZvcm1pdHkiOiJEb0MtTlItRE4tMjAyNi1ERS0wMDMifSwibWFya2V0aW5nIjp7InN0YXRlbWVudCI6IkJ1aWx0IHRvIG91dGxpdmUgdHJlbmRzLiBSZXBhaXIgaXQsIHJld2VhciBpdCwgcmV0dXJuIGl0LiIsImhhc2h0YWciOiIjV2Vhckl0TG9uZ2VyIiwid2Vic2l0ZSI6Imh0dHBzOi8venl0b24uZGUiLCJpbnN0YWdyYW0iOiJAenl0b24ifSwidHJhbnNwb3J0Ijp7ImZpbmFsTGVnIjp7ImZyb20iOiJQb3J0bywgUG9ydHVnYWwiLCJ0byI6IkJlcmxpbiBEQywgR2VybWFueSIsIm1vZGUiOiJyYWlsIiwiZGlzdGFuY2VLbSI6MjQ4MH19LCJjZXJ0aWZpY2F0aW9ucyI6W3sic2NoZW1lIjoiR09UUyDigJQgR2xvYmFsIE9yZ2FuaWMgVGV4dGlsZSBTdGFuZGFyZCIsIm51bWJlciI6IkdPVFMtQy0wMDQxMTI3Iiwic2NvcGUiOiI5OCUgT3JnYW5pYyBDb3R0b24sIDIlIEVsYXN0YW5lIiwiZXZpZGVuY2VVcmwiOiJodHRwczovL2dsb2JhbC1zdGFuZGFyZC5vcmcvY2VydGlmaWNhdGlvbiIsImNlcnRpZmllciI6IkNvbnRyb2wgVW5pb24gQ2VydGlmaWNhdGlvbnMiLCJleHBpcnlEYXRlIjoiMjAyNy0wMy0zMSJ9XSwicGFja2FnaW5nIjp7InByaW1hcnkiOnsicm9sZSI6IlByaW1hcnkiLCJtYXRlcmlhbCI6InBhcGVyIiwid2VpZ2h0RyI6NDgsInJlY3ljbGFiaWxpdHlHcmFkZSI6IkEiLCJyZWN5Y2xlZENvbnRlbnRQY3QiOjEwMCwiZGlzcG9zYWwiOiJQYXBlciByZWN5Y2xpbmcgYmluIn19fX0.IrJO_RXRTSOkrEA5jzEoP61STYTMF3PuqRP1eynPY_oB5MsPYCpXsToTUItwjklT-hrcYE3m8lO3LS6QqlK_eAE",
+      "type": "EnvelopedVerifiableCredential",
+      "@context": "https://www.w3.org/ns/credentials/v2"
+    },
+    {
+      "id": "data:application/vc+jwt,eyJhbGciOiJFUzI1NkstUiIsInR5cCI6InZjK2p3dCIsImtpZCI6ImRpZDpldGhyOjB4ODk6MHhhNzkwNDZlODRkYWM3MGIyMTU0MGMzYzk2ZDZhZDQyZTgyZDFiZDBiI2NvbnRyb2xsZXIifQ.eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3dlYjMudHJ1c3RkcHAuY28vY29udGV4dHMvZHBwLXYzLmpzb25sZCJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRHBwVGllckNyZWRlbnRpYWwiXSwiaXNzdWVyIjoiZGlkOmV0aHI6MHg4OToweGE3OTA0NmU4NGRhYzcwYjIxNTQwYzNjOTZkNmFkNDJlODJkMWJkMGIiLCJ2YWxpZEZyb20iOiIyMDI2LTA5LTIzVDEwOjUwOjI1LjM1OFoiLCJ2YWxpZFVudGlsIjoiMjAzNi0wMy0yOFQwMDowMDowMC4wMDBaIiwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vd2ViMy50cnVzdGRwcC5jby9zY2hlbWFzL2RwcC10aWVyLWNyZWRlbnRpYWwudjIuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hIn0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiIsInJvbGUiOiJjb3R0b24tZmFybWluZyIsIm9yaWdpbiI6eyJjb3VudHJ5IjoiUFQg4oCUIFBvcnR1Z2FsIn19fQ.t9S0njPKvpK1r9YAH0eGJVgjuuN0fLWSraVD6v9z-rUa6i6HDcSb3NjnQQIiemqu4lt__GLKRHFdSpCqWPQFUwE",
+      "type": "EnvelopedVerifiableCredential",
+      "@context": "https://www.w3.org/ns/credentials/v2"
+    },
+    {
+      "id": "data:application/vc+jwt,eyJhbGciOiJFUzI1NkstUiIsInR5cCI6InZjK2p3dCIsImtpZCI6ImRpZDpldGhyOjB4ODk6MHgwNTY3N2M1OWM1MmEyMmM4NmFmNzA0NWJkYmZmZTIwODIyMjBlZjRmI2NvbnRyb2xsZXIifQ.eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3dlYjMudHJ1c3RkcHAuY28vY29udGV4dHMvZHBwLXYzLmpzb25sZCJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRHBwVGllckNyZWRlbnRpYWwiXSwiaXNzdWVyIjoiZGlkOmV0aHI6MHg4OToweDA1Njc3YzU5YzUyYTIyYzg2YWY3MDQ1YmRiZmZlMjA4MjIyMGVmNGYiLCJ2YWxpZEZyb20iOiIyMDI2LTA5LTIzVDEwOjUwOjI1Ljc0OVoiLCJ2YWxpZFVudGlsIjoiMjAzNi0wMy0yOFQwMDowMDowMC4wMDBaIiwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vd2ViMy50cnVzdGRwcC5jby9zY2hlbWFzL2RwcC10aWVyLWNyZWRlbnRpYWwudjIuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hIn0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiIsInJvbGUiOiJkeWVpbmciLCJzdWJzdGFuY2VzIjp7Iml0ZW1zIjpbeyJuYW1lIjoiTm8gU1ZIQyBkZXRlY3RlZCBhYm92ZSAwLjElIHcvdyIsImhhemFyZCI6IlJFQUNIIGNhbmRpZGF0ZSBsaXN0IHNjcmVlbmVkIDIwMjYtMDItMDEgwrcgWkRIQyBNUlNMIEwzIn1dLCJwcmVzZW50IjpmYWxzZX0sImFwcGVhcmFuY2UiOnsiY29sb3VyTmFtZSI6IkluZGlnbyBSaW5zZSIsImNvbG91ckhleCI6IiMxZDJhNDQifX19.bluc8OhqE9zs9Z0vULXJIH-PWGTeUWh-lbXsJ4i7zRhFu4I75p57Y_cER4F_JW7PeSv1IBXkjSRD96hkRKr0AQE",
+      "type": "EnvelopedVerifiableCredential",
+      "@context": "https://www.w3.org/ns/credentials/v2"
+    },
+    {
+      "id": "data:application/vc+jwt,eyJhbGciOiJFUzI1NkstUiIsInR5cCI6InZjK2p3dCIsImtpZCI6ImRpZDpldGhyOjB4ODk6MHgyZGIyM2VmNDQwMWIwOGUwOWI1YTFkZGJhYTk1ODgyZTVkMmFhMWE2I2NvbnRyb2xsZXIifQ.eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3dlYjMudHJ1c3RkcHAuY28vY29udGV4dHMvZHBwLXYzLmpzb25sZCJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRHBwVGllckNyZWRlbnRpYWwiXSwiaXNzdWVyIjoiZGlkOmV0aHI6MHg4OToweDJkYjIzZWY0NDAxYjA4ZTA5YjVhMWRkYmFhOTU4ODJlNWQyYWExYTYiLCJ2YWxpZEZyb20iOiIyMDI2LTA5LTIzVDEwOjUwOjI2LjQ4M1oiLCJ2YWxpZFVudGlsIjoiMjAzNi0wMy0yOFQwMDowMDowMC4wMDBaIiwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vd2ViMy50cnVzdGRwcC5jby9zY2hlbWFzL2RwcC10aWVyLWNyZWRlbnRpYWwudjIuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hIn0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiIsInJvbGUiOiJnYXJtZW50IiwibWFudWZhY3R1cmluZyI6eyJmYWNpbGl0eUlkIjoiR0xOIDQwNTYyMDUwMDAwMTIiLCJtYW51ZmFjdHVyZXJJZCI6IlZBVCBQVDUwOTg3NjU0MyJ9fX0.t0ne_JfV6KC-BHVrBWZ8FkK7zdb2kT5qc69CZw34hekpkaLtZZ7l-qvlHuCuEwHbf-UclDP2Kd7V7quflY0mEQE",
+      "type": "EnvelopedVerifiableCredential",
+      "@context": "https://www.w3.org/ns/credentials/v2"
+    },
+    {
+      "id": "data:application/vc+jwt,eyJhbGciOiJFUzI1NkstUiIsInR5cCI6InZjK2p3dCIsImtpZCI6ImRpZDpldGhyOjB4ODk6MHg2ODUyZGQ5YzNkYWNhOGUwMDA4ODhhNzlkNTczZjllY2RhNzZlMDQ5I2NvbnRyb2xsZXIifQ.eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3dlYjMudHJ1c3RkcHAuY28vY29udGV4dHMvZHBwLXYzLmpzb25sZCJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRHBwVGllckNyZWRlbnRpYWwiXSwiaXNzdWVyIjoiZGlkOmV0aHI6MHg4OToweDY4NTJkZDljM2RhY2E4ZTAwMDg4OGE3OWQ1NzNmOWVjZGE3NmUwNDkiLCJ2YWxpZEZyb20iOiIyMDI2LTA5LTIzVDEwOjUwOjI1LjU2NloiLCJ2YWxpZFVudGlsIjoiMjAzNi0wMy0yOFQwMDowMDowMC4wMDBaIiwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vd2ViMy50cnVzdGRwcC5jby9zY2hlbWFzL2RwcC10aWVyLWNyZWRlbnRpYWwudjIuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hIn0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiIsInJvbGUiOiJzcGlubmluZyIsImNvbXBvc2l0aW9uIjp7ImZpYmVycyI6W3sibGFiZWwiOiJPcmdhbmljIENvdHRvbiIsInBjdCI6OTgsImNvbG9yIjoiIzFkMmE0NCJ9LHsibGFiZWwiOiJFbGFzdGFuZSIsInBjdCI6MiwiY29sb3IiOiIjMDBCNEM4In1dfSwiZW52aXJvbm1lbnRhbCI6eyJyZWN5Y2xlZENvbnRlbnRQY3QiOjIwLCJtaWNyb2ZpYnJlc1ByZXNlbnQiOmZhbHNlfX19.9sUZvIhboy92hfV01sJFSudMJqPvyrPiT0IM4genj0Q9PBEOJ5YkWYUbPZuY2f5EkBim9hZ2GPU0ZE99EkJSpgE",
+      "type": "EnvelopedVerifiableCredential",
+      "@context": "https://www.w3.org/ns/credentials/v2"
+    },
+    {
+      "id": "data:application/vc+jwt,eyJhbGciOiJFUzI1NkstUiIsInR5cCI6InZjK2p3dCIsImtpZCI6ImRpZDpldGhyOjB4ODk6MHgwNTY3N2M1OWM1MmEyMmM4NmFmNzA0NWJkYmZmZTIwODIyMjBlZjRmI2NvbnRyb2xsZXIifQ.eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3dlYjMudHJ1c3RkcHAuY28vY29udGV4dHMvZHBwLXYzLmpzb25sZCJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRHBwVGllckNyZWRlbnRpYWwiXSwiaXNzdWVyIjoiZGlkOmV0aHI6MHg4OToweDA1Njc3YzU5YzUyYTIyYzg2YWY3MDQ1YmRiZmZlMjA4MjIyMGVmNGYiLCJ2YWxpZEZyb20iOiIyMDI2LTA5LTIzVDEwOjUwOjI1LjkzMloiLCJ2YWxpZFVudGlsIjoiMjAzNi0wMy0yOFQwMDowMDowMC4wMDBaIiwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vd2ViMy50cnVzdGRwcC5jby9zY2hlbWFzL2RwcC10aWVyLWNyZWRlbnRpYWwudjIuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hIn0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOndlYjp3ZWIzLnRydXN0ZHBwLmNvOnByb2RfMzlhNDMxZDE1NDNiNDI1MiIsInJvbGUiOiJ3ZWF2aW5nIiwiZmFicmljIjp7ImNvbnN0cnVjdGlvbiI6IldvdmVuIiwicHJvY2Vzc1R5cGUiOiJTaHV0dGxlIGxvb20gd2VhdmluZyIsIndlaWdodEdzbSI6NDU4LCJjb25zdHJ1Y3Rpb25EZXRhaWwiOiIxMy41IG96IHNlbHZlZGdlIHR3aWxsLCByb3BlLWR5ZWQgd2FycCJ9fX0.aQfTg8go7WHyQn3NWUwIUtbiaE9nchIz7RuJaO4MM2YfKL3gXvrPhoOSqZYyz6cASUuCf9fgrjrl4WIBgdfDZQA",
+      "type": "EnvelopedVerifiableCredential",
+      "@context": "https://www.w3.org/ns/credentials/v2"
+    }
+  ],
+  "productDid": "did:web:web3.trustdpp.co:prod_39a431d1543b4252",
+  "issuerDid": "did:ethr:0x89:0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+  "publishedAt": "2026-09-23T10:50:27.552Z",
+  "meta": {
+    "trustMode": "design-a",
+    "cryptosuite": "ES256K-R",
+    "credentialOrigin": "https://web3.trustdpp.co",
+    "exportedAt": "2026-09-23T10:50:43.735Z",
+    "verifyWith": "backend_dpp/scripts/verify-passport.mjs"
+  },
+  "anchorTxHash": "0xaf021563bde44e00b218efe7d7169471ea6b54a980af470810edfe7d143a8eab"
+}

@@ -1,0 +1,62 @@
+{
+  "tool": "bytecode-equality (thesis check)",
+  "formatVersion": 1,
+  "takenAt": "2026-09-19T14:37:45.105752Z",
+  "provenance": {
+    "git": {
+      "commit": "f8d790259866d823932bd6ad23ff9b6abf8c5580",
+      "shortCommit": "f8d7902",
+      "dirty": true
+    },
+    "machine": "arm64 Darwin 25.5.0",
+    "python": "3.9.6",
+    "forge": "forge Version: 1.7.1",
+    "rpc": "https://polygon-amoy.drpc.org",
+    "chainId": 80002
+  },
+  "compiler": {
+    "solc": "0.8.28+commit.7893614a",
+    "evmVersion": "shanghai",
+    "optimizer": {
+      "enabled": true,
+      "runs": 20000
+    },
+    "bytecodeHash": "none"
+  },
+  "immutableReferences": {
+    "count": 7,
+    "bytes": 224,
+    "method": "slots from deployedBytecode.immutableReferences zeroed on both sides before comparison"
+  },
+  "results": {
+    "TrustAnchorRegistry": {
+      "address": "0x03dd7e09263a24e5e6aBACA533EeE9d992b85479",
+      "onchainBytes": 8074,
+      "compiledBytes": 8074,
+      "opcodesScanned": 4129,
+      "callerOpcodeCountOnChain": 0,
+      "byteEqualModuloImmutables": true,
+      "differingBytes": 141,
+      "differingBytesOutsideImmutableSlots": 0,
+      "immutablesOnChain": {
+        "2188": "9de55eaf1f4e4f258380b841afc38fa69f7adbe2721e7298e466a17a41bc9444",
+        "2190": "0000000000000000000000000000000000000000000000000000000000013882",
+        "2192": "00000000000000000000000003dd7e09263a24e5e6abaca533eee9d992b85479",
+        "2194": "3ce78cfa6ecd09e9051dd445b91e1df1dca98cbebd800334c5ec62579c37461a",
+        "2196": "c89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc6",
+        "2199": "5472757374416e63686f72526567697374727900000000000000000000000013",
+        "2202": "3100000000000000000000000000000000000000000000000000000000000001"
+      }
+    },
+    "superseded": {
+      "address": "0xf4e0Ab431a2F5df241fa0E9c6A87DBa86b0E0d93",
+      "onchainBytes": 6235,
+      "compiledBytes": 8074,
+      "opcodesScanned": 3114,
+      "callerOpcodeCountOnChain": 0,
+      "byteEqualModuloImmutables": false,
+      "differingBytes": null,
+      "differingBytesOutsideImmutableSlots": null
+    }
+  }
+}

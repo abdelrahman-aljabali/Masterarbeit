@@ -1,0 +1,15 @@
+{
+  "name": "trustdpp-thesis-artifact",
+  "private": true,
+  "description": "Reading and reproduction artifact for the Masterarbeit TrustDPP. Only the tamper suite needs these packages; the verifier has no dependencies.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "verify:selftest": "node backend_dpp/scripts/verify-passport.mjs --self-test",
+    "contracts:test": "cd contracts && forge test"
+  },
+  "dependencies": {
+    "@noble/curves": "1.2.0",
+    "@noble/hashes": "1.8.0"
+  }
+}

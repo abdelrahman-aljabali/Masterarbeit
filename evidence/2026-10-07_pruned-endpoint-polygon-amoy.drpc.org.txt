@@ -1,0 +1,85 @@
+# 2026-10-07 verify-passport.mjs (anchor-hint fallback) on 2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --rpc https://polygon-amoy.drpc.org
+# publicnode returned no receipt for the hinted anchor tx (pruned); before the fix the verifier reported FAILED there
+TrustDPP — independent passport verifier
+  bundle    ../Masterarbeit/planning_schreiben/thesis_notes_citations/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json
+  shape     passport-version row
+  design    design-a
+  product   did:web:trustdpp.co:prod_f3bea69cca545292  → productId 0x8b308022e4cdde7dfa32b91c16afee38ef03e6237bb66e51c8b99f1840b16fc8
+  version   1   credentials: 6
+  chain     chain 80002, registry 0x03dd7e09263a24e5e6abaca533eee9d992b85479, ERC-1056 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65, 21 RPC calls
+
+chain
+  [ ✓ PASS ]  chain-id           the endpoint serves chain 80002 (amoy)
+bundle
+  [ ✓ PASS ]  version-hash       sha256 0277ea4fc3182fb8… recomputes (platform-defined digest)
+  [ ✓ PASS ]  merkle-root        0x87eb25935e5293a091544702c9a5bcdc3317abc1d145c53afd679af89745cc3a over 6 credential digest(s) + the
+                                snapshot digest
+credential[0]  role=brand  issuer=did:ethr:0x13882:0xb147280bcdc2de966e8e2131bedb1d02a1997360
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 4519 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0xb147280bcdc2de966e8e2131bedb1d02a1997360, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:trustdpp.co:prod_f3bea69cca545292)
+  [ ✓ PASS ]  validity           in force at 2026-10-07T12:23:36.162Z; window 2026-08-24T10:43:27.602Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 80002 → 0xb147280bcdc2de966e8e2131bedb1d02a1997360
+  [ ✓ PASS ]  issuer-resolution  resolved from ERC-1056 @ 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65 — address-derived default
+                                document (no ERC-1056 event has ever touched this identity)
+  [ ✓ PASS ]  issuer-key-current the resolved document still authorizes 0xb147280bcdc2de966e8e2131bedb1d02a1997360 to assert
+  [ ✓ PASS ]  authorization      via the CONTROLLER rule: 0xb147280bcdc2de966e8e2131bedb1d02a1997360 is productController — there is
+                                no explicit authorized[] entry (verifier policy, reproducible from public chain state; mirrors
+                                authRoot.isIssuerAuthorized)
+credential[1]  role=cotton-farming  issuer=did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 957 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:trustdpp.co:prod_f3bea69cca545292)
+  [ ✓ PASS ]  validity           in force at 2026-10-07T12:23:36.162Z; window 2026-08-24T10:43:27.837Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 80002 → 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b
+  [ ✓ PASS ]  issuer-resolution  resolved from ERC-1056 @ 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65 — address-derived default
+                                document (no ERC-1056 event has ever touched this identity)
+  [ ✓ PASS ]  issuer-key-current the resolved document still authorizes 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b to assert
+  [ ✓ PASS ]  authorization      authorized[0x8b308022…][0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b] == true
+credential[2]  role=dyeing  issuer=did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1183 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x05677c59c52a22c86af7045bdbffe2082220ef4f, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:trustdpp.co:prod_f3bea69cca545292)
+  [ ✓ PASS ]  validity           in force at 2026-10-07T12:23:36.162Z; window 2026-08-24T10:43:28.137Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 80002 → 0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ ✓ PASS ]  issuer-resolution  resolved from ERC-1056 @ 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65 — address-derived default
+                                document (no ERC-1056 event has ever touched this identity)
+  [ ✓ PASS ]  issuer-key-current the resolved document still authorizes 0x05677c59c52a22c86af7045bdbffe2082220ef4f to assert
+  [ ✓ PASS ]  authorization      authorized[0x8b308022…][0x05677c59c52a22c86af7045bdbffe2082220ef4f] == true
+credential[3]  role=garment  issuer=did:ethr:0x13882:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1010 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:trustdpp.co:prod_f3bea69cca545292)
+  [ ✓ PASS ]  validity           in force at 2026-10-07T12:23:36.162Z; window 2026-08-24T10:43:28.398Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 80002 → 0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6
+  [ ✓ PASS ]  issuer-resolution  resolved from ERC-1056 @ 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65 — address-derived default
+                                document (no ERC-1056 event has ever touched this identity)
+  [ ✓ PASS ]  issuer-key-current the resolved document still authorizes 0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6 to assert
+  [ ✓ PASS ]  authorization      authorized[0x8b308022…][0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6] == true
+credential[4]  role=spinning  issuer=did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1159 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x6852dd9c3daca8e000888a79d573f9ecda76e049, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:trustdpp.co:prod_f3bea69cca545292)
+  [ ✓ PASS ]  validity           in force at 2026-10-07T12:23:36.162Z; window 2026-08-24T10:43:27.989Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 80002 → 0x6852dd9c3daca8e000888a79d573f9ecda76e049
+  [ ✓ PASS ]  issuer-resolution  resolved from ERC-1056 @ 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65 — address-derived default
+                                document (no ERC-1056 event has ever touched this identity)
+  [ ✓ PASS ]  issuer-key-current the resolved document still authorizes 0x6852dd9c3daca8e000888a79d573f9ecda76e049 to assert
+  [ ✓ PASS ]  authorization      authorized[0x8b308022…][0x6852dd9c3daca8e000888a79d573f9ecda76e049] == true
+credential[5]  role=weaving  issuer=did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1094 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x05677c59c52a22c86af7045bdbffe2082220ef4f, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:trustdpp.co:prod_f3bea69cca545292)
+  [ ✓ PASS ]  validity           in force at 2026-10-07T12:23:36.162Z; window 2026-08-24T10:43:28.238Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 80002 → 0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ ✓ PASS ]  issuer-resolution  resolved from ERC-1056 @ 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65 — address-derived default
+                                document (no ERC-1056 event has ever touched this identity)
+  [ ✓ PASS ]  issuer-key-current the resolved document still authorizes 0x05677c59c52a22c86af7045bdbffe2082220ef4f to assert
+  [ ✓ PASS ]  authorization      authorized[0x8b308022…][0x05677c59c52a22c86af7045bdbffe2082220ef4f] == true
+bundle
+  [ ✓ PASS ]  anchor             on-chain root MATCHES the root recomputed from these bytes — block 45749777, tx
+                                0x7ea0674678478b038d56a69d63b892db7d9844bb29cdd424257811e3226bb19b, signed by
+                                0xb147280bcdc2de966e8e2131bedb1d02a1997360 (named by the bundle)
+
+  52 passed · 0 failed · 0 skipped
+  VERIFIED

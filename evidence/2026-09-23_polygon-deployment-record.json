@@ -1,0 +1,22 @@
+{
+  "blockNumber": 94303476,
+  "chainId": 137,
+  "deployer": "0xd1B3849Ba046fC85175211A14d064E743E9bd6ca",
+  "eip712Name": "TrustAnchorRegistry",
+  "eip712Version": "1",
+  "ethereumDidRegistry": "0xdCa7EF03e98e0DC2B855bE647C39ABe984fcF21B",
+  "ethereumDidRegistryIsCanonical": true,
+  "ethereumDidRegistryTx": "",
+  "evmVersion": "shanghai",
+  "network": "polygon",
+  "solcVersion": "0.8.28",
+  "trustAnchorRegistry": "0x8c7F06eDe1C36FDc7d36AAb77D2Ac5bfB0aABb65",
+  "trustAnchorRegistryTx": "0xe2565d26be8eedc30f8c7cc73c492794af5a41cf2a4ab752f99e1b1e6a70df11",
+  "verified": true,
+  "verifiedAt": "2026-09-23",
+  "explorer": {
+    "trustAnchorRegistry": "https://polygonscan.com/address/0x8c7F06eDe1C36FDc7d36AAb77D2Ac5bfB0aABb65#code",
+    "ethereumDidRegistry": "https://polygonscan.com/address/0xdCa7EF03e98e0DC2B855bE647C39ABe984fcF21B#code"
+  },
+  "note": "Replication deployment for the thesis (Chapter 7): the canonical ERC-1056 registry of Polygon PoS is reused, so no identity registry was deployed and ethereumDidRegistryTx is empty by design."
+}

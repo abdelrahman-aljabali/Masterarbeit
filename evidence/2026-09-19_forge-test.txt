@@ -1,0 +1,95 @@
+No files changed, compilation skipped
+
+Ran 66 tests for test/TrustAnchorRegistry.t.sol:TrustAnchorRegistryTest
+[PASS] testFuzz_AnchorAttributesToSigner(bytes32,uint64,address) (runs: 512, μ: 85491, ~: 85491)
+[PASS] testFuzz_ClaimProduct(uint256,bytes32,address) (runs: 512, μ: 72195, ~: 72175)
+[PASS] testFuzz_ClaimProductRejectsForeignSigner(uint256,uint256,bytes32) (runs: 512, μ: 27607, ~: 27558)
+[PASS] testFuzz_CrossChainReplayRejected(uint64) (runs: 512, μ: 31538, ~: 31538)
+[PASS] testFuzz_MerkleInclusionForOddTrees(uint8,uint8) (runs: 512, μ: 91611, ~: 67223)
+[PASS] testFuzz_SetIssuer(uint256,address,bool,address,bytes32) (runs: 512, μ: 94575, ~: 103793)
+[PASS] testFuzz_SetIssuerRejectsNonController(uint256,uint256,address) (runs: 512, μ: 82503, ~: 82445)
+[PASS] testFuzz_SetIssuers(uint256,address,address,bool,address) (runs: 512, μ: 112890, ~: 94220)
+Logs:
+  Bound result 1530
+
+[PASS] testFuzz_WrongNonceAlwaysRejected(uint256) (runs: 512, μ: 29999, ~: 29999)
+[PASS] test_Anchor_HappyPath() (gas: 100958)
+[PASS] test_Anchor_WritesNoStorageBeyondTheNonce() (gas: 86204)
+[PASS] test_AnyRelayerCanSubmitTheSamePreSignedPayload() (gas: 339106)
+[PASS] test_ClaimProduct_HappyPath() (gas: 78153)
+[PASS] test_ClaimProduct_TransferByCurrentController() (gas: 108235)
+[PASS] test_DomainSeparator_MatchesTheIndependentlyComputedValue() (gas: 9079)
+[PASS] test_Eip712DomainIsSelfDescribing() (gas: 14307)
+[PASS] test_Gas_PerOperation() (gas: 514162)
+Logs:
+  === gas, cold slots (standalone tx) ===
+             execution | intrinsic+calldata | TOTAL TX
+  claimProduct 51805 23516 75321
+  setIssuer    36767 23668 60435
+  anchor       14644 23812 38456
+  anchor (warm slots, execution only) 7844
+
+[PASS] test_Gas_SetIssuersVersusFourSetIssuerCalls() (gas: 749146)
+Logs:
+  === authorizing four suppliers, TOTAL TX gas ===
+  4 x setIssuer 240864
+  1 x setIssuers 138423
+  saved         102441
+
+[PASS] test_KnownLimitation_DidSquattingIsPossibleBeforeTheBrandClaims() (gas: 88644)
+[PASS] test_Merkle_LeafAndNodeAreDomainSeparated() (gas: 15784)
+[PASS] test_Merkle_SelectiveInclusionProof() (gas: 34018)
+[PASS] test_Merkle_SingleLeafRootIsTheLeaf() (gas: 10158)
+[PASS] test_NoncesArePerSignerNotPerProduct() (gas: 178147)
+[PASS] test_RelayerIsNeverAuthorization_AttributionFollowsTheSigner() (gas: 198595)
+[PASS] test_RevertWhen_AnchorBySomeoneWhoIsNotTheController() (gas: 85024)
+[PASS] test_RevertWhen_AnchorOnUnclaimedProduct() (gas: 27517)
+[PASS] test_RevertWhen_AnyIssuerInTheBatchIsZero() (gas: 85776)
+[PASS] test_RevertWhen_AuthorizedIssuerTriesToAnchor() (gas: 120527)
+[PASS] test_RevertWhen_BatchSignatureIsReplayedAsSingle() (gas: 86897)
+[PASS] test_RevertWhen_ControllerIsZero() (gas: 18585)
+[PASS] test_RevertWhen_CrossChainReplay() (gas: 90919)
+[PASS] test_RevertWhen_CrossContractReplay() (gas: 1684307)
+[PASS] test_RevertWhen_FirstClaimIsNotSelfSigned() (gas: 33382)
+[PASS] test_RevertWhen_IssuerIsZero() (gas: 75513)
+[PASS] test_RevertWhen_IssuerListIsReordered() (gas: 87066)
+[PASS] test_RevertWhen_IssuerSetIsEmpty() (gas: 77429)
+[PASS] test_RevertWhen_MerkleRootIsZero() (gas: 75345)
+[PASS] test_RevertWhen_NonceIsStale() (gas: 83204)
+[PASS] test_RevertWhen_NonceIsTooHigh() (gas: 29590)
+[PASS] test_RevertWhen_ProductIdIsZero() (gas: 17809)
+[PASS] test_RevertWhen_RelayerSubstitutesADifferentIssuerList() (gas: 92976)
+[PASS] test_RevertWhen_RelayerTampersWithTheSignedArguments() (gas: 95557)
+[PASS] test_RevertWhen_ReplayingTheSameSignature_Anchor() (gas: 92359)
+[PASS] test_RevertWhen_ReplayingTheSameSignature_Claim() (gas: 81299)
+[PASS] test_RevertWhen_ReplayingTheSameSignature_SetIssuer() (gas: 115012)
+[PASS] test_RevertWhen_ReplayingTheSameSignature_SetIssuers() (gas: 196818)
+[PASS] test_RevertWhen_SetIssuerBySomeoneWhoIsNotTheController() (gas: 85166)
+[PASS] test_RevertWhen_SetIssuerOnUnclaimedProduct() (gas: 29701)
+[PASS] test_RevertWhen_SetIssuersBySomeoneWhoIsNotTheController() (gas: 91374)
+[PASS] test_RevertWhen_SetIssuersOnUnclaimedProduct() (gas: 33887)
+[PASS] test_RevertWhen_SignatureHasInvalidV() (gas: 24454)
+[PASS] test_RevertWhen_SignatureIsAllZeroes() (gas: 20578)
+[PASS] test_RevertWhen_SignatureIsGarbage() (gas: 20898)
+[PASS] test_RevertWhen_SignatureIsMalleable_HighS() (gas: 26180)
+[PASS] test_RevertWhen_SignatureIsReusedAcrossPayloadTypes() (gas: 86230)
+[PASS] test_RevertWhen_SignatureIsWrongLength() (gas: 21262)
+[PASS] test_RevertWhen_SingleIssuerSignatureIsReplayedAsABatch() (gas: 89394)
+[PASS] test_RevertWhen_TransferAttemptedByNonController() (gas: 86666)
+[PASS] test_RevertWhen_TransferringControlToZero() (gas: 75985)
+[PASS] test_RuntimeBytecodeNeverExecutesCALLER() (gas: 1272850)
+[PASS] test_SetIssuer_HappyPath() (gas: 108485)
+[PASS] test_SetIssuers_ArrayEncodingMatchesTheEip712Spec() (gas: 17833)
+[PASS] test_SetIssuers_DuplicatesAreIdempotent() (gas: 120596)
+[PASS] test_SetIssuers_GoldenDigestForOffChainEncoders() (gas: 17870)
+Logs:
+  === SetIssuers golden vector ===
+  chainId           80002
+  verifyingContract 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+  0x2218ff5286bac39bd04c0c8ed7517faee21ac71d0fb0fafbcc4ee506c12201e3
+
+[PASS] test_SetIssuers_HappyPath() (gas: 187557)
+[PASS] test_ZeroRecoveryCannotImpersonateAnUnclaimedProductsController() (gas: 22355)
+Suite result: ok. 66 passed; 0 failed; 0 skipped; finished in 220.29ms (1.66s CPU time)
+
+Ran 1 test suite in 230.34ms (220.29ms CPU time): 66 tests passed, 0 failed, 0 skipped (66 total tests)

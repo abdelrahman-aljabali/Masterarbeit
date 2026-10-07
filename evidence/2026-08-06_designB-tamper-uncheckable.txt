@@ -1,0 +1,194 @@
+══════════════════════════════════════════════════════════════════════════════
+TrustDPP — THE SAME TAMPER, AGAINST THE DESIGN B BASELINE
+══════════════════════════════════════════════════════════════════════════════
+
+  Judged by      backend_dpp/scripts/verify-passport.mjs, UNMODIFIED, --offline
+  Subject        dpp_denim_003 v63 — a Design B passport from the dev database,
+                 6 credentials, DataIntegrityProof / eddsa-rdfc-2022, did:web
+  Mutation       credentials[1].issuer
+                   did:web:trustdpp.io:org_karimov_001
+                 → did:web:trustdpp.io:org_istanbul_001
+                 credentials[1].proof.verificationMethod moved to match.
+                 `proof.proofValue` left byte-identical — nothing was re-signed.
+                 The platform digest `hash` was recomputed, which any platform
+                 altering its own database would do.
+  Run            2026-08-06, git 88fabf4362307f4c590b15634c55617ee7cd8005
+
+  RESULT   untouched  14 passed · 0 failed · 26 skipped   exit 3 INCOMPLETE
+           mutated    14 passed · 0 failed · 26 skipped   exit 3 INCOMPLETE
+
+  The two reports are identical. Under Design A the same class of mutation is
+  refused by two checks (see 2026-08-06_designA-tamper-suite.txt,
+  `issuer-did-swap-rehashed`). Under Design B the `signature` check is SKIP for
+  every credential — eddsa-rdfc-2022 signs the URDNA2015 canonicalisation of the
+  JSON-LD, which needs a JSON-LD processor and @context documents served by the
+  platform under audit — so a swapped issuer is not merely undetected, it is
+  UNCHECKABLE by an independent party. --offline is used so that the dead
+  trustdpp.io domain (a separate, unrelated fact about this fixture) cannot be
+  mistaken for the finding.
+
+### DESIGN B BASELINE (untouched, --offline)
+TrustDPP — independent passport verifier
+  bundle    /tmp/work/tamper/designB-raw.json
+  shape     passport-version row
+  design    design-b
+  product   did:web:trustdpp.io:prod_denim_003  → productId 0xafee120ab6a3672ceee954598f8d4505c444e8f745ede76d75e8983d18f6d187
+  version   63   credentials: 6
+  chain     (offline — no network was used)
+
+chain
+  [ – SKIP ]  chain-id           --offline: no chain was consulted
+bundle
+  [ ✓ PASS ]  version-hash       sha256 e71429f5ca03e24f… recomputes (platform-defined digest)
+  [ ✓ PASS ]  merkle-root        0x58fdab10a4e575dd0b0916adb71031d03754d901f8a93e0468c39b906e2fc4ec over 6 credential digest(s) + the
+                                snapshot digest
+credential[0]  role=brand  issuer=did:web:trustdpp.io:org_nordic_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_nordic_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_nordic_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[1]  role=cotton-farming  issuer=did:web:trustdpp.io:org_karimov_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_karimov_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_karimov_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[2]  role=dyeing  issuer=did:web:trustdpp.io:org_istanbul_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_istanbul_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_istanbul_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[3]  role=garment  issuer=did:web:trustdpp.io:org_saigon_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_saigon_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_saigon_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[4]  role=spinning  issuer=did:web:trustdpp.io:org_dhaka_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_dhaka_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_dhaka_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[5]  role=weaving  issuer=did:web:trustdpp.co:org_valle_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.co/org_valle_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.co/org_valle_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+bundle
+  [ – SKIP ]  anchor             --offline: the anchor log was not read
+
+  14 passed · 0 failed · 26 skipped
+  INCOMPLETE
+  A skipped check is NOT a passed check — this verifier did not establish those facts.
+EXIT=3
+
+### DESIGN B, issuer swapped + rehashed (--offline)
+TrustDPP — independent passport verifier
+  bundle    /tmp/work/tamper/designB-issuer-swap.json
+  shape     passport-version row
+  design    design-b
+  product   did:web:trustdpp.io:prod_denim_003  → productId 0xafee120ab6a3672ceee954598f8d4505c444e8f745ede76d75e8983d18f6d187
+  version   63   credentials: 6
+  chain     (offline — no network was used)
+
+chain
+  [ – SKIP ]  chain-id           --offline: no chain was consulted
+bundle
+  [ ✓ PASS ]  version-hash       sha256 79fec67e39554b7a… recomputes (platform-defined digest)
+  [ ✓ PASS ]  merkle-root        0xf544a6de12fcb9e246e68cd973fc930418af0579128dde505a3e8accabf9a8f1 over 6 credential digest(s) + the
+                                snapshot digest
+credential[0]  role=brand  issuer=did:web:trustdpp.io:org_nordic_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_nordic_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_nordic_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[1]  role=cotton-farming  issuer=did:web:trustdpp.io:org_istanbul_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_istanbul_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_istanbul_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[2]  role=dyeing  issuer=did:web:trustdpp.io:org_istanbul_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_istanbul_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_istanbul_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[3]  role=garment  issuer=did:web:trustdpp.io:org_saigon_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_saigon_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_saigon_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[4]  role=spinning  issuer=did:web:trustdpp.io:org_dhaka_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.io/org_dhaka_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.io/org_dhaka_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[5]  role=weaving  issuer=did:web:trustdpp.co:org_valle_001
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  issuer-did         did:web → https://trustdpp.co/org_valle_001/did.json
+  [ – SKIP ]  issuer-resolution  --offline: https://trustdpp.co/org_valle_001/did.json was not fetched
+  [ – SKIP ]  issuer-key-current the DID document was not fetched
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+bundle
+  [ – SKIP ]  anchor             --offline: the anchor log was not read
+
+  14 passed · 0 failed · 26 skipped
+  INCOMPLETE
+  A skipped check is NOT a passed check — this verifier did not establish those facts.
+EXIT=3

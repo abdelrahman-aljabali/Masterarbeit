@@ -1,0 +1,15 @@
+Copyright (c) 2026 Abdelrahman Aljabali. All rights reserved.
+
+This repository accompanies the Master's thesis "Decentralized Per-Actor Attribution for
+EU Digital Product Passports" submitted to Hochschule Mittweida (University of Applied
+Sciences). Permission is granted to Hochschule Mittweida and to the examiners of the thesis
+to access, inspect, build, run and reproduce the contents of this repository for the purpose
+of evaluating the thesis. Any other use, copying, modification or redistribution requires the
+prior written permission of the copyright holder.
+
+Third-party components keep their own licenses:
+- contracts/lib/forge-std (MIT OR Apache-2.0)
+- contracts/lib/openzeppelin-contracts (MIT)
+- contracts/src/vendor/EthereumDIDRegistry.sol (the license stated in its header)
+
+THE CONTENTS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.

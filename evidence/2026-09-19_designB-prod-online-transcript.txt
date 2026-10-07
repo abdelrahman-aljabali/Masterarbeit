@@ -1,0 +1,90 @@
+TrustDPP — independent passport verifier
+  bundle    /tmp/work/rq3/designB-prod-projection.json
+  shape     public passport projection
+  design    design-b
+  product   did:web:app.trustdpp.co:prod_806e2c79e92bb84e  → productId 0x6a71a63ba4f6582f7f24a2a1c84bcd7126826e392cc652fb22d7c557e56b721c
+  version   -   credentials: 5
+  chain     chain 80002, registry 0x03dd7e09263a24e5e6abaca533eee9d992b85479, ERC-1056 0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65, 1 RPC calls
+
+chain
+  [ ✓ PASS ]  chain-id           the endpoint serves chain 80002 (amoy)
+bundle
+  [ – SKIP ]  version-hash       the bundle carries no `hash`/`versionHash` to check against
+  [ – SKIP ]  merkle-root        the root is built over the frozen snapshot, which this bundle does not carry — export the
+                                PassportVersion row
+credential[0]  role=brand  issuer=did:web:app.trustdpp.co:org_69BhhcDsdXil
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:app.trustdpp.co:prod_806e2c79e92bb84e)
+  [ ✓ PASS ]  validity           in force at 2026-09-19T14:35:50.000Z; window 2026-07-30T15:03:09.774Z → 2036-09-09T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:web → https://app.trustdpp.co/org_69BhhcDsdXil/did.json
+  [ ✓ PASS ]  issuer-resolution  did:web document fetched from https://app.trustdpp.co/org_69BhhcDsdXil/did.json, ed25519-pub key
+                                present
+  [ – SKIP ]  issuer-key-current did:web publishes no revocation or rotation history — the document only says what the platform says
+                                TODAY
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[1]  role=cotton-farming  issuer=did:web:app.trustdpp.co:org_69BhhcDsdXil
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:app.trustdpp.co:prod_806e2c79e92bb84e)
+  [ ✓ PASS ]  validity           in force at 2026-09-19T14:35:50.000Z; window 2026-07-30T15:03:09.774Z → 2036-09-09T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:web → https://app.trustdpp.co/org_69BhhcDsdXil/did.json
+  [ ✓ PASS ]  issuer-resolution  did:web document fetched from https://app.trustdpp.co/org_69BhhcDsdXil/did.json, ed25519-pub key
+                                present
+  [ – SKIP ]  issuer-key-current did:web publishes no revocation or rotation history — the document only says what the platform says
+                                TODAY
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[2]  role=dyeing  issuer=did:web:app.trustdpp.co:org_Q4sUjzvUDAaw
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:app.trustdpp.co:prod_806e2c79e92bb84e)
+  [ ✓ PASS ]  validity           in force at 2026-09-19T14:35:50.000Z; window 2026-07-30T15:03:09.774Z → 2036-09-09T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:web → https://app.trustdpp.co/org_Q4sUjzvUDAaw/did.json
+  [ ✓ PASS ]  issuer-resolution  did:web document fetched from https://app.trustdpp.co/org_Q4sUjzvUDAaw/did.json, ed25519-pub key
+                                present
+  [ – SKIP ]  issuer-key-current did:web publishes no revocation or rotation history — the document only says what the platform says
+                                TODAY
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[3]  role=garment  issuer=did:web:app.trustdpp.co:org_69BhhcDsdXil
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:app.trustdpp.co:prod_806e2c79e92bb84e)
+  [ ✓ PASS ]  validity           in force at 2026-09-19T14:35:50.000Z; window 2026-07-30T15:03:09.774Z → 2036-09-09T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:web → https://app.trustdpp.co/org_69BhhcDsdXil/did.json
+  [ ✓ PASS ]  issuer-resolution  did:web document fetched from https://app.trustdpp.co/org_69BhhcDsdXil/did.json, ed25519-pub key
+                                present
+  [ – SKIP ]  issuer-key-current did:web publishes no revocation or rotation history — the document only says what the platform says
+                                TODAY
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+credential[4]  role=spinning  issuer=did:web:app.trustdpp.co:org_69BhhcDsdXil
+  [ ✓ PASS ]  parse              embedded proof, DataIntegrityProof / eddsa-rdfc-2022, purpose assertionMethod
+  [ – SKIP ]  signature          eddsa-rdfc-2022 NOT verified — it signs the URDNA2015 canonicalization of the JSON-LD, which needs a
+                                JSON-LD processor plus the @context documents (themselves served by the platform). This verifier
+                                does not implement it and will not guess.
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:app.trustdpp.co:prod_806e2c79e92bb84e)
+  [ ✓ PASS ]  validity           in force at 2026-09-19T14:35:50.000Z; window 2026-07-30T15:03:09.774Z → 2036-09-09T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:web → https://app.trustdpp.co/org_69BhhcDsdXil/did.json
+  [ ✓ PASS ]  issuer-resolution  did:web document fetched from https://app.trustdpp.co/org_69BhhcDsdXil/did.json, ed25519-pub key
+                                present
+  [ – SKIP ]  issuer-key-current did:web publishes no revocation or rotation history — the document only says what the platform says
+                                TODAY
+  [ – SKIP ]  authorization      Design B has no on-chain authorization root — who may issue for this product is a statement inside
+                                the platform's own database
+bundle
+  [ – SKIP ]  anchor             the bundle names no version, and an anchor is per (productId, version)
+
+  26 passed · 0 failed · 18 skipped
+  INCOMPLETE
+  A skipped check is NOT a passed check — this verifier did not establish those facts.

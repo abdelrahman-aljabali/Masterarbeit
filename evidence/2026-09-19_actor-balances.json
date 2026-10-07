@@ -1,0 +1,58 @@
+{
+  "tool": "actor-balances (thesis check)",
+  "formatVersion": 1,
+  "takenAt": "2026-09-19T14:37:37.748732Z",
+  "provenance": {
+    "git": {
+      "commit": "f8d790259866d823932bd6ad23ff9b6abf8c5580",
+      "dirty": true
+    },
+    "machine": "Apple M1 Pro, macOS Darwin 25.5.0",
+    "chainId": 80002
+  },
+  "note": "balance and outgoing transaction count of every demonstration actor address and of the relayer, read from the chain; an actor that never held funds and never sent a transaction has balance 0 and nonce 0",
+  "accounts": {
+    "operator": {
+      "address": "0xB147280bCDC2dE966e8E2131Bedb1D02a1997360",
+      "balanceWei": 0,
+      "balancePol": 0.0,
+      "transactionsSent": 0,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com"
+    },
+    "farm": {
+      "address": "0xa79046E84DAC70B21540C3c96d6AD42e82D1bd0b",
+      "balanceWei": 0,
+      "balancePol": 0.0,
+      "transactionsSent": 0,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com"
+    },
+    "spinner": {
+      "address": "0x6852DD9C3daCA8e000888a79d573f9EcDA76E049",
+      "balanceWei": 0,
+      "balancePol": 0.0,
+      "transactionsSent": 0,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com"
+    },
+    "mill": {
+      "address": "0x05677c59c52a22c86af7045BdBFfE2082220Ef4F",
+      "balanceWei": 0,
+      "balancePol": 0.0,
+      "transactionsSent": 0,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com"
+    },
+    "maker": {
+      "address": "0x2dB23eF4401B08E09B5A1DdBaa95882E5D2aA1A6",
+      "balanceWei": 0,
+      "balancePol": 0.0,
+      "transactionsSent": 0,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com"
+    },
+    "relayer": {
+      "address": "0xd1B3849Ba046fC85175211A14d064E743E9bd6ca",
+      "balanceWei": 110886940270538090,
+      "balancePol": 0.1108869402705381,
+      "transactionsSent": 43,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+TrustDPP — independent passport verifier
+  bundle    /tmp/work/polygon/design-a-export-dpp_39a431d1543b4252-v1.json
+  shape     passport-version row
+  design    design-a
+  product   did:web:web3.trustdpp.co:prod_39a431d1543b4252  → productId 0x179dbf688c95d186cc700d56fc3687cd087a1031a985331d0bcd1cffbac2dddf
+  version   1   credentials: 6
+  chain     (offline — no network was used)
+
+chain
+  [ – SKIP ]  chain-id           --offline: no chain was consulted
+bundle
+  [ ✓ PASS ]  version-hash       sha256 4c4ada23f0dde1db… recomputes (platform-defined digest)
+  [ ✓ PASS ]  merkle-root        0x853ab38330e97ef6c5c7820a92d6f61d93f25e787c039cd77ed17f554cc4c5b3 over 6 credential digest(s) + the
+                                snapshot digest
+credential[0]  role=brand  issuer=did:ethr:0x89:0xb147280bcdc2de966e8e2131bedb1d02a1997360
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 4538 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0xb147280bcdc2de966e8e2131bedb1d02a1997360, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:web3.trustdpp.co:prod_39a431d1543b4252)
+  [ ✓ PASS ]  validity           in force at 2026-09-23T10:51:27.390Z; window 2026-09-23T10:50:25.053Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 137 → 0xb147280bcdc2de966e8e2131bedb1d02a1997360
+  [ – SKIP ]  issuer-resolution  --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  issuer-key-current --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  authorization      --offline: the authorization root was not read
+credential[1]  role=cotton-farming  issuer=did:ethr:0x89:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 969 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:web3.trustdpp.co:prod_39a431d1543b4252)
+  [ ✓ PASS ]  validity           in force at 2026-09-23T10:51:27.390Z; window 2026-09-23T10:50:25.358Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 137 → 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b
+  [ – SKIP ]  issuer-resolution  --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  issuer-key-current --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  authorization      --offline: the authorization root was not read
+credential[2]  role=dyeing  issuer=did:ethr:0x89:0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1195 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x05677c59c52a22c86af7045bdbffe2082220ef4f, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:web3.trustdpp.co:prod_39a431d1543b4252)
+  [ ✓ PASS ]  validity           in force at 2026-09-23T10:51:27.390Z; window 2026-09-23T10:50:25.749Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 137 → 0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ – SKIP ]  issuer-resolution  --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  issuer-key-current --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  authorization      --offline: the authorization root was not read
+credential[3]  role=garment  issuer=did:ethr:0x89:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1022 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:web3.trustdpp.co:prod_39a431d1543b4252)
+  [ ✓ PASS ]  validity           in force at 2026-09-23T10:51:27.390Z; window 2026-09-23T10:50:26.483Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 137 → 0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6
+  [ – SKIP ]  issuer-resolution  --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  issuer-key-current --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  authorization      --offline: the authorization root was not read
+credential[4]  role=spinning  issuer=did:ethr:0x89:0x6852dd9c3daca8e000888a79d573f9ecda76e049
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1171 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x6852dd9c3daca8e000888a79d573f9ecda76e049, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:web3.trustdpp.co:prod_39a431d1543b4252)
+  [ ✓ PASS ]  validity           in force at 2026-09-23T10:51:27.390Z; window 2026-09-23T10:50:25.566Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 137 → 0x6852dd9c3daca8e000888a79d573f9ecda76e049
+  [ – SKIP ]  issuer-resolution  --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  issuer-key-current --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  authorization      --offline: the authorization root was not read
+credential[5]  role=weaving  issuer=did:ethr:0x89:0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ ✓ PASS ]  parse              EnvelopedVerifiableCredential, application/vc+jwt, 1106 bytes of compact JWS
+  [ ✓ PASS ]  signature          ES256K-R recovers to 0x05677c59c52a22c86af7045bdbffe2082220ef4f, which is what the issuer DID names
+  [ ✓ PASS ]  subject-binding    credentialSubject.id == the bundle's productDid (did:web:web3.trustdpp.co:prod_39a431d1543b4252)
+  [ ✓ PASS ]  validity           in force at 2026-09-23T10:51:27.390Z; window 2026-09-23T10:50:25.932Z → 2036-03-28T00:00:00.000Z
+  [ ✓ PASS ]  issuer-did         did:ethr address form, chain 137 → 0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  [ – SKIP ]  issuer-resolution  --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  issuer-key-current --offline: the ERC-1056 registry was not read
+  [ – SKIP ]  authorization      --offline: the authorization root was not read
+bundle
+  [ – SKIP ]  anchor             --offline: the anchor log was not read
+
+  32 passed · 0 failed · 20 skipped
+  INCOMPLETE
+  A skipped check is NOT a passed check — this verifier did not establish those facts.

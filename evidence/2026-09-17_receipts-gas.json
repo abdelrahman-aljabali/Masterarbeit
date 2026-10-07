@@ -1,0 +1,175 @@
+{
+  "takenAt": "2026-09-17T20:20:45.236392Z",
+  "rpc": "https://polygon-amoy.drpc.org",
+  "chainId": 80002,
+  "paths": {
+    "perIssuer": {
+      "artifact": "2026-08-24_designA-ceremony-v1path-perIssuer.json",
+      "transactions": [
+        {
+          "kind": "claimProduct",
+          "txHash": "0x288613b16dd25808ce64a59a93e5197df6ec1f9588aaaa00a2611f02e3ee8972",
+          "block": 45749462,
+          "gasUsed": 82041,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "setIssuer",
+          "txHash": "0xf75aafa15cc96e351f5d9dfcc156b9c70d30d8465ab11149a5ec8ea82726ae4a",
+          "block": 45749477,
+          "gasUsed": 69675,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "setIssuer",
+          "txHash": "0x5661cefca1d5097c106bf8d94bc32a91be478854eee6ce17c597626dcfe4170a",
+          "block": 45749492,
+          "gasUsed": 69663,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "setIssuer",
+          "txHash": "0x0ed8b9c57a54043167ed82515845f72d72b6f413467936f3e0960701e7778bb0",
+          "block": 45749507,
+          "gasUsed": 69675,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "setIssuer",
+          "txHash": "0x11fb404b469889cf096f25df94a99964dba386a6d8b0616c4a74390a446b9ac9",
+          "block": 45749522,
+          "gasUsed": 69675,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "anchor",
+          "txHash": "0x85581b9e1b27bbf01ffe81a94812a5ea1ce4b013ba057cb60095b76019e981e1",
+          "block": 45749537,
+          "gasUsed": 44324,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        }
+      ],
+      "totalGasUsed": 405053,
+      "byKind": {
+        "claimProduct": [
+          82041
+        ],
+        "setIssuer": [
+          69675,
+          69663,
+          69675,
+          69675
+        ],
+        "anchor": [
+          44324
+        ]
+      }
+    },
+    "batched": {
+      "artifact": "2026-08-24_designA-ceremony-v2path-setIssuersBatch.json",
+      "transactions": [
+        {
+          "kind": "claimProduct",
+          "txHash": "0x6ed58442412d9fb036c8e6329bff0f9c6f639e45eff9cd84f9bafc516e5311a9",
+          "block": 45749747,
+          "gasUsed": 64101,
+          "effectiveGasPriceWei": 32718943107,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "setIssuers",
+          "txHash": "0x2a4d8f5cc629173c0fa2bfb826e6004bddbc5d2692355079e12112a94adf7395",
+          "block": 45749762,
+          "gasUsed": 158571,
+          "effectiveGasPriceWei": 32718943107,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "anchor",
+          "txHash": "0x7ea0674678478b038d56a69d63b892db7d9844bb29cdd424257811e3226bb19b",
+          "block": 45749777,
+          "gasUsed": 44336,
+          "effectiveGasPriceWei": 32718943107,
+          "status": 1,
+          "to": "0x03dd7e09263a24e5e6abaca533eee9d992b85479",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        }
+      ],
+      "totalGasUsed": 267008,
+      "byKind": {
+        "claimProduct": [
+          64101
+        ],
+        "setIssuers": [
+          158571
+        ],
+        "anchor": [
+          44336
+        ]
+      }
+    },
+    "revocation": {
+      "artifact": "2026-08-06_designA-revocation-onchain.json",
+      "transactions": [
+        {
+          "kind": "setIssuer allowed=False",
+          "txHash": "0x8e0f9e6f90eaedccf42aae6f727dc5cff198e537995b38d663ea90d5f1e38893",
+          "block": 44222458,
+          "gasUsed": 47751,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0xf4e0ab431a2f5df241fa0e9c6a87dba86b0e0d93",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        },
+        {
+          "kind": "setIssuer allowed=True",
+          "txHash": "0x86c77b4bad12eba3ea4d43afc68c321465e91af52064fb0e887117718dd03c83",
+          "block": 44222487,
+          "gasUsed": 69675,
+          "effectiveGasPriceWei": 30000000063,
+          "status": 1,
+          "to": "0xf4e0ab431a2f5df241fa0e9c6a87dba86b0e0d93",
+          "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca"
+        }
+      ],
+      "totalGasUsed": 117426,
+      "byKind": {
+        "setIssuer allowed=False": [
+          47751
+        ],
+        "setIssuer allowed=True": [
+          69675
+        ]
+      }
+    }
+  },
+  "gasPriceNowWei": 30000000220,
+  "polUsd": {
+    "usd": 0.09795,
+    "eur": 0.085357,
+    "source": "CoinGecko simple price API, polygon-ecosystem-token",
+    "retrievedAt": "2026-09-17T20:20:19Z"
+  }
+}

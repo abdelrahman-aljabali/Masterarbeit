@@ -1,0 +1,82 @@
+{
+  "tool": "receipts (thesis check)",
+  "takenAt": "2026-09-23T10:51:46.054194Z",
+  "chainId": 137,
+  "rpc": "https://polygon.drpc.org",
+  "transactions": [
+    {
+      "run": "deployment",
+      "kind": "deploy TrustAnchorRegistry",
+      "txHash": "0xe2565d26be8eedc30f8c7cc73c492794af5a41cf2a4ab752f99e1b1e6a70df11",
+      "block": 94303476,
+      "gasUsed": 1802590,
+      "effectiveGasPriceWei": 306214685411
+    },
+    {
+      "run": "attempt 1 (driver aborted after these; product not published)",
+      "kind": "claimProduct",
+      "txHash": "0xd5594e73261a31927a0b08cd9e590fd160e72cacee1809a1ec483c5f600cc610",
+      "block": 94303569,
+      "gasUsed": 82041,
+      "effectiveGasPriceWei": 296770601095,
+      "status": 1,
+      "to": "0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65",
+      "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca",
+      "createdAt": "2026-09-23 10:47:28.722+00",
+      "confirmedAt": "2026-09-23 10:47:51.834+00"
+    },
+    {
+      "run": "attempt 1 (driver aborted after these; product not published)",
+      "kind": "setIssuers",
+      "txHash": "0x1ecbcb3b251490b37aaa61b83059602927b3adf68b491760738c0c826cade96d",
+      "block": 94303579,
+      "gasUsed": 158571,
+      "effectiveGasPriceWei": 307962672559,
+      "status": 1,
+      "to": "0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65",
+      "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca",
+      "createdAt": "2026-09-23 10:47:28.723+00",
+      "confirmedAt": "2026-09-23 10:48:06.827+00"
+    },
+    {
+      "run": "run 2 (published)",
+      "kind": "claimProduct",
+      "txHash": "0x9e5d0ead3b273b0fcc50d444cf6ef30166532a2a3ebf6a84383721255b0b7b75",
+      "block": 94303669,
+      "gasUsed": 64113,
+      "effectiveGasPriceWei": 277612725859,
+      "status": 1,
+      "to": "0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65",
+      "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca",
+      "createdAt": "2026-09-23 10:50:03.713+00",
+      "confirmedAt": "2026-09-23 10:50:22.073+00"
+    },
+    {
+      "run": "run 2 (published)",
+      "kind": "setIssuers",
+      "txHash": "0xf58356438b0c447c339ebde52f6eb131c25aa4e70db9db393a2ec14abc79f5d7",
+      "block": 94303679,
+      "gasUsed": 158559,
+      "effectiveGasPriceWei": 282369574195,
+      "status": 1,
+      "to": "0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65",
+      "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca",
+      "createdAt": "2026-09-23 10:50:03.714+00",
+      "confirmedAt": "2026-09-23 10:50:37.062+00"
+    },
+    {
+      "run": "run 2 (published)",
+      "kind": "anchor",
+      "txHash": "0xaf021563bde44e00b218efe7d7169471ea6b54a980af470810edfe7d143a8eab",
+      "block": 94303689,
+      "gasUsed": 44324,
+      "effectiveGasPriceWei": 282817431645,
+      "status": 1,
+      "to": "0x8c7f06ede1c36fdc7d36aab77d2ac5bfb0aabb65",
+      "from": "0xd1b3849ba046fc85175211a14d064e743e9bd6ca",
+      "createdAt": "2026-09-23 10:50:27.848+00",
+      "confirmedAt": "2026-09-23 10:50:52.094+00"
+    }
+  ],
+  "gasPriceNowWei": 277950625708
+}

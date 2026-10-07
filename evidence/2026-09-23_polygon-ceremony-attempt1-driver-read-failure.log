@@ -1,0 +1,102 @@
+
+  TrustDPP — the Design A ceremony, end to end
+
+  [DEMONSTRATION ACCOUNT]  Every organisation this script creates is a demonstration account.
+  This process holds five private keys because in this scenario it IS the five actors.
+  The platform still holds none: it has no signing path, and this script adds none.
+
+  api http://localhost:3011   rpc polygon-bor-rpc.publicnode.com (--rpc)
+
+  · preflight: the platform is in Design A mode               ok 54 ms
+      design-a routes present (probe → HTTP 401)
+      chain 137  registry 0x03dd7e09263a24e5e6aBACA533EeE9d992b85479  head #94303561
+
+  1 · Five actors onboard with their own keys (SIWE + wallet binding)
+  · Zyton GmbH: SIWE challenge (login)                        ok 15 ms
+  · Zyton GmbH: wallet-login                                  ok 94 ms
+  · Zyton GmbH: stored binding is stale (server has no did for this org) — re-binding
+  · Zyton GmbH: SIWE challenge (bind)                         ok 3 ms
+  · Zyton GmbH: bind wallet → did:ethr                        ok 23 ms
+      did:ethr:0x89:0xb147280bcdc2de966e8e2131bedb1d02a1997360
+  · Karimov Cotton Farm: SIWE challenge (login)               ok 4 ms
+  · Karimov Cotton Farm: wallet-login                         ok 44 ms
+  · Karimov Cotton Farm: stored binding is stale (server has no did for this org) — re-binding
+  · Karimov Cotton Farm: SIWE challenge (bind)                ok 3 ms
+  · Karimov Cotton Farm: bind wallet → did:ethr               ok 23 ms
+      did:ethr:0x89:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b
+  · Dhaka Spinning Mills: SIWE challenge (login)              ok 4 ms
+  · Dhaka Spinning Mills: wallet-login                        ok 30 ms
+  · Dhaka Spinning Mills: stored binding is stale (server has no did for this org) — re-binding
+  · Dhaka Spinning Mills: SIWE challenge (bind)               ok 2 ms
+  · Dhaka Spinning Mills: bind wallet → did:ethr              ok 17 ms
+      did:ethr:0x89:0x6852dd9c3daca8e000888a79d573f9ecda76e049
+  · Anatolia Denim Mill: SIWE challenge (login)               ok 6 ms
+  · Anatolia Denim Mill: wallet-login                         ok 27 ms
+  · Anatolia Denim Mill: stored binding is stale (server has no did for this org) — re-binding
+  · Anatolia Denim Mill: SIWE challenge (bind)                ok 4 ms
+  · Anatolia Denim Mill: bind wallet → did:ethr               ok 21 ms
+      did:ethr:0x89:0x05677c59c52a22c86af7045bdbffe2082220ef4f
+  · Saigon Garment Works: SIWE challenge (login)              ok 4 ms
+  · Saigon Garment Works: wallet-login                        ok 24 ms
+  · Saigon Garment Works: stored binding is stale (server has no did for this org) — re-binding
+  · Saigon Garment Works: SIWE challenge (bind)               ok 4 ms
+  · Saigon Garment Works: bind wallet → did:ethr              ok 17 ms
+      did:ethr:0x89:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6
+      reused 5 demonstration actors — keys in /Users/abdelrahmanaljabali/Desktop/DPP/dev/backend_dpp/scripts/.design-a-actors.json
+
+  2 · The operator creates the product, its data and its supply chain
+  · create product + draft passport                           ok 54 ms
+      dpp_86d119af6bdd3ed9   product DID did:web:web3.trustdpp.co:prod_86d119af6bdd3ed9   GTIN 4056205480822
+  · save 67 regulated field values                            ok 108 ms
+  · bind node "Cotton Farm" → Karimov Cotton Farm             ok 16 ms
+  · bind node "Spinning Mill" → Dhaka Spinning Mills          ok 19 ms
+  · bind node "Weaving & Wet Processing" → Anatolia Denim Millok 13 ms
+  · bind node "Cut, Sew & Assembly" → Saigon Garment Works    ok 21 ms
+
+  3 · The operator claims the product on chain (self-signed, first-claim-wins)
+  · read on-chain claim state                                 ok 193 ms
+      productId 0xdad131c96b01eb56d0a3ba529eadbf1cbe02a36c8faacb57d30868ac076df732 = keccak256(did:web:web3.trustdpp.co:prod_86d119af6bdd3ed9)
+  · read the one-click publish plan                           ok 107 ms
+      Register this product in your name  ·  Let [DEMONSTRATION ACCOUNT] Karimov Cotton Farm, [DEMONSTRATION ACCOUNT] Anatolia Denim Mill, [DEMONSTRATION ACCOUNT] Saigon Garment Works and [DEMONSTRATION ACCOUNT] Dhaka Spinning Mills contribute to this product
+  · operator signs 2 plan step(s) (EIP-712)                   ok 3 ms
+  · queue the signed plan for the relayer                     ok 128 ms
+  · claimProduct: confirmed on chain                           waiting.ok 10240 ms
+  · setIssuers: all 4 suppliers authorized on chain           FAILED 114 ms
+
+  ✗ Cannot convert 0x to a BigInt
+
+  steps completed before the failure:
+    ceremony.preflight                            54 ms
+    onboarding.operator.challenge                 15 ms
+    onboarding.operator.login                     94 ms
+    onboarding.operator.bindChallenge              3 ms
+    onboarding.operator.bind                      23 ms
+    onboarding.farm.challenge                      4 ms
+    onboarding.farm.login                         44 ms
+    onboarding.farm.bindChallenge                  3 ms
+    onboarding.farm.bind                          23 ms
+    onboarding.spinner.challenge                   4 ms
+    onboarding.spinner.login                      30 ms
+    onboarding.spinner.bindChallenge               2 ms
+    onboarding.spinner.bind                       17 ms
+    onboarding.mill.challenge                      6 ms
+    onboarding.mill.login                         27 ms
+    onboarding.mill.bindChallenge                  4 ms
+    onboarding.mill.bind                          21 ms
+    onboarding.maker.challenge                     4 ms
+    onboarding.maker.login                        24 ms
+    onboarding.maker.bindChallenge                 4 ms
+    onboarding.maker.bind                         17 ms
+    ceremony.product.create                       54 ms
+    ceremony.product.fields                      108 ms
+    ceremony.tier.farm                            16 ms
+    ceremony.tier.spinner                         19 ms
+    ceremony.tier.mill                            13 ms
+    ceremony.tier.maker                           21 ms
+    ceremony.claim.state                         193 ms
+    ceremony.plan.read                           107 ms
+    ceremony.plan.sign                             3 ms
+    ceremony.plan.enqueue                        128 ms
+    ceremony.plan.confirm.claim                10240 ms
+    ceremony.plan.confirm.issuers                114 ms
+

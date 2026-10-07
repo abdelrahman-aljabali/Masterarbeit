@@ -1,0 +1,16 @@
+{
+  "didJwt": "8.0.18",
+  "node": "v25.1.0",
+  "runs": 20,
+  "allAccepted": true,
+  "anyTamperedAccepted": false,
+  "anyWrongAddressAccepted": false,
+  "sample": {
+    "alg": "ES256K",
+    "sigBytes": 64,
+    "acceptedAgainstAddressOnly": true,
+    "tamperedAccepted": false,
+    "wrongAddressAccepted": false,
+    "err": null
+  }
+}

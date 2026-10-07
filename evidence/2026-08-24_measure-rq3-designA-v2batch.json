@@ -1,0 +1,714 @@
+{
+  "tool": "measure-rq3",
+  "formatVersion": 1,
+  "provenance": {
+    "tool": "measure-rq3",
+    "formatVersion": 1,
+    "takenAt": "2026-08-24T10:45:40.843Z",
+    "git": {
+      "commit": "7a7f39676b513f3f04e7b4c49255b5a52ffe0e38",
+      "shortCommit": "7a7f396",
+      "branch": "main",
+      "dirty": true
+    },
+    "machine": {
+      "platform": "darwin 25.5.0",
+      "arch": "arm64",
+      "cpuModel": "Apple M1 Pro",
+      "cpuCount": 10,
+      "totalMemGb": 32,
+      "loadAvg1m": 18.008
+    },
+    "runtime": {
+      "node": "v25.1.0",
+      "v8": "14.1.146.11-node.11",
+      "forge": "forge Version: 1.7.1"
+    },
+    "chain": {
+      "chainId": 80002,
+      "network": "amoy",
+      "trustAnchorRegistry": "0x03dd7e09263a24e5e6aBACA533EeE9d992b85479",
+      "ethereumDidRegistry": "0x8c7F06eDe1C36FDc7d36AAb77D2Ac5bfB0aABb65",
+      "ethereumDidRegistryIsCanonical": false,
+      "deploymentBlock": 44629028,
+      "rpcHost": "polygon-amoy.g.alchemy.com",
+      "rpcSource": "contracts/.env",
+      "mainnetRpcHost": null
+    },
+    "parameters": {
+      "n": 30,
+      "warmup": 3,
+      "percentileMethod": "R-7 (linear interpolation; NumPy/Excel default)",
+      "publishRuns": 0,
+      "onboardingRuns": 0,
+      "bBundleSource": "--bundle (file)"
+    }
+  },
+  "bundle": {
+    "source": "--bundle (file)",
+    "bytes": 18389,
+    "credentialCount": 6,
+    "passportId": "dpp_f3bea69cca545292",
+    "version": 1,
+    "productDid": "did:web:trustdpp.co:prod_f3bea69cca545292"
+  },
+  "measurements": [
+    {
+      "id": "verification.nodeStartup",
+      "category": "INSTRUMENT (not an RQ3 metric)",
+      "metric": "Node process startup floor (subtract from verification rows)",
+      "design": null,
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "independent",
+      "value": null,
+      "dist": {
+        "n": 30,
+        "min": 34.531,
+        "p25": 36.961,
+        "median": 38.659,
+        "p75": 40.699,
+        "iqr": 3.738,
+        "p95": 44.941,
+        "max": 52.392,
+        "mean": 39.339,
+        "stddev": 3.724
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "spawning `node -e \"\"` and waiting for exit"
+      ],
+      "excludes": [
+        "any verification work"
+      ],
+      "notes": "Not an RQ3 metric. Recorded so the verification numbers can be reported either as 'what a verifier costs end to end' or as 'what the verification work costs', without re-running anything.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "verification.designA.local",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Graph-Verifikations-Latenz — Design A, offline (Rechenanteil)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "independent",
+      "value": null,
+      "dist": {
+        "n": 30,
+        "min": 266.949,
+        "p25": 273.624,
+        "median": 277.977,
+        "p75": 283.258,
+        "iqr": 9.634,
+        "p95": 327.075,
+        "max": 374.183,
+        "mean": 284.914,
+        "stddev": 22.41
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "node process startup (see verification.nodeStartup)",
+        "keccak-256 + secp256k1 self-test vectors (run on every verifier invocation)",
+        "bundle parse, canonical serialisation, credential digests, snapshot digest, Merkle root",
+        "ES256K-R JWS verification per credential (key recovered from the signature — no network)",
+        "6 credentials"
+      ],
+      "excludes": [
+        "all network I/O (--offline)",
+        "did:web resolution",
+        "chain reads"
+      ],
+      "notes": "Verdict INCOMPLETE is expected and correct: with --offline every network-dependent check SKIPs. Design A's ES256K-R signatures DO verify in this mode — the issuer key is recovered from the signature itself, so no network is needed to check them; what --offline forgoes is chain state (DID liveness, the authorization root, the anchor event).",
+      "detail": {
+        "bundlePath": "out/design-a-export-dpp_f3bea69cca545292-v1.json",
+        "bundleBytes": 18389,
+        "credentialCount": 6,
+        "designDetection": "detected from credentials",
+        "verdict": "INCOMPLETE",
+        "checks": {
+          "pass": 32,
+          "fail": 0,
+          "skip": 20
+        }
+      },
+      "samples": null
+    },
+    {
+      "id": "verification.designA.full",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Graph-Verifikations-Latenz — Design A, mit Netz (ERC-1056 + Autorisierung + Anker)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "independent",
+      "value": null,
+      "dist": {
+        "n": 10,
+        "min": 1119.631,
+        "p25": 1151.174,
+        "median": 1180.074,
+        "p75": 1187.146,
+        "iqr": 35.972,
+        "p95": 1220.653,
+        "max": 1232.07,
+        "mean": 1174.577,
+        "stddev": 32.507
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "everything in verification.designA.local",
+        "one eth_chainId round trip to the configured endpoint",
+        "ERC-1056 resolution + authorization-root read per distinct issuer, and the anchor check (6 credentials)"
+      ],
+      "excludes": [
+        "an anchor log sweep — the bundle's anchorTxHash hint lets the verifier fetch the one transaction directly (the hinted log is still fully checked)"
+      ],
+      "notes": "The network cost here is JSON-RPC round trips, so the endpoint IS part of the measurand — record which endpoint took it (provenance does) and do not compare against numbers taken on another. `detail.issuerResolution` says whether resolution genuinely happened.",
+      "detail": {
+        "rpcCalls": 21,
+        "designDetection": "detected from credentials",
+        "anchorTxHint": "0x7ea0674678478b038d56a69d63b892db7d9844bb29cdd424257811e3226bb19b",
+        "verdict": "VERIFIED",
+        "checks": {
+          "pass": 52,
+          "fail": 0,
+          "skip": 0
+        },
+        "issuerResolution": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ]
+      },
+      "samples": null
+    },
+    {
+      "id": "verification.designB.prod.compute",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Design B (PROD-Projektion) — Rechenanteil, offline",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "independent",
+      "value": null,
+      "dist": null,
+      "reason": "no production passport URL was given, so no baseline was taken against deployed infrastructure",
+      "precondition": "--b-prod-url https://app.trustdpp.co/api/public/passports/<id>",
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "verification.designB.prod.full",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Design B (PROD-Projektion) — mit realer did:web-Auflösung",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "independent",
+      "value": null,
+      "dist": null,
+      "reason": "no production passport URL was given, so no baseline was taken against deployed infrastructure",
+      "precondition": "--b-prod-url https://app.trustdpp.co/api/public/passports/<id>",
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "verification.designB.prod.didwebOnly",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Design B (PROD) — nur did:web-Auflösung (isoliert)",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "independent",
+      "value": null,
+      "dist": null,
+      "reason": "no production passport URL was given, so no baseline was taken against deployed infrastructure",
+      "precondition": "--b-prod-url https://app.trustdpp.co/api/public/passports/<id>",
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "verification.designB.local",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Graph-Verifikations-Latenz — Design B, offline (Rechenanteil)",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "independent",
+      "value": null,
+      "dist": null,
+      "reason": "this run's bundle is Design A (--bundle (file)), and one bundle fills one design's rows",
+      "precondition": "a Design B export: --b-export-url https://app.trustdpp.co/api/public/passports/<id>/export for the production baseline, or --bundle <path>",
+      "includes": [],
+      "excludes": [],
+      "notes": "Not a defect — a per-run complement. Run once per design and merge the two artifacts; the design of each bundle is detected from its credentials, so the same flag fills whichever column the bundle belongs to.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "verification.designB.full",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Graph-Verifikations-Latenz — Design B, mit Netz (did:web-Auflösung)",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "independent",
+      "value": null,
+      "dist": null,
+      "reason": "this run's bundle is Design A (--bundle (file)), and one bundle fills one design's rows",
+      "precondition": "a Design B export: --b-export-url https://app.trustdpp.co/api/public/passports/<id>/export for the production baseline, or --bundle <path>",
+      "includes": [],
+      "excludes": [],
+      "notes": "Not a defect — a per-run complement. Run once per design and merge the two artifacts; the design of each bundle is detected from its credentials, so the same flag fills whichever column the bundle belongs to.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.execution",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gas — Ausführung (ohne intrinsische Kosten)",
+      "design": "A",
+      "unit": "gas",
+      "state": "measured",
+      "provenance": "artifact",
+      "value": {
+        "anchor": 14644,
+        "anchor_warmSlots": 7844,
+        "claimProduct": 51805,
+        "setIssuer": 36767
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "contract execution with cold storage slots (vm.coolSlot before each call)"
+      ],
+      "excludes": [
+        "the 21 000 intrinsic transaction cost",
+        "EIP-2028 calldata cost"
+      ],
+      "notes": "NOT what a relayer pays — see gas.totalTx. Kept because it is the committed, machine-readable artifact and it isolates contract design from transaction overhead: `anchor` writes no storage beyond its nonce, which is why its execution cost is a third of claimProduct's.",
+      "detail": {
+        "source": "contracts/snapshots/TrustAnchorRegistry.json (forge snapshot)"
+      },
+      "samples": null
+    },
+    {
+      "id": "gas.totalTx",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gas — vollständige Transaktion (was der Relayer zahlt)",
+      "design": "A",
+      "unit": "gas",
+      "state": "measured",
+      "provenance": "artifact",
+      "value": {
+        "claimProduct": 75321,
+        "setIssuer": 60435,
+        "anchor": 38456
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "contract execution (cold slots)",
+        "21 000 intrinsic",
+        "EIP-2028 calldata (16/non-zero byte, 4/zero)"
+      ],
+      "excludes": [
+        "gas price — deliberately a separate, timestamped row (see gas.price)"
+      ],
+      "notes": "`anchor` is the RECURRING per-publish cost; claimProduct and setIssuer are one-off per product and per authorised issuer. More than 60 % of `anchor` is calldata plus the flat transaction fee rather than execution — the event-log design paying off against a storage-based anchor (~20 000 gas more).",
+      "detail": {
+        "execution": {
+          "claimProduct": 51805,
+          "setIssuer": 36767,
+          "anchor": 14644
+        },
+        "intrinsicPlusCalldata": {
+          "claimProduct": 23516,
+          "setIssuer": 23668,
+          "anchor": 23812
+        },
+        "source": "forge test --match-test test_Gas_PerOperation -vv"
+      },
+      "samples": null
+    },
+    {
+      "id": "gas.price",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gaspreis (volatil — mit Zeitstempel)",
+      "design": "A",
+      "unit": "gwei",
+      "state": "measured",
+      "provenance": "chain",
+      "value": {
+        "amoy": {
+          "wei": "34008831184",
+          "gwei": 34.009
+        },
+        "mainnet": null
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "a single eth_gasPrice observation per endpoint, at the timestamp in provenance.takenAt"
+      ],
+      "excludes": [
+        "any averaging over time — one observation is one observation"
+      ],
+      "notes": "A SPOT price, not a distribution: repeating eth_gasPrice would measure the endpoint's oracle, not the market. Gas units are deterministic and belong in gas.totalTx; this row is the volatile half and must be re-quoted with its timestamp. Mainnet is null unless --mainnet-rpc is given — §13 asks for 'Amoy + Mainnet', and the gas UNITS are identical on both (same bytecode, same calldata); only price differs.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.deployment",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gas — einmalige Contract-Deployments",
+      "design": "A",
+      "unit": "gas",
+      "state": "measured",
+      "provenance": "chain",
+      "value": {
+        "trustAnchorRegistry": {
+          "gasUsed": 1802590,
+          "effectiveGasPriceWei": 30000000063,
+          "effectiveGasPriceGwei": 30,
+          "costPol": 0.0540777,
+          "blockNumber": 44629028,
+          "status": "success",
+          "txHash": "0x45068a7cc897a3a486eb606b455f74663bd11033f54991aeb01b77e7e53d21fa"
+        },
+        "ethereumDidRegistry": {
+          "gasUsed": 1398848,
+          "effectiveGasPriceWei": 25000000000,
+          "effectiveGasPriceGwei": 25,
+          "costPol": 0.0349712,
+          "blockNumber": 44055315,
+          "status": "success",
+          "txHash": "0xdd0a9f6cc0cfe35d8a8c7598c30abbb998c2af5d51b266d57a6dbe6df6125076"
+        }
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "real gasUsed and the real effectiveGasPrice actually paid, from the mined receipts"
+      ],
+      "excludes": [
+        "anything recurring — this is paid once per chain, ever"
+      ],
+      "notes": "The only Design A gas figures in this report that come from transactions that REALLY HAPPENED. They are also a cross-check on the instrument: these receipts must agree with contracts/README.md.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.realCeremonyTx",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gas — reale Zeremonie-Transaktionen (claimProduct / setIssuer / anchor, gasUsed aus Receipts)",
+      "design": "A",
+      "unit": "gas",
+      "state": "unavailable",
+      "provenance": "chain",
+      "value": null,
+      "dist": null,
+      "reason": "no claimProduct, setIssuer or anchor transaction has been submitted to Amoy — the AnchorTx outbox is empty",
+      "precondition": "one Design A publication driven end to end: brand claims the product, authorises issuers, and the relayer drains one anchor to a confirmed receipt",
+      "includes": [],
+      "excludes": [],
+      "notes": "Until then gas.totalTx (Foundry, cold slots, corroborated by a local-node cast send) is the defensible figure. contracts/README.md records that a real cast send matched it exactly for claimProduct and anchor, and to within 12 gas for setIssuer — signature bytes differ per key and a zero calldata byte costs 4 gas against 16, so the live figure moves slightly.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.costPerPublication",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gaskosten pro Publikation (Anker; + einmalig Claim/Autorisierung)",
+      "design": "A",
+      "unit": "POL",
+      "state": "measured",
+      "provenance": "chain",
+      "value": {
+        "recurringPerPublication": {
+          "op": "anchor",
+          "gas": 38456,
+          "pol": 0.001307844
+        },
+        "oncePerProduct": {
+          "op": "claimProduct",
+          "gas": 75321,
+          "pol": 0.002561579
+        },
+        "oncePerAuthorisedIssuer": {
+          "op": "setIssuer",
+          "gas": 60435,
+          "pol": 0.002055324
+        },
+        "gasPriceGwei": 34.009,
+        "fiveActorFirstPublication": {
+          "gas": 415952,
+          "pol": 0.014146041
+        }
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "measured gas units × the gas price observed at provenance.takenAt"
+      ],
+      "excludes": [
+        "USD conversion (see gas.costUsd)",
+        "any claim that this price will hold — gas price is volatile and this is one observation"
+      ],
+      "notes": "Paid by the platform relayer and re-billed in euros (§19 gas abstraction). No supply-chain actor and no brand ever holds POL — the only funded wallet in the system is the platform treasury.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.costUsd",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gaskosten in USD (für §24's Dollar-Spalte)",
+      "design": "A",
+      "unit": "USD",
+      "state": "unavailable",
+      "provenance": "chain",
+      "value": null,
+      "dist": null,
+      "reason": "no POL/USD rate was supplied, and this harness deliberately does not fetch one — a rate scraped from a price API at run time is unciteable and irreproducible in a thesis",
+      "precondition": "--pol-usd <rate>, with a source and a date the thesis can cite",
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.perActorDid",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gaskosten pro Akteur-DID",
+      "design": "A",
+      "unit": "gas",
+      "state": "structural",
+      "provenance": "structural",
+      "value": 0,
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [],
+      "excludes": [],
+      "notes": "Exactly zero, and known by construction rather than by measurement: a did:ethr identifier is DERIVED from the address (did:ethr:<chain>:0x…), so it exists the moment a key exists. ERC-1056 is consulted only for CHANGES (rotation, delegation, revocation); an unchanged DID has no registry entry and needs no transaction. This is the row that makes §24's onboarding claim affordable, so it is stated as a design property rather than smuggled in as a measured 0.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.designB",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gaskosten — Design B",
+      "design": "B",
+      "unit": "gas",
+      "state": "n/a",
+      "provenance": "structural",
+      "value": null,
+      "dist": null,
+      "reason": "Design B touches no chain at all. Plain B — the deployed status quo (§15) — signs centrally and does not anchor, so there is no transaction to price. Reporting '0' here would be a FALSE EQUIVALENCE: it would read as 'Design B does the same thing for free' rather than 'Design B does not do this'.",
+      "precondition": null,
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "anchor.timeToConfirm",
+      "category": "Verankerung  (nicht in §13 versprochen — Zugabe)",
+      "metric": "Time-to-Anchor (Outbox-Queue → bestätigter Receipt)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "platform",
+      "value": null,
+      "dist": {
+        "n": 37,
+        "min": 17332,
+        "p25": 25321,
+        "median": 26622,
+        "p75": 28029,
+        "iqr": 2708,
+        "p95": 31846.2,
+        "max": 1578568,
+        "mean": 68390.297,
+        "stddev": 255191.964
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "outbox queue wait (nextTryAt scheduling, relayer poll interval)",
+        "transaction broadcast",
+        "Polygon block time and the relayer's confirmation depth"
+      ],
+      "excludes": [
+        "the publish itself — the clock starts when the AnchorTx row is created"
+      ],
+      "notes": "Read from stored timestamps, NOT re-measured by polling: polling would measure this harness's poll interval rather than the system's. Note this is dominated by the relayer's scheduling policy, which is an implementation choice, not a property of the chain.",
+      "detail": {
+        "totalRows": 38,
+        "byStatus": {
+          "confirmed": 37,
+          "failed": 1
+        }
+      },
+      "samples": null
+    },
+    {
+      "id": "onboarding.designA",
+      "category": "Onboarding-Latenz  (RQ3 §13 — Primärmetrik)",
+      "metric": "tKey-Onboarding-Zeit (Google-Login → did:ethr registriert) — §13 PRIMÄRMETRIK",
+      "design": "A",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "platform",
+      "value": null,
+      "dist": null,
+      "reason": "the tKey ceremony is browser-side (OAuth redirect, 2-of-3 share reconstruction, key derivation in the page) and Phase 4 identity — Web3Auth login, wallet-login endpoints, org wallet binding — is not shipped",
+      "precondition": "Phase 4 complete, plus ONE of: (a) the frontend emitting performance marks at login-start and did-bound, which this harness would read; or (b) a headless browser driving the real login. (b) is the defensible one — it times what a user actually waits for.",
+      "includes": [],
+      "excludes": [],
+      "notes": "§7 and §24 claim 30–60 s. That is an ESTIMATE and is currently unverified. It is also the single most load-bearing number in the onboarding argument (the Minespider failure was an onboarding failure), so it should not ship as an estimate.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "onboarding.designB",
+      "category": "Onboarding-Latenz  (RQ3 §13 — Primärmetrik)",
+      "metric": "Onboarding-Zeit — Design B (Registrierung → Plattform-Issuer bereit)",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "platform",
+      "value": null,
+      "dist": null,
+      "reason": "not run: this measurement MUTATES (each run creates an organization), so it is opt-in",
+      "precondition": "--onboarding-runs <n> --api-base <url>, against a dev instance",
+      "includes": [],
+      "excludes": [],
+      "notes": "§24 estimates 10–30 s for Design B. Note that the technical portion — did:web document plus a platform-held signing key — is server-side and fast; most of the estimate is human form-filling, which is the same in both designs and therefore not the discriminating quantity.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "signing.designB.actor",
+      "category": "Signierlatenz  (RQ3 §13)",
+      "metric": "Akteur-Signierlatenz — Design B",
+      "design": "B",
+      "unit": "ms",
+      "state": "n/a",
+      "provenance": "structural",
+      "value": null,
+      "dist": null,
+      "reason": "Design B actors never sign. The platform signs the whole graph centrally at publish time with its own key — that IS the status quo this thesis is arguing against. There is no actor-side signing step to time, so this is n/a rather than the '~0 Sek.' §24 currently prints. '0' would imply Design B does the same thing instantly; it does not do it at all.",
+      "precondition": null,
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "signing.designA.ceremony",
+      "category": "Signierlatenz  (RQ3 §13)",
+      "metric": "tKey-Signierlatenz (Sign-Button → VC auf dem Server)",
+      "design": "A",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "platform",
+      "value": null,
+      "dist": null,
+      "reason": "the signing ceremony (Phase 5) is being built — client-side ES256K-R signing, attestation upload and verification, PendingAttestation staleness — and the operator-side signing UI does not exist yet",
+      "precondition": "Phase 5 complete, then a headless-browser or instrumented-frontend timer from the sign action to the attestation being accepted by the upload route",
+      "includes": [],
+      "excludes": [],
+      "notes": "§24 estimates 0.5–1.2 s. Unverified.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "signing.designB.platformPublish",
+      "category": "Signierlatenz  (RQ3 §13)",
+      "metric": "Plattform-Signierlatenz — Design B (POST /api/dpps/:id/publish)",
+      "design": "B",
+      "unit": "ms",
+      "state": "unavailable",
+      "provenance": "platform",
+      "value": null,
+      "dist": null,
+      "reason": "not run: this measurement MUTATES (each run freezes a new PassportVersion), so it is opt-in",
+      "precondition": "--publish-runs <n> --api-base <url> --api-token <jwt>, against a dev instance",
+      "includes": [],
+      "excludes": [],
+      "notes": "This is the closest Design B analogue to Design A's signing ceremony, but it is NOT the same quantity: it covers the platform signing the entire credential graph at once, not one actor signing one contribution. Compare with care, and only after saying so.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "serviceCost.web3auth",
+      "category": "Servicekosten  (RQ3 §13)",
+      "metric": "tKey-Servicekosten (Web3Auth, pro MAW) — §13 versprochen",
+      "design": "A",
+      "unit": "USD/MAW",
+      "state": "unavailable",
+      "provenance": "artifact",
+      "value": null,
+      "dist": null,
+      "reason": "this is a published LIST PRICE, not an observable quantity — no timer or receipt can produce it, and this harness will not scrape a vendor pricing page into a thesis table",
+      "precondition": "--web3auth-usd-per-maw <rate>, cited in the thesis with the plan tier and the date read",
+      "includes": [],
+      "excludes": [],
+      "notes": "§13's RQ3 table promises this row. It is the recurring operational cost of Design A's key custody and it has no Design B counterpart (Design B holds its own key). Flagged so it is not silently dropped: it is the one RQ3 row that is answered by a citation rather than by this harness.",
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "serviceCost.designB",
+      "category": "Servicekosten  (RQ3 §13)",
+      "metric": "Key-Custody-Servicekosten — Design B",
+      "design": "B",
+      "unit": "USD/MAW",
+      "state": "n/a",
+      "provenance": "structural",
+      "value": null,
+      "dist": null,
+      "reason": "Design B holds one platform key in its own infrastructure and buys no custody service, so there is no per-wallet fee. This asymmetry is a real finding — Design A trades a recurring vendor cost for the property that the platform cannot sign — and printing '0' would erase it.",
+      "precondition": null,
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    }
+  ],
+  "counts": {
+    "measured": 9,
+    "unavailable": 12,
+    "n/a": 3,
+    "structural": 1,
+    "failed": 0
+  },
+  "verdict": "INCOMPLETE",
+  "exitCode": 3
+}

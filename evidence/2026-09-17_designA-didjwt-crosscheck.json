@@ -1,0 +1,77 @@
+{
+  "tool": "did-jwt cross-check",
+  "library": {
+    "name": "did-jwt",
+    "version": "8.0.18",
+    "source": "npm registry, unmodified"
+  },
+  "takenAt": "2026-09-17T20:15:49.943Z",
+  "node": "v25.1.0",
+  "bundle": {
+    "path": "2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json",
+    "passportId": "dpp_f3bea69cca545292",
+    "version": 1,
+    "credentials": 6
+  },
+  "results": [
+    {
+      "index": 0,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 1,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 2,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 3,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 4,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 5,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    }
+  ],
+  "summary": {
+    "accepted": 6,
+    "of": 6,
+    "tamperedRejected": 6
+  }
+}

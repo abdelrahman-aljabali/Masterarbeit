@@ -1,0 +1,90 @@
+{
+  "tool": "timeit (thesis harness)",
+  "label": "designB-prod-offline-n30",
+  "takenAt": "2026-09-17T20:18:54.532Z",
+  "mode": "offline",
+  "bundle": {
+    "path": "designB-prod-projection.json",
+    "bytes": 8316
+  },
+  "rpcHost": null,
+  "chainId": 80002,
+  "provenance": {
+    "git": {
+      "commit": "5d84f5d1ede0405c9aec4d6b5349a5c250171f4c",
+      "dirty": true
+    },
+    "node": "v25.1.0",
+    "machine": {
+      "platform": "darwin 25.5.0",
+      "arch": "arm64",
+      "cpuModel": "Apple M1 Pro",
+      "loadAvg1m": 9.4814453125
+    }
+  },
+  "protocol": {
+    "warmups": 3,
+    "n": 30,
+    "timing": "process start to exit, hrtime, ms"
+  },
+  "verdicts": [
+    "INCOMPLETE"
+  ],
+  "exitCodes": [
+    3
+  ],
+  "wallClock": {
+    "n": 30,
+    "min": 93.598917,
+    "p25": 95.90706225,
+    "median": 97.09643700000001,
+    "p75": 98.65206225,
+    "iqr": 2.7450000000000045,
+    "p95": 102.71149969999999,
+    "max": 103.972667,
+    "quantileDefinition": "Hyndman-Fan type 7 (linear interpolation)"
+  },
+  "nodeStartupFloor": {
+    "n": 30,
+    "min": 38.775584,
+    "p25": 39.5050315,
+    "median": 40.275833,
+    "p75": 41.457625,
+    "iqr": 1.952593499999999,
+    "p95": 43.93847485,
+    "max": 47.568708,
+    "quantileDefinition": "Hyndman-Fan type 7 (linear interpolation)"
+  },
+  "samples": [
+    98.827458,
+    96.580667,
+    97.202416,
+    96.275708,
+    103.972667,
+    95.253667,
+    97.748333,
+    95.084125,
+    98.724583,
+    101.979541,
+    99.408375,
+    101.003375,
+    97.513709,
+    96.990458,
+    95.275708,
+    95.401792,
+    93.843917,
+    96.113625,
+    94.269209,
+    97.582042,
+    96.902917,
+    96.796,
+    98.793583,
+    103.310375,
+    98.200583,
+    95.838208,
+    93.598917,
+    96.611583,
+    98.4345,
+    97.618
+  ]
+}

@@ -1,0 +1,1272 @@
+{
+  "tool": "tamper-passport.mjs",
+  "formatVersion": 1,
+  "startedAt": "2026-08-06T18:47:21.888Z",
+  "finishedAt": "2026-08-06T18:51:51.679Z",
+  "gitCommit": "88fabf4362307f4c590b15634c55617ee7cd8005",
+  "node": "v25.1.0",
+  "source": {
+    "bundle": "/Users/abdelrahmanaljabali/Desktop/DPP/dev/Masterarbeit/planning_schreiben/thesis_notes_citations/2026-08-06_designA-export-dpp_b48b5bd5525d679a-v1.json",
+    "passportId": "dpp_b48b5bd5525d679a",
+    "version": 1,
+    "productDid": "did:web:trustdpp.co:prod_b48b5bd5525d679a",
+    "versionHash": "1db149cd0abce1ec9ac793371ee36f65b9ea4cde422c7f36513e83fc1b0e8663"
+  },
+  "chain": {
+    "chainId": 80002,
+    "anchorTx": null
+  },
+  "keysMintedForThisRun": {
+    "platform": "0xfb36444445c4d0206dac0c6e79eb1bf74d51da19",
+    "unauthorizedThirdParty": "0xcb4a465c85d6e29c695c402e3ea7ce91b4cbf506"
+  },
+  "baseline": {
+    "offline": {
+      "exitCode": 3,
+      "verdict": "INCOMPLETE",
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "skip": 20
+      }
+    },
+    "online": {
+      "exitCode": 0,
+      "verdict": "VERIFIED",
+      "counts": {
+        "pass": 52,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  "mutations": [
+    {
+      "id": "payload-byte-flip",
+      "title": "One byte flipped inside a credential's JWS payload",
+      "promise": "§13 RQ2 „Manipulationserkennung: VC-Inhalt modifizieren → Hash-Mismatch\"; §16 Manipulationserkennung",
+      "probe": null,
+      "rehashed": false,
+      "change": "credential[1] payload char 359 'p' → 'A'",
+      "bundle": "/tmp/work/tamper-online/mutated-payload-byte-flip.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 30,
+          "fail": 2,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "bundle.version-hash",
+            "detail": "stored 1db149cd0abce1ec… but the bytes hash to aa8701acc14f2711…"
+          },
+          {
+            "check": "credential[1].signature",
+            "detail": "signature recovers to 0x95b3fc44ac6fd919471ca1390bf274c14e33946b, but the issuer DID names 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 48,
+          "fail": 4,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "bundle.version-hash",
+            "detail": "stored 1db149cd0abce1ec… but the bytes hash to aa8701acc14f2711…"
+          },
+          {
+            "check": "credential[1].signature",
+            "detail": "signature recovers to 0x95b3fc44ac6fd919471ca1390bf274c14e33946b, but the issuer DID names 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b"
+          },
+          {
+            "check": "credential[1].issuer-key-current",
+            "detail": "the resolved document does not authorize 0x95b3fc44ac6fd919471ca1390bf274c14e33946b (it authorizes 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b) — the key was rotated away or revoked"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xaa2649f5cfe6ba63f6f6e13d0d26b3472441d553cbc8a960888f1231bdd22e29 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "bundle.version-hash",
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "bundle.version-hash",
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.version-hash",
+            "credential[1].signature",
+            "credential[1].issuer-key-current",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "bundle.version-hash",
+            "credential[1].signature",
+            "credential[1].issuer-key-current",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [],
+      "asCatalogued": true
+    },
+    {
+      "id": "credential-reorder",
+      "title": "Two credentials swapped in the array",
+      "promise": "§16 Manipulationserkennung — the snapshot digest is order-carrying",
+      "probe": null,
+      "rehashed": false,
+      "change": "credentials[1] ↔ credentials[2]; no bytes altered, only their order",
+      "bundle": "/tmp/work/tamper-online/mutated-credential-reorder.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "bundle.version-hash",
+            "detail": "stored 1db149cd0abce1ec… but the bytes hash to f479254ed7580399…"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 50,
+          "fail": 2,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "bundle.version-hash",
+            "detail": "stored 1db149cd0abce1ec… but the bytes hash to f479254ed7580399…"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x2bfc0961111e6b76e01ef3c5a60f77b82008d4dfd4c44ed56bb1460e1a6430da — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "bundle.version-hash"
+          ],
+          "observedFailures": [
+            "bundle.version-hash"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.version-hash",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "bundle.version-hash",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [],
+      "asCatalogued": true
+    },
+    {
+      "id": "credential-reorder-rehashed",
+      "title": "Two credentials swapped, and the platform recomputes its own digest",
+      "promise": "§15 „ein passender version-hash beweist nichts gegen die Plattform\"",
+      "probe": null,
+      "rehashed": true,
+      "change": "credentials[1] ↔ credentials[2], then `hash` recomputed by the mutator",
+      "bundle": "/tmp/work/tamper-online/mutated-credential-reorder-rehashed.json",
+      "offline": {
+        "exitCode": 3,
+        "verdict": "INCOMPLETE",
+        "counts": {
+          "pass": 32,
+          "fail": 0,
+          "skip": 20
+        },
+        "failed": []
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 51,
+          "fail": 1,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x2bfc0961111e6b76e01ef3c5a60f77b82008d4dfd4c44ed56bb1460e1a6430da — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [],
+          "observedFailures": [],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "bundle.merkle-root",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "credential-delete",
+      "title": "One credential removed from the bundle",
+      "promise": "§13 RQ2 Manipulationserkennung; §16 Hash-Integritätsprüfung",
+      "probe": null,
+      "rehashed": false,
+      "change": "credential[4] (role=spinning, issuer=did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049) deleted; 6 → 5 credentials",
+      "bundle": "/tmp/work/tamper-online/mutated-credential-delete.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 26,
+          "fail": 1,
+          "skip": 17
+        },
+        "failed": [
+          {
+            "check": "bundle.version-hash",
+            "detail": "stored 1db149cd0abce1ec… but the bytes hash to 248e42faa1f28ebf…"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 42,
+          "fail": 2,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "bundle.version-hash",
+            "detail": "stored 1db149cd0abce1ec… but the bytes hash to 248e42faa1f28ebf…"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xcd55e97b04f6d901ed0869ab5eb01627205790252b68abe2f93b12b7c5a6c658 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "bundle.version-hash"
+          ],
+          "observedFailures": [
+            "bundle.version-hash"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.version-hash",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "bundle.version-hash",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [],
+      "asCatalogued": true
+    },
+    {
+      "id": "credential-delete-rehashed",
+      "title": "One credential removed, and the platform recomputes its own digest",
+      "promise": "§15/§16 — the only surviving evidence is the on-chain anchor",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[4] (role=spinning) deleted, then `hash` recomputed",
+      "bundle": "/tmp/work/tamper-online/mutated-credential-delete-rehashed.json",
+      "offline": {
+        "exitCode": 3,
+        "verdict": "INCOMPLETE",
+        "counts": {
+          "pass": 27,
+          "fail": 0,
+          "skip": 17
+        },
+        "failed": []
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 43,
+          "fail": 1,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xcd55e97b04f6d901ed0869ab5eb01627205790252b68abe2f93b12b7c5a6c658 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [],
+          "observedFailures": [],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "bundle.merkle-root",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "snapshot-attribution-swap-rehashed",
+      "title": "The snapshot credits a different company for a claim; credentials untouched",
+      "promise": "§7.4 WYSIWYS — the human-readable attribution and the cryptographic one are different surfaces",
+      "probe": null,
+      "rehashed": true,
+      "change": "snapshot.tiers[0] re-credited from \"[DEMONSTRATION ACCOUNT] Karimov Cotton Farm\" (did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b) to \"[DEMONSTRATION ACCOUNT] Anatolia Denim Mill\" (did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f); every credential left byte-identical, then `hash` recomputed",
+      "bundle": "/tmp/work/tamper-online/mutated-snapshot-attribution-swap-rehashed.json",
+      "offline": {
+        "exitCode": 3,
+        "verdict": "INCOMPLETE",
+        "counts": {
+          "pass": 32,
+          "fail": 0,
+          "skip": 20
+        },
+        "failed": []
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 51,
+          "fail": 1,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x900999060a0c51549347d8ccb3bae2ad54a79e86167ae241347642a3b0d0ce9e — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [],
+          "observedFailures": [],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "bundle.merkle-root",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "platform-signs-as-supplier",
+      "title": "The platform mints a key and signs a supplier's credential in that supplier's name",
+      "promise": "§13 RQ1 „Fälschungsversuch: Plattform versucht als Lieferant zu signieren → Verifikation muss fehlschlagen\"",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] re-signed by a freshly minted platform key 0xfb36444445c4d0206dac0c6e79eb1bf74d51da19, origin changed PT → IT, `issuer` left as did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+      "bundle": "/tmp/work/tamper-online/mutated-platform-signs-as-supplier.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "signature recovers to 0xfb36444445c4d0206dac0c6e79eb1bf74d51da19, but the issuer DID names 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 49,
+          "fail": 3,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "signature recovers to 0xfb36444445c4d0206dac0c6e79eb1bf74d51da19, but the issuer DID names 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b"
+          },
+          {
+            "check": "credential[1].issuer-key-current",
+            "detail": "the resolved document does not authorize 0xfb36444445c4d0206dac0c6e79eb1bf74d51da19 (it authorizes 0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b) — either that key was rotated away or revoked, or it was never the issuer's at all; the `signature` row above distinguishes the two"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xf391912530d86252c428a3bf41aa552f7b26fead092d05cd8af31e2193643c4e — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].signature",
+            "credential[1].issuer-key-current",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].signature",
+            "credential[1].issuer-key-current",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "issuer-did-swap-rehashed",
+      "title": "The `issuer` DID is swapped to another real supplier, without re-signing",
+      "promise": "§13 RQ1 — issuer binding; §14 „Nicht-autorisierter Dritter\"",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] `issuer` did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b → did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f, signature bytes untouched, then `hash` recomputed",
+      "bundle": "/tmp/work/tamper-online/mutated-issuer-did-swap-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "signature recovers to 0x8f8f1471942b9a937055d1f93534ad1afd57d2d1, but the issuer DID names 0x05677c59c52a22c86af7045bdbffe2082220ef4f"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 49,
+          "fail": 3,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "signature recovers to 0x8f8f1471942b9a937055d1f93534ad1afd57d2d1, but the issuer DID names 0x05677c59c52a22c86af7045bdbffe2082220ef4f"
+          },
+          {
+            "check": "credential[1].issuer-key-current",
+            "detail": "the resolved document does not authorize 0x8f8f1471942b9a937055d1f93534ad1afd57d2d1 (it authorizes 0x05677c59c52a22c86af7045bdbffe2082220ef4f) — either that key was rotated away or revoked, or it was never the issuer's at all; the `signature` row above distinguishes the two"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x2299440ce52b281de9232caad05d36762cbca1c832573a51af6d61689dd14656 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].signature",
+            "credential[1].issuer-key-current",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].signature",
+            "credential[1].issuer-key-current",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "unauthorized-issuer-rehashed",
+      "title": "A credential validly signed by a key the chain never authorized for this product",
+      "promise": "§13 RQ1 „Nicht-autorisierter Akteur stellt VC für GTIN X aus → Autorisierungsprüfung muss fehlschlagen (Mech. 4)\"",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] replaced by a self-consistent credential from did:ethr:0x13882:0xcb4a465c85d6e29c695c402e3ea7ce91b4cbf506 — a key that exists, resolves, and was never setIssuer'd for this product",
+      "bundle": "/tmp/work/tamper-online/mutated-unauthorized-issuer-rehashed.json",
+      "offline": {
+        "exitCode": 3,
+        "verdict": "INCOMPLETE",
+        "counts": {
+          "pass": 32,
+          "fail": 0,
+          "skip": 20
+        },
+        "failed": []
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 50,
+          "fail": 2,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "credential[1].authorization",
+            "detail": "the chain says NO: authorized[][0xcb4a465c85d6e29c695c402e3ea7ce91b4cbf506] is false and the product's controller is 0xb147280bcdc2de966e8e2131bedb1d02a1997360"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x88bb3cc8d2e563f5a2a0608be3d34dcb70cc72f1258e20569dec5bb7f056a87c — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [],
+          "observedFailures": [],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].authorization",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].authorization",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "credential[1].signature",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "credential[1].issuer-did",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "credential[1].issuer-resolution",
+          "phase": "online",
+          "stillPasses": true
+        },
+        {
+          "check": "credential[1].issuer-key-current",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "alg-none-rehashed",
+      "title": "JWS algorithm downgraded to `none`, signature bytes left in place",
+      "promise": "§14 „Bösartige Plattform\" — the classic JWS `alg` downgrade",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] header alg ES256K-R → none, signature segment kept so the token still parses",
+      "bundle": "/tmp/work/tamper-online/mutated-alg-none-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "refused `alg: none` — an unsecured JWS is not a credential"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 49,
+          "fail": 2,
+          "skip": 1
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "refused `alg: none` — an unsecured JWS is not a credential"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x35f993b83a956133cb3f6c02c15af4bfb3881b005f3a1870ec2188d7ec1420fe — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "alg-none-empty-signature-rehashed",
+      "title": "RFC 7515 unsecured JWS in its canonical form — `alg: none`, empty signature segment",
+      "promise": "§14 — the same downgrade, refused one layer earlier",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] header alg ES256K-R → none, signature segment emptied (RFC 7515 §6)",
+      "bundle": "/tmp/work/tamper-online/mutated-alg-none-empty-signature-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 27,
+          "fail": 2,
+          "skip": 22
+        },
+        "failed": [
+          {
+            "check": "credential[1].parse",
+            "detail": "embedded-proof credential with NO `proof` — honestly unsigned, so there is nothing to verify"
+          },
+          {
+            "check": "credential[1].issuer-did",
+            "detail": "the credential names no issuer"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 43,
+          "fail": 3,
+          "skip": 5
+        },
+        "failed": [
+          {
+            "check": "credential[1].parse",
+            "detail": "embedded-proof credential with NO `proof` — honestly unsigned, so there is nothing to verify"
+          },
+          {
+            "check": "credential[1].issuer-did",
+            "detail": "the credential names no issuer"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x6ba5e9b771cfd44ae903eac303e2fa2356fc48b0a933ac857335555c47c60d7d — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].parse",
+            "credential[1].issuer-did"
+          ],
+          "observedFailures": [
+            "credential[1].parse",
+            "credential[1].issuer-did"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].parse",
+            "credential[1].issuer-did",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].parse",
+            "credential[1].issuer-did",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "typ-cross-protocol-rehashed",
+      "title": "A genuine supplier signature, minted under a different `typ` and served as a credential",
+      "promise": "§14 — cross-protocol replay of the actor's general-purpose secp256k1 key",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] re-signed by the REAL supplier key 0xa79046E84DAC70B21540C3c96d6AD42e82D1bd0b with typ \"dpop+jwt\" — the signature is genuine",
+      "bundle": "/tmp/work/tamper-online/mutated-typ-cross-protocol-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "unexpected `typ` \"dpop+jwt\" — expected vc+jwt"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 49,
+          "fail": 2,
+          "skip": 1
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "unexpected `typ` \"dpop+jwt\" — expected vc+jwt"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xac58212fa4e4b1b1e3120837ae2c6f23da641f467f26afadb67edc760dcc34df — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "login-token-replay-rehashed",
+      "title": "A genuine supplier signature over something that is not a credential, served as one",
+      "promise": "§14 — the actor's key also signs wallet-login challenges",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] re-signed by the REAL supplier key with type [\"SiweSession\"] — genuinely signed, not a credential",
+      "bundle": "/tmp/work/tamper-online/mutated-login-token-replay-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "`type` does not include \"VerifiableCredential\" — signed, but not a credential"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 50,
+          "fail": 2,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "`type` does not include \"VerifiableCredential\" — signed, but not a credential"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xf26a2a49fa7313d1fe208301b566aa9f60aaf2108bc1c34efd2ee440a1bad098 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "high-s-malleability-rehashed",
+      "title": "The same signature re-encoded with a high `s` (EIP-2 malleability)",
+      "promise": "§14 — a mathematically valid signature in a non-canonical encoding",
+      "probe": null,
+      "rehashed": true,
+      "change": "credential[1] signature s → n−s with the recovery bit flipped; recovers to the same address, non-canonical under EIP-2",
+      "bundle": "/tmp/work/tamper-online/mutated-high-s-malleability-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "signature has high s — malleable encoding refused (EIP-2)"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 49,
+          "fail": 2,
+          "skip": 1
+        },
+        "failed": [
+          {
+            "check": "credential[1].signature",
+            "detail": "signature has high s — malleable encoding refused (EIP-2)"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x5769d1c6667519e9ae79fc0096e9fae6f89b6539858af5c6d7cd7c9bf3aed6f9 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [
+            "credential[1].signature"
+          ],
+          "observedFailures": [
+            "credential[1].signature"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        },
+        "online": {
+          "expectedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].signature",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [],
+          "ok": true
+        }
+      },
+      "contrast": [
+        {
+          "check": "bundle.version-hash",
+          "phase": "online",
+          "stillPasses": true
+        }
+      ],
+      "asCatalogued": true
+    },
+    {
+      "id": "cross-product-transplant-rehashed",
+      "title": "An authorized supplier's credential naming a DIFFERENT product",
+      "promise": "probe — is the credential subject bound to the passport's product?",
+      "probe": "If the offline pass reports no failure, the verifier does not bind a credential's subject to the passport's product.",
+      "rehashed": true,
+      "change": "credential[1].credentialSubject.id did:web:trustdpp.co:prod_b48b5bd5525d679a → did:web:trustdpp.co:prod_730b0c113be89275, re-signed by the REAL, AUTHORIZED supplier key",
+      "bundle": "/tmp/work/tamper-online/mutated-cross-product-transplant-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].subject-binding",
+            "detail": "the credential is about \"did:web:trustdpp.co:prod_730b0c113be89275\", but this bundle is passport \"did:web:trustdpp.co:prod_b48b5bd5525d679a\" — a genuine credential for a DIFFERENT product"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 50,
+          "fail": 2,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "credential[1].subject-binding",
+            "detail": "the credential is about \"did:web:trustdpp.co:prod_730b0c113be89275\", but this bundle is passport \"did:web:trustdpp.co:prod_b48b5bd5525d679a\" — a genuine credential for a DIFFERENT product"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0xcc394f3f09657320ac4b5df9850092e0f3cc70cfe9495256765a49f2cb0fe1eb — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [],
+          "observedFailures": [
+            "credential[1].subject-binding"
+          ],
+          "missing": [],
+          "unexpected": [
+            "credential[1].subject-binding"
+          ],
+          "ok": false
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].subject-binding",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [
+            "credential[1].subject-binding"
+          ],
+          "ok": false
+        }
+      },
+      "contrast": [],
+      "asCatalogued": false
+    },
+    {
+      "id": "expired-credential-rehashed",
+      "title": "An authorized supplier's credential whose validity window closed in 2020",
+      "promise": "probe — §10 „Validitätsintervalle — 'war gültig' vs. 'ist gültig'\"",
+      "probe": "If the offline pass reports no failure, the verifier does not evaluate validFrom/validUntil at all.",
+      "rehashed": true,
+      "change": "credential[1] validity 2026-08-05T19:20:28.496Z … 2036-03-28T00:00:00.000Z → 2019-01-01 … 2020-01-01 (long expired), re-signed by the REAL, AUTHORIZED supplier key",
+      "bundle": "/tmp/work/tamper-online/mutated-expired-credential-rehashed.json",
+      "offline": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 31,
+          "fail": 1,
+          "skip": 20
+        },
+        "failed": [
+          {
+            "check": "credential[1].validity",
+            "detail": "EXPIRED: validUntil was 2020-01-01T00:00:00.000Z, judged at 2026-08-06T18:51:32.648Z"
+          }
+        ]
+      },
+      "online": {
+        "exitCode": 1,
+        "verdict": "FAILED",
+        "counts": {
+          "pass": 50,
+          "fail": 2,
+          "skip": 0
+        },
+        "failed": [
+          {
+            "check": "credential[1].validity",
+            "detail": "EXPIRED: validUntil was 2020-01-01T00:00:00.000Z, judged at 2026-08-06T18:51:42.211Z"
+          },
+          {
+            "check": "bundle.anchor",
+            "detail": "MISMATCH: the chain committed to 0x764299ee25adbcf2b8fe58461f457e255df87fb230c5cdbba7889f5f74852959 but these bytes produce 0x687760956a2acd92f70788665021a3dc1de86dd4076150e83787d15f9779dd33 — the served bytes are NOT the bytes that were anchored (block 44139201, tx 0x131426ac6fc6e0b5c19a6522da26e1cd631705559c0993a4d8981e2807d5be5b, signed by 0xb147280bcdc2de966e8e2131bedb1d02a1997360 (found by log scan))"
+          }
+        ]
+      },
+      "verdicts": {
+        "offline": {
+          "expectedFailures": [],
+          "observedFailures": [
+            "credential[1].validity"
+          ],
+          "missing": [],
+          "unexpected": [
+            "credential[1].validity"
+          ],
+          "ok": false
+        },
+        "online": {
+          "expectedFailures": [
+            "bundle.anchor"
+          ],
+          "observedFailures": [
+            "credential[1].validity",
+            "bundle.anchor"
+          ],
+          "missing": [],
+          "unexpected": [
+            "credential[1].validity"
+          ],
+          "ok": false
+        }
+      },
+      "contrast": [],
+      "asCatalogued": false
+    }
+  ]
+}

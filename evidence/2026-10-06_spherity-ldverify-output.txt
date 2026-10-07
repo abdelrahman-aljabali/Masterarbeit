@@ -1,0 +1,10 @@
+SupplyChainInformation max=3 sigValid=true
+ConsumerInformation max=3 ERR Maximum deep iterations exceeded (3).
+ConsumerInformation max=Infinity sigValid=true
+ProductAuthentication max=3 sigValid=true
+ComplianceInformation max=3 sigValid=true
+EnvironmentalCircularityInformation max=3 sigValid=true
+ConsumerInformation max=3 ERR Maximum deep iterations exceeded (3).
+ConsumerInformation max=Infinity sigValid=true
+ProductInformation max=3 sigValid=true
+SocialImpactInformation max=3 sigValid=true

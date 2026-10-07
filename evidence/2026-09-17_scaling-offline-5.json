@@ -1,0 +1,90 @@
+{
+  "tool": "timeit (thesis harness)",
+  "label": "scale-offline-5",
+  "takenAt": "2026-09-17T20:19:23.302Z",
+  "mode": "offline",
+  "bundle": {
+    "path": "synth-5.json",
+    "bytes": 15696
+  },
+  "rpcHost": null,
+  "chainId": 80002,
+  "provenance": {
+    "git": {
+      "commit": "5d84f5d1ede0405c9aec4d6b5349a5c250171f4c",
+      "dirty": true
+    },
+    "node": "v25.1.0",
+    "machine": {
+      "platform": "darwin 25.5.0",
+      "arch": "arm64",
+      "cpuModel": "Apple M1 Pro",
+      "loadAvg1m": 7.4130859375
+    }
+  },
+  "protocol": {
+    "warmups": 3,
+    "n": 30,
+    "timing": "process start to exit, hrtime, ms"
+  },
+  "verdicts": [
+    "INCOMPLETE"
+  ],
+  "exitCodes": [
+    3
+  ],
+  "wallClock": {
+    "n": 30,
+    "min": 272.403708,
+    "p25": 277.8115415,
+    "median": 279.1274165,
+    "p75": 283.1054375,
+    "iqr": 5.293896000000018,
+    "p95": 310.77281265,
+    "max": 326.682291,
+    "quantileDefinition": "Hyndman-Fan type 7 (linear interpolation)"
+  },
+  "nodeStartupFloor": {
+    "n": 30,
+    "min": 38.296958,
+    "p25": 39.689646499999995,
+    "median": 40.954291999999995,
+    "p75": 42.51464575,
+    "iqr": 2.8249992500000047,
+    "p95": 45.817887349999985,
+    "max": 51.860958,
+    "quantileDefinition": "Hyndman-Fan type 7 (linear interpolation)"
+  },
+  "samples": [
+    284.394292,
+    278.331208,
+    277.73025,
+    297.167958,
+    274.298917,
+    272.403708,
+    279.4445,
+    278.055416,
+    278.633708,
+    277.150167,
+    278.277708,
+    281.665792,
+    279.871042,
+    291.848584,
+    276.5095,
+    275.835041,
+    282.267125,
+    281.009375,
+    279.361708,
+    276.628291,
+    276.3855,
+    278.884542,
+    279.004333,
+    279.2505,
+    326.682291,
+    299.627292,
+    319.891875,
+    278.780125,
+    283.393875,
+    283.384875
+  ]
+}

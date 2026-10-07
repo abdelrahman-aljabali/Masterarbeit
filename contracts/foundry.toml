@@ -1,0 +1,78 @@
+# TrustDPP — Design A contracts.
+#
+# The toolchain is pinned so that the thesis's gas figures and deployed bytecode
+# are reproducible on any machine. Toolchain of record:
+#
+#   foundry  v1.7.1  (forge 1.7.1, 4072e48705, 2026-05-08)
+#   solc     0.8.28
+#   evm      shanghai
+#   forge-std              v1.9.7 (77041d2ce690e692d6e03cc812b57d1ddaa4d505)
+#   openzeppelin-contracts v5.4.0            (c64a1edb67b6e3f4a15cca8909c9482ad33a02b0)
+
+[profile.default]
+src = "src"
+out = "out"
+test = "test"
+script = "script"
+libs = ["lib"]
+
+# Pinned, not floating. `^0.8.x` alone would let a newer solc change the bytecode
+# — and therefore the measured gas — between runs.
+solc_version = "0.8.28"
+
+# `shanghai`, not `cancun`/`prague`: PUSH0 is the only post-London opcode this
+# contract benefits from, and Polygon Amoy has supported it since Napoli. Nothing
+# here uses transient storage or MCOPY, so targeting a lower EVM version costs no
+# gas and widens the set of chains the same bytecode can be deployed to.
+evm_version = "shanghai"
+
+optimizer = true
+# High run count: this registry is deployed once and called for the lifetime of
+# the platform, and per-publish runtime gas is the measured quantity. Deploy-time
+# bytecode size is irrelevant for a contract this small.
+optimizer_runs = 20000
+via_ir = false
+
+# Reproducible builds: drop the solc metadata hash so the same source + same
+# toolchain produces byte-identical bytecode regardless of file paths or machine.
+bytecode_hash = "none"
+cbor_metadata = false
+
+# The deploy script writes deployments/<network>.json.
+fs_permissions = [{access = "read-write", path = "./deployments"}]
+
+remappings = [
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "forge-std/=lib/forge-std/src/",
+]
+
+gas_reports = ["TrustAnchorRegistry"]
+
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
+int_types = "long"
+# Never reformat vendored third-party source — formatting it would silently
+# diverge it from the upstream bytes its provenance header attests to.
+ignore = ["src/vendor/*.sol", "src/vendor/**/*.sol"]
+
+[fuzz]
+runs = 512
+max_test_rejects = 200000
+
+[rpc_endpoints]
+amoy = "${AMOY_RPC_URL}"
+polygon = "https://polygon-bor-rpc.publicnode.com"
+
+[etherscan]
+# Etherscan API **V2**, the unified multi-chain endpoint. The old per-chain host
+# (`api-amoy.polygonscan.com/api`) is a V1 endpoint and now returns a
+# deprecation notice instead of JSON, which surfaces confusingly as
+# "Failed to deserialize content: expected value at line 1 column 1".
+#
+# ⚠ V2 wants an **Etherscan** API key (etherscan.io), not a legacy Polygonscan
+# one — a Polygonscan V1 key is rejected here as "Invalid API Key" even though
+# it still works against the dead V1 host. Migration: https://docs.etherscan.io/v2-migration
+amoy = {key = "${POLYGONSCAN_API_KEY}", chain = 80002, url = "https://api.etherscan.io/v2/api?chainid=80002"}
+polygon = {key = "${POLYGONSCAN_API_KEY}", chain = 137, url = "https://api.etherscan.io/v2/api?chainid=137"}

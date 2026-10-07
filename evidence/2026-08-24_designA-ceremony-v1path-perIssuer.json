@@ -1,0 +1,1335 @@
+{
+  "tool": "seed-design-a",
+  "formatVersion": 1,
+  "demonstrationAccounts": true,
+  "disclaimer": "Every organisation named here is a DEMONSTRATION ACCOUNT created by scripts/seed-design-a.ts. The script held the five actors' private keys because in this scenario it IS the five actors; it drove only the platform's real HTTP routes and the platform holds no key at any point.",
+  "startedAt": "2026-08-24T10:38:08.349Z",
+  "finishedAt": "2026-08-24T10:39:56.680Z",
+  "provenance": {
+    "takenAt": "2026-08-24T10:39:56.681Z",
+    "git": {
+      "commit": "0b7df64d7048444f693dc41a33b3325a6bde28e6",
+      "shortCommit": "0b7df64",
+      "branch": "main",
+      "dirty": true
+    },
+    "machine": {
+      "platform": "darwin 25.5.0",
+      "arch": "arm64",
+      "cpuModel": "Apple M1 Pro",
+      "cpuCount": 10
+    },
+    "runtime": {
+      "node": "v25.1.0"
+    },
+    "chain": {
+      "chainId": 80002,
+      "trustAnchorRegistry": "0x03dd7e09263a24e5e6aBACA533EeE9d992b85479",
+      "startBlock": 45749447,
+      "rpcHost": "polygon-amoy.g.alchemy.com",
+      "rpcSource": "contracts/.env"
+    },
+    "api": "http://localhost:3011"
+  },
+  "passport": {
+    "passportId": "dpp_60faf481d57ca83d",
+    "productDid": "did:web:trustdpp.co:prod_60faf481d57ca83d",
+    "productId": "0xa71c1ba0a5b3ad453f308c2437b543facccd8f4ba4d8300bfd81430a2010b6d0",
+    "version": 1,
+    "merkleRoot": "0x79c03993febc62a927a2607d6d452fda3d29487b87996d04eb9e487b16f40405",
+    "bundlePath": "/Users/abdelrahmanaljabali/Desktop/DPP/dev/backend_dpp/scripts/out/design-a-export-dpp_60faf481d57ca83d-v1.json",
+    "publicUrl": "http://localhost:3011/api/public/passports/dpp_60faf481d57ca83d"
+  },
+  "actors": [
+    {
+      "key": "operator",
+      "organisation": "[DEMONSTRATION ACCOUNT] Zyton GmbH",
+      "demonstrationAccount": true,
+      "role": "operator",
+      "orgId": "org_PEW_orGW9yHg",
+      "did": "did:ethr:0x13882:0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+      "address": "0xB147280bCDC2dE966e8E2131Bedb1D02a1997360",
+      "chainRoles": [],
+      "provisionedThisRun": false
+    },
+    {
+      "key": "farm",
+      "organisation": "[DEMONSTRATION ACCOUNT] Karimov Cotton Farm",
+      "demonstrationAccount": true,
+      "role": "supplier",
+      "orgId": "org_29TeFPTq9e7q",
+      "did": "did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+      "address": "0xa79046E84DAC70B21540C3c96d6AD42e82D1bd0b",
+      "chainRoles": [
+        "cotton-farming"
+      ],
+      "provisionedThisRun": false
+    },
+    {
+      "key": "spinner",
+      "organisation": "[DEMONSTRATION ACCOUNT] Dhaka Spinning Mills",
+      "demonstrationAccount": true,
+      "role": "supplier",
+      "orgId": "org_08di1dihTlJH",
+      "did": "did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+      "address": "0x6852DD9C3daCA8e000888a79d573f9EcDA76E049",
+      "chainRoles": [
+        "spinning"
+      ],
+      "provisionedThisRun": false
+    },
+    {
+      "key": "mill",
+      "organisation": "[DEMONSTRATION ACCOUNT] Anatolia Denim Mill",
+      "demonstrationAccount": true,
+      "role": "supplier",
+      "orgId": "org_0u8vy4bzpB4a",
+      "did": "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "address": "0x05677c59c52a22c86af7045BdBFfE2082220Ef4F",
+      "chainRoles": [
+        "weaving",
+        "dyeing"
+      ],
+      "provisionedThisRun": false
+    },
+    {
+      "key": "maker",
+      "organisation": "[DEMONSTRATION ACCOUNT] Saigon Garment Works",
+      "demonstrationAccount": true,
+      "role": "supplier",
+      "orgId": "org_gWAfR8thh6n9",
+      "did": "did:ethr:0x13882:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6",
+      "address": "0x2dB23eF4401B08E09B5A1DdBaa95882E5D2aA1A6",
+      "chainRoles": [
+        "garment"
+      ],
+      "provisionedThisRun": false
+    }
+  ],
+  "credentials": [
+    {
+      "role": "brand",
+      "actor": "Zyton GmbH",
+      "issuerDid": "did:ethr:0x13882:0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+      "signerAddress": "0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+      "snapshotHash": "015285f87c8788e9ea0b07889a013348937630a7123659be20fc0aa539fe01dc"
+    },
+    {
+      "role": "cotton-farming",
+      "actor": "Karimov Cotton Farm",
+      "issuerDid": "did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+      "signerAddress": "0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+      "snapshotHash": "aa99706cf74c57de5b506ed5051e746a18583ce674cec1e7885c0b67304cab83"
+    },
+    {
+      "role": "spinning",
+      "actor": "Dhaka Spinning Mills",
+      "issuerDid": "did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+      "signerAddress": "0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+      "snapshotHash": "0da91c075e2eb436ae5140fb57ca73b9b9a045d46aa0f3a8db8f822ff972c404"
+    },
+    {
+      "role": "dyeing",
+      "actor": "Anatolia Denim Mill",
+      "issuerDid": "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "signerAddress": "0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "snapshotHash": "debabdfef793b47c896961dee8554bdcacceb4249c1bd045655ad98807ffd32c"
+    },
+    {
+      "role": "weaving",
+      "actor": "Anatolia Denim Mill",
+      "issuerDid": "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "signerAddress": "0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+      "snapshotHash": "29210bf473d2f6327fdff6f850318f128ac5ba5444a540b6bc5be862be6d4184"
+    },
+    {
+      "role": "garment",
+      "actor": "Saigon Garment Works",
+      "issuerDid": "did:ethr:0x13882:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6",
+      "signerAddress": "0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6",
+      "snapshotHash": "9988ae67129dba740b635ad5350b4ce7bd003769fe83491eedc0920c5e320e1a"
+    }
+  ],
+  "chain": {
+    "outbox": [
+      {
+        "id": "cmt73rmx000a3gkih6stjros4",
+        "kind": "claimProduct",
+        "status": "confirmed",
+        "txHash": "0x288613b16dd25808ce64a59a93e5197df6ec1f9588aaaa00a2611f02e3ee8972",
+        "blockNumber": "45749462",
+        "createdAt": "2026-08-24 10:38:09.349+00",
+        "confirmedAt": "2026-08-24 10:38:37.004+00"
+      },
+      {
+        "id": "cmt73ryu400a7gkiht3ed12lc",
+        "kind": "setIssuer",
+        "status": "confirmed",
+        "txHash": "0xf75aafa15cc96e351f5d9dfcc156b9c70d30d8465ab11149a5ec8ea82726ae4a",
+        "blockNumber": "45749477",
+        "createdAt": "2026-08-24 10:38:24.796+00",
+        "confirmedAt": "2026-08-24 10:38:51.991+00"
+      },
+      {
+        "id": "cmt73saun00abgkiheqqcxyvs",
+        "kind": "setIssuer",
+        "status": "confirmed",
+        "txHash": "0x5661cefca1d5097c106bf8d94bc32a91be478854eee6ce17c597626dcfe4170a",
+        "blockNumber": "45749492",
+        "createdAt": "2026-08-24 10:38:40.368+00",
+        "confirmedAt": "2026-08-24 10:39:06.99+00"
+      },
+      {
+        "id": "cmt73smv000afgkih0djdrh5h",
+        "kind": "setIssuer",
+        "status": "confirmed",
+        "txHash": "0x0ed8b9c57a54043167ed82515845f72d72b6f413467936f3e0960701e7778bb0",
+        "blockNumber": "45749507",
+        "createdAt": "2026-08-24 10:38:55.932+00",
+        "confirmedAt": "2026-08-24 10:39:21.974+00"
+      },
+      {
+        "id": "cmt73sytj00ajgkihw78hwr7x",
+        "kind": "setIssuer",
+        "status": "confirmed",
+        "txHash": "0x11fb404b469889cf096f25df94a99964dba386a6d8b0616c4a74390a446b9ac9",
+        "blockNumber": "45749522",
+        "createdAt": "2026-08-24 10:39:11.431+00",
+        "confirmedAt": "2026-08-24 10:39:36.977+00"
+      },
+      {
+        "id": "cmt73tbq700c6gkihwo8i5022",
+        "kind": "anchor",
+        "status": "confirmed",
+        "txHash": "0x85581b9e1b27bbf01ffe81a94812a5ea1ce4b013ba057cb60095b76019e981e1",
+        "blockNumber": "45749537",
+        "createdAt": "2026-08-24 10:39:28.159+00",
+        "confirmedAt": "2026-08-24 10:39:51.995+00"
+      }
+    ],
+    "outboxUnavailable": null
+  },
+  "verification": {
+    "verdict": "VERIFIED",
+    "exitCode": 0,
+    "counts": {
+      "pass": 52,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  "findings": [
+    "No API read exists for on-chain authorisation state or for the outbox status of a queued claimProduct/setIssuer. `GET /passports/:id/anchor` returns a queue, but filtered to `kind: \"anchor\"`, and `GET /passports/:id/claim` covers only the claim. So an operator UI cannot tell a supplier \"your authorisation is still pending\" — it can only retry the upload and read the 403. This script waits on `authorized[productId][issuer]` over JSON-RPC instead, which is what the upload route and any verifier do, but it is a gap in the browser-drivable surface.",
+    "The public export bundle carries no anchoring transaction hash, so an independent verifier has to sweep `eth_getLogs` to find the anchor — which on a range-capped free-tier endpoint exhausts its request budget and yields an honest but useless \"inconclusive\". `verify-passport.mjs` already accepts an `anchorTxHash` member (a hint; the log found there is still fully checked against the registry, the topic, the productId, the version and the recomputed root). Emitting it from `GET /api/public/passports/:id/export` would cost one column read and remove the sweep entirely. This script attaches it from the chain so the exported bundle in scripts/out/ is directly verifiable."
+  ],
+  "steps": [
+    {
+      "id": "ceremony.preflight",
+      "label": "preflight: the platform is in Design A mode",
+      "actor": null,
+      "startedAt": "2026-08-24T10:38:08.351Z",
+      "ms": 31.31
+    },
+    {
+      "id": "onboarding.operator.challenge",
+      "label": "Zyton GmbH: SIWE challenge (login)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.654Z",
+      "ms": 3.557
+    },
+    {
+      "id": "onboarding.operator.login",
+      "label": "Zyton GmbH: wallet-login",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.657Z",
+      "ms": 30.688
+    },
+    {
+      "id": "onboarding.operator.bindChallenge",
+      "label": "Zyton GmbH: SIWE challenge (bind)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.693Z",
+      "ms": 3.435
+    },
+    {
+      "id": "onboarding.operator.bind",
+      "label": "Zyton GmbH: bind wallet → did:ethr",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.697Z",
+      "ms": 20.871,
+      "detail": {
+        "did": "did:ethr:0x13882:0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+        "alreadyBound": false
+      }
+    },
+    {
+      "id": "onboarding.farm.challenge",
+      "label": "Karimov Cotton Farm: SIWE challenge (login)",
+      "actor": "farm",
+      "startedAt": "2026-08-24T10:38:08.718Z",
+      "ms": 2.932
+    },
+    {
+      "id": "onboarding.farm.login",
+      "label": "Karimov Cotton Farm: wallet-login",
+      "actor": "farm",
+      "startedAt": "2026-08-24T10:38:08.721Z",
+      "ms": 16.744
+    },
+    {
+      "id": "onboarding.farm.bindChallenge",
+      "label": "Karimov Cotton Farm: SIWE challenge (bind)",
+      "actor": "farm",
+      "startedAt": "2026-08-24T10:38:08.743Z",
+      "ms": 2.164
+    },
+    {
+      "id": "onboarding.farm.bind",
+      "label": "Karimov Cotton Farm: bind wallet → did:ethr",
+      "actor": "farm",
+      "startedAt": "2026-08-24T10:38:08.745Z",
+      "ms": 14.006,
+      "detail": {
+        "did": "did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+        "alreadyBound": false
+      }
+    },
+    {
+      "id": "onboarding.spinner.challenge",
+      "label": "Dhaka Spinning Mills: SIWE challenge (login)",
+      "actor": "spinner",
+      "startedAt": "2026-08-24T10:38:08.760Z",
+      "ms": 2.127
+    },
+    {
+      "id": "onboarding.spinner.login",
+      "label": "Dhaka Spinning Mills: wallet-login",
+      "actor": "spinner",
+      "startedAt": "2026-08-24T10:38:08.762Z",
+      "ms": 13.415
+    },
+    {
+      "id": "onboarding.spinner.bindChallenge",
+      "label": "Dhaka Spinning Mills: SIWE challenge (bind)",
+      "actor": "spinner",
+      "startedAt": "2026-08-24T10:38:08.779Z",
+      "ms": 1.754
+    },
+    {
+      "id": "onboarding.spinner.bind",
+      "label": "Dhaka Spinning Mills: bind wallet → did:ethr",
+      "actor": "spinner",
+      "startedAt": "2026-08-24T10:38:08.781Z",
+      "ms": 12.648,
+      "detail": {
+        "did": "did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+        "alreadyBound": false
+      }
+    },
+    {
+      "id": "onboarding.mill.challenge",
+      "label": "Anatolia Denim Mill: SIWE challenge (login)",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:38:08.794Z",
+      "ms": 1.994
+    },
+    {
+      "id": "onboarding.mill.login",
+      "label": "Anatolia Denim Mill: wallet-login",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:38:08.796Z",
+      "ms": 11.937
+    },
+    {
+      "id": "onboarding.mill.bindChallenge",
+      "label": "Anatolia Denim Mill: SIWE challenge (bind)",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:38:08.815Z",
+      "ms": 2.447
+    },
+    {
+      "id": "onboarding.mill.bind",
+      "label": "Anatolia Denim Mill: bind wallet → did:ethr",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:38:08.818Z",
+      "ms": 14.774,
+      "detail": {
+        "did": "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+        "alreadyBound": false
+      }
+    },
+    {
+      "id": "onboarding.maker.challenge",
+      "label": "Saigon Garment Works: SIWE challenge (login)",
+      "actor": "maker",
+      "startedAt": "2026-08-24T10:38:08.833Z",
+      "ms": 2.098
+    },
+    {
+      "id": "onboarding.maker.login",
+      "label": "Saigon Garment Works: wallet-login",
+      "actor": "maker",
+      "startedAt": "2026-08-24T10:38:08.835Z",
+      "ms": 17.043
+    },
+    {
+      "id": "onboarding.maker.bindChallenge",
+      "label": "Saigon Garment Works: SIWE challenge (bind)",
+      "actor": "maker",
+      "startedAt": "2026-08-24T10:38:08.857Z",
+      "ms": 3.966
+    },
+    {
+      "id": "onboarding.maker.bind",
+      "label": "Saigon Garment Works: bind wallet → did:ethr",
+      "actor": "maker",
+      "startedAt": "2026-08-24T10:38:08.861Z",
+      "ms": 11.858,
+      "detail": {
+        "did": "did:ethr:0x13882:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6",
+        "alreadyBound": false
+      }
+    },
+    {
+      "id": "ceremony.product.create",
+      "label": "create product + draft passport",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.876Z",
+      "ms": 16.209,
+      "detail": {
+        "passportId": "dpp_60faf481d57ca83d",
+        "productDid": "did:web:trustdpp.co:prod_60faf481d57ca83d"
+      }
+    },
+    {
+      "id": "ceremony.product.fields",
+      "label": "save 67 regulated field values",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.892Z",
+      "ms": 88.558
+    },
+    {
+      "id": "ceremony.tier.farm",
+      "label": "bind node \"Cotton Farm\" → Karimov Cotton Farm",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.981Z",
+      "ms": 9.702,
+      "detail": {
+        "nodeId": "tier_94339cd2f12f0aa5",
+        "roles": [
+          "cotton-farming"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.tier.spinner",
+      "label": "bind node \"Spinning Mill\" → Dhaka Spinning Mills",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:08.990Z",
+      "ms": 10.745,
+      "detail": {
+        "nodeId": "tier_cdfe20ea23238f81",
+        "roles": [
+          "spinning"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.tier.mill",
+      "label": "bind node \"Weaving & Wet Processing\" → Anatolia Denim Mill",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.001Z",
+      "ms": 11.234,
+      "detail": {
+        "nodeId": "tier_1271ed2d991776d6",
+        "roles": [
+          "weaving",
+          "dyeing"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.tier.maker",
+      "label": "bind node \"Cut, Sew & Assembly\" → Saigon Garment Works",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.013Z",
+      "ms": 12.141,
+      "detail": {
+        "nodeId": "tier_c1ab619a2c74712f",
+        "roles": [
+          "garment"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.claim.state",
+      "label": "read on-chain claim state",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.025Z",
+      "ms": 178.869
+    },
+    {
+      "id": "ceremony.claim.payload",
+      "label": "claimProduct: build payload",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.204Z",
+      "ms": 70.032,
+      "detail": {
+        "nonce": "0",
+        "primaryType": "ClaimProduct"
+      }
+    },
+    {
+      "id": "ceremony.claim.sign",
+      "label": "claimProduct: operator signs (EIP-712)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.274Z",
+      "ms": 1.7
+    },
+    {
+      "id": "ceremony.claim.enqueue",
+      "label": "claimProduct: queue for the relayer",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.276Z",
+      "ms": 84.941
+    },
+    {
+      "id": "ceremony.claim.confirm",
+      "label": "claimProduct: confirmed on chain",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:09.361Z",
+      "ms": 15345.276
+    },
+    {
+      "id": "ceremony.setIssuer.farm.payload",
+      "label": "setIssuer Karimov Cotton Farm: build payload",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:24.709Z",
+      "ms": 39.531,
+      "detail": {
+        "nonce": "1",
+        "primaryType": "SetIssuer"
+      }
+    },
+    {
+      "id": "ceremony.setIssuer.farm.sign",
+      "label": "setIssuer Karimov Cotton Farm: operator signs (EIP-712)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:24.749Z",
+      "ms": 2.653
+    },
+    {
+      "id": "ceremony.setIssuer.farm.enqueue",
+      "label": "setIssuer Karimov Cotton Farm: queue for the relayer",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:24.751Z",
+      "ms": 54.03
+    },
+    {
+      "id": "ceremony.setIssuer.farm.confirm",
+      "label": "setIssuer Karimov Cotton Farm: confirmed on chain",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:24.805Z",
+      "ms": 15458.07
+    },
+    {
+      "id": "ceremony.setIssuer.spinner.payload",
+      "label": "setIssuer Dhaka Spinning Mills: build payload",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:40.264Z",
+      "ms": 60.01,
+      "detail": {
+        "nonce": "2",
+        "primaryType": "SetIssuer"
+      }
+    },
+    {
+      "id": "ceremony.setIssuer.spinner.sign",
+      "label": "setIssuer Dhaka Spinning Mills: operator signs (EIP-712)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:40.324Z",
+      "ms": 2.769
+    },
+    {
+      "id": "ceremony.setIssuer.spinner.enqueue",
+      "label": "setIssuer Dhaka Spinning Mills: queue for the relayer",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:40.327Z",
+      "ms": 47.353
+    },
+    {
+      "id": "ceremony.setIssuer.spinner.confirm",
+      "label": "setIssuer Dhaka Spinning Mills: confirmed on chain",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:40.374Z",
+      "ms": 15418.482
+    },
+    {
+      "id": "ceremony.setIssuer.mill.payload",
+      "label": "setIssuer Anatolia Denim Mill: build payload",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:55.793Z",
+      "ms": 95.813,
+      "detail": {
+        "nonce": "3",
+        "primaryType": "SetIssuer"
+      }
+    },
+    {
+      "id": "ceremony.setIssuer.mill.sign",
+      "label": "setIssuer Anatolia Denim Mill: operator signs (EIP-712)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:55.889Z",
+      "ms": 2.874
+    },
+    {
+      "id": "ceremony.setIssuer.mill.enqueue",
+      "label": "setIssuer Anatolia Denim Mill: queue for the relayer",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:55.892Z",
+      "ms": 49.186
+    },
+    {
+      "id": "ceremony.setIssuer.mill.confirm",
+      "label": "setIssuer Anatolia Denim Mill: confirmed on chain",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:38:55.941Z",
+      "ms": 15363.548
+    },
+    {
+      "id": "ceremony.setIssuer.maker.payload",
+      "label": "setIssuer Saigon Garment Works: build payload",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:11.305Z",
+      "ms": 57.16,
+      "detail": {
+        "nonce": "4",
+        "primaryType": "SetIssuer"
+      }
+    },
+    {
+      "id": "ceremony.setIssuer.maker.sign",
+      "label": "setIssuer Saigon Garment Works: operator signs (EIP-712)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:11.362Z",
+      "ms": 6.475
+    },
+    {
+      "id": "ceremony.setIssuer.maker.enqueue",
+      "label": "setIssuer Saigon Garment Works: queue for the relayer",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:11.368Z",
+      "ms": 76.299
+    },
+    {
+      "id": "ceremony.setIssuer.maker.confirm",
+      "label": "setIssuer Saigon Garment Works: confirmed on chain",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:11.445Z",
+      "ms": 15349.438
+    },
+    {
+      "id": "ceremony.attest.operator.coverage",
+      "label": "Zyton GmbH: read what this org must sign",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:26.795Z",
+      "ms": 46.559,
+      "detail": {
+        "mine": [
+          "brand:awaiting"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.attest.operator.brand",
+      "label": "Zyton GmbH: sign + upload \"brand\"",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:26.849Z",
+      "ms": 120.531,
+      "detail": {
+        "verified": true,
+        "snapshotHash": "015285f87c8788e9ea0b07889a013348937630a7123659be20fc0aa539fe01dc",
+        "signerAddress": "0xb147280bcdc2de966e8e2131bedb1d02a1997360"
+      }
+    },
+    {
+      "id": "ceremony.attest.farm.coverage",
+      "label": "Karimov Cotton Farm: read what this org must sign",
+      "actor": "farm",
+      "startedAt": "2026-08-24T10:39:26.970Z",
+      "ms": 52.057,
+      "detail": {
+        "mine": [
+          "cotton-farming:awaiting"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.attest.farm.cotton-farming",
+      "label": "Karimov Cotton Farm: sign + upload \"cotton-farming\"",
+      "actor": "farm",
+      "startedAt": "2026-08-24T10:39:27.025Z",
+      "ms": 125.106,
+      "detail": {
+        "verified": true,
+        "snapshotHash": "aa99706cf74c57de5b506ed5051e746a18583ce674cec1e7885c0b67304cab83",
+        "signerAddress": "0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b"
+      }
+    },
+    {
+      "id": "ceremony.attest.spinner.coverage",
+      "label": "Dhaka Spinning Mills: read what this org must sign",
+      "actor": "spinner",
+      "startedAt": "2026-08-24T10:39:27.150Z",
+      "ms": 52.45,
+      "detail": {
+        "mine": [
+          "spinning:awaiting"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.attest.spinner.spinning",
+      "label": "Dhaka Spinning Mills: sign + upload \"spinning\"",
+      "actor": "spinner",
+      "startedAt": "2026-08-24T10:39:27.207Z",
+      "ms": 100.421,
+      "detail": {
+        "verified": true,
+        "snapshotHash": "0da91c075e2eb436ae5140fb57ca73b9b9a045d46aa0f3a8db8f822ff972c404",
+        "signerAddress": "0x6852dd9c3daca8e000888a79d573f9ecda76e049"
+      }
+    },
+    {
+      "id": "ceremony.attest.mill.coverage",
+      "label": "Anatolia Denim Mill: read what this org must sign",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:39:27.307Z",
+      "ms": 52.362,
+      "detail": {
+        "mine": [
+          "dyeing:awaiting",
+          "weaving:awaiting"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.attest.mill.dyeing",
+      "label": "Anatolia Denim Mill: sign + upload \"dyeing\"",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:39:27.363Z",
+      "ms": 96.296,
+      "detail": {
+        "verified": true,
+        "snapshotHash": "debabdfef793b47c896961dee8554bdcacceb4249c1bd045655ad98807ffd32c",
+        "signerAddress": "0x05677c59c52a22c86af7045bdbffe2082220ef4f"
+      }
+    },
+    {
+      "id": "ceremony.attest.mill.weaving",
+      "label": "Anatolia Denim Mill: sign + upload \"weaving\"",
+      "actor": "mill",
+      "startedAt": "2026-08-24T10:39:27.463Z",
+      "ms": 93.22,
+      "detail": {
+        "verified": true,
+        "snapshotHash": "29210bf473d2f6327fdff6f850318f128ac5ba5444a540b6bc5be862be6d4184",
+        "signerAddress": "0x05677c59c52a22c86af7045bdbffe2082220ef4f"
+      }
+    },
+    {
+      "id": "ceremony.attest.maker.coverage",
+      "label": "Saigon Garment Works: read what this org must sign",
+      "actor": "maker",
+      "startedAt": "2026-08-24T10:39:27.556Z",
+      "ms": 54.5,
+      "detail": {
+        "mine": [
+          "garment:awaiting"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.attest.maker.garment",
+      "label": "Saigon Garment Works: sign + upload \"garment\"",
+      "actor": "maker",
+      "startedAt": "2026-08-24T10:39:27.614Z",
+      "ms": 97.482,
+      "detail": {
+        "verified": true,
+        "snapshotHash": "9988ae67129dba740b635ad5350b4ce7bd003769fe83491eedc0920c5e320e1a",
+        "signerAddress": "0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6"
+      }
+    },
+    {
+      "id": "ceremony.review.farm.payload",
+      "label": "Karimov Cotton Farm: build approval payloads",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.711Z",
+      "ms": 31.651,
+      "detail": {
+        "roles": [
+          "cotton-farming:attested"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.review.farm.sign",
+      "label": "Karimov Cotton Farm: operator signs 1 approval(s)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.743Z",
+      "ms": 1.601
+    },
+    {
+      "id": "ceremony.review.farm.post",
+      "label": "Karimov Cotton Farm: record the signed decision",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.745Z",
+      "ms": 44.675,
+      "detail": {
+        "dataStatus": "approved"
+      }
+    },
+    {
+      "id": "ceremony.review.spinner.payload",
+      "label": "Dhaka Spinning Mills: build approval payloads",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.789Z",
+      "ms": 17.861,
+      "detail": {
+        "roles": [
+          "spinning:attested"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.review.spinner.sign",
+      "label": "Dhaka Spinning Mills: operator signs 1 approval(s)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.807Z",
+      "ms": 1.076
+    },
+    {
+      "id": "ceremony.review.spinner.post",
+      "label": "Dhaka Spinning Mills: record the signed decision",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.808Z",
+      "ms": 29.849,
+      "detail": {
+        "dataStatus": "approved"
+      }
+    },
+    {
+      "id": "ceremony.review.mill.payload",
+      "label": "Anatolia Denim Mill: build approval payloads",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.838Z",
+      "ms": 17.537,
+      "detail": {
+        "roles": [
+          "weaving:attested",
+          "dyeing:attested"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.review.mill.sign",
+      "label": "Anatolia Denim Mill: operator signs 2 approval(s)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.856Z",
+      "ms": 1.994
+    },
+    {
+      "id": "ceremony.review.mill.post",
+      "label": "Anatolia Denim Mill: record the signed decision",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.858Z",
+      "ms": 39.779,
+      "detail": {
+        "dataStatus": "approved"
+      }
+    },
+    {
+      "id": "ceremony.review.maker.payload",
+      "label": "Saigon Garment Works: build approval payloads",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.898Z",
+      "ms": 18.158,
+      "detail": {
+        "roles": [
+          "garment:attested"
+        ]
+      }
+    },
+    {
+      "id": "ceremony.review.maker.sign",
+      "label": "Saigon Garment Works: operator signs 1 approval(s)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.916Z",
+      "ms": 1.066
+    },
+    {
+      "id": "ceremony.review.maker.post",
+      "label": "Saigon Garment Works: record the signed decision",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.917Z",
+      "ms": 31.638,
+      "detail": {
+        "dataStatus": "approved"
+      }
+    },
+    {
+      "id": "ceremony.publish",
+      "label": "POST /api/dpps/:id/publish",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:27.949Z",
+      "ms": 92.87,
+      "detail": {
+        "version": "1"
+      }
+    },
+    {
+      "id": "ceremony.chainhead.payload",
+      "label": "operator: build the audit chain-head checkpoint",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.042Z",
+      "ms": 4.641,
+      "detail": {
+        "seq": 27,
+        "headHash": "e281ca399b381789f9867688e46e988adeb617e64fde058c2d9ab226533009f7"
+      }
+    },
+    {
+      "id": "ceremony.chainhead.sign",
+      "label": "operator: signs the checkpoint",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.047Z",
+      "ms": 0.749
+    },
+    {
+      "id": "ceremony.chainhead.post",
+      "label": "operator: store the signed checkpoint",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.047Z",
+      "ms": 20.875
+    },
+    {
+      "id": "ceremony.anchor.payload",
+      "label": "anchor: build payload",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.068Z",
+      "ms": 45.209,
+      "detail": {
+        "nonce": "5",
+        "primaryType": "Anchor"
+      }
+    },
+    {
+      "id": "ceremony.anchor.sign",
+      "label": "anchor: operator signs (EIP-712)",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.114Z",
+      "ms": 0.933
+    },
+    {
+      "id": "ceremony.anchor.enqueue",
+      "label": "anchor: queue for the relayer",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.115Z",
+      "ms": 56.013
+    },
+    {
+      "id": "ceremony.anchor.confirm",
+      "label": "anchor: confirmed on chain",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:28.171Z",
+      "ms": 10263.752
+    },
+    {
+      "id": "ceremony.anchor.state",
+      "label": "read the platform's anchor status",
+      "actor": "operator",
+      "startedAt": "2026-08-24T10:39:38.435Z",
+      "ms": 123.953,
+      "detail": {
+        "matches": true,
+        "anchored": true
+      }
+    },
+    {
+      "id": "ceremony.anchor.log",
+      "label": "locate the Anchored log on chain (bounded scan)",
+      "actor": null,
+      "startedAt": "2026-08-24T10:39:38.559Z",
+      "ms": 751.098,
+      "detail": {
+        "txHash": "0x85581b9e1b27bbf01ffe81a94812a5ea1ce4b013ba057cb60095b76019e981e1",
+        "blockNumber": 45749537,
+        "merkleRoot": "0x79c03993febc62a927a2607d6d452fda3d29487b87996d04eb9e487b16f40405"
+      }
+    },
+    {
+      "id": "ceremony.export",
+      "label": "GET /api/public/passports/:id/export (anonymous)",
+      "actor": null,
+      "startedAt": "2026-08-24T10:39:39.310Z",
+      "ms": 11.914,
+      "detail": {
+        "credentials": 6,
+        "hash": "a3d074236069ba6d5f177cce1c7f35bde4efa58df3dcff6dda871cd9a05c2b0c"
+      }
+    },
+    {
+      "id": "ceremony.outbox.read",
+      "label": "read the anchor outbox (measurement only, never a ceremony step)",
+      "actor": null,
+      "startedAt": "2026-08-24T10:39:39.322Z",
+      "ms": 15855.383,
+      "detail": {
+        "rows": [
+          "claimProduct:confirmed",
+          "setIssuer:confirmed",
+          "setIssuer:confirmed",
+          "setIssuer:confirmed",
+          "setIssuer:confirmed",
+          "anchor:confirmed"
+        ],
+        "unavailable": null
+      }
+    },
+    {
+      "id": "verification.designA.singleRun",
+      "label": "node scripts/verify-passport.mjs <bundle>",
+      "actor": null,
+      "startedAt": "2026-08-24T10:39:55.180Z",
+      "ms": 1230.258
+    }
+  ],
+  "measurements": [
+    {
+      "id": "onboarding.designA.headless",
+      "category": "Onboarding-Latenz  (RQ3 §13 — Primärmetrik)",
+      "metric": "Onboarding — Design A, PROTOKOLLANTEIL (SIWE-Challenge → did:ethr gebunden, ohne Browser/tKey)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "platform",
+      "value": null,
+      "dist": {
+        "n": 5,
+        "min": 29.944,
+        "p25": 31.152,
+        "median": 34.965,
+        "p75": 35.846,
+        "iqr": 4.694,
+        "p95": 54.01,
+        "max": 58.551,
+        "mean": 38.092,
+        "stddev": 11.704
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "GET /api/auth/challenge (login) — a server-minted EIP-4361 message",
+        "personal_sign by the actor's own key",
+        "POST /api/auth/wallet-login — signature verified, tenant provisioned on first sight",
+        "GET /api/auth/challenge (bind) + POST /api/auth/wallet/bind — the org's did:ethr is minted",
+        "four HTTP round trips over loopback"
+      ],
+      "excludes": [
+        "the Web3Auth OAuth redirect",
+        "2-of-3 tKey share reconstruction in the browser",
+        "key derivation in the page",
+        "everything a human does"
+      ],
+      "notes": "NOT §13's primary metric and deliberately not filed under its id. §13 asks for 'Google-Login bis did:ethr registriert'; this is the platform-and-protocol component of that span, i.e. a LOWER BOUND. It is worth having because it says how much of the 30–60 s estimate is NOT the platform: on this run the platform's share is milliseconds, so the estimate is almost entirely tKey and OAuth. Filling `onboarding.designA` still needs a headless browser driving the real login.",
+      "detail": {
+        "actors": [
+          "operator",
+          "farm",
+          "spinner",
+          "mill",
+          "maker"
+        ],
+        "transport": "loopback HTTP"
+      },
+      "samples": [
+        58.551,
+        35.846,
+        29.944,
+        31.152,
+        34.965
+      ]
+    },
+    {
+      "id": "signing.designA.ceremony.headless",
+      "category": "Signierlatenz  (RQ3 §13)",
+      "metric": "Signierlatenz — Design A, PROTOKOLLANTEIL (Dokument bauen → VC auf dem Server, ohne Wallet)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "platform",
+      "value": null,
+      "dist": {
+        "n": 6,
+        "min": 96.643,
+        "p25": 99.908,
+        "median": 102.548,
+        "p75": 122.356,
+        "iqr": 22.448,
+        "p95": 128.392,
+        "max": 128.413,
+        "mean": 109.69,
+        "stddev": 14.683
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "assembling the credential body with the shared dpp-core kernel",
+        "SHA-256 of the JWS signing input and one secp256k1 signature (ES256K-R, low-s)",
+        "local recovery self-check + the browser's divergence check against the server's reference",
+        "POST …/attestations and the upload route's six checks — including TWO CHAIN READS (ERC-1056 DID resolution and the on-chain authorization root)"
+      ],
+      "excludes": [
+        "opening a wallet: no OAuth, no tKey reconstruction, no user reading a WYSIWYS dialog",
+        "the coverage GET that precedes it (timed separately as ceremony.attest.*.coverage)"
+      ],
+      "notes": "A LOWER BOUND on §24's 0.5–1.2 s estimate, and a useful one: the dominant term here is the server's two chain reads, not the cryptography. The signature itself is sub-millisecond; the RPC round trips are not. That is an architectural cost of Mechanism 4 and it is visible in this row rather than hidden inside a wallet number.",
+      "detail": {
+        "credentials": 6
+      },
+      "samples": [
+        128.328,
+        128.413,
+        104.44,
+        99.659,
+        96.643,
+        100.657
+      ]
+    },
+    {
+      "id": "signing.designA.platformSideKeyMaterial",
+      "category": "Signierlatenz  (RQ3 §13)",
+      "metric": "Plattform-seitige Signierlatenz — Design A",
+      "design": "A",
+      "unit": "ms",
+      "state": "n/a",
+      "provenance": "structural",
+      "value": null,
+      "dist": null,
+      "reason": "There is no platform-side signing path to time. `DesignATrust.signCredential` throws by construction, publish is `CeremonyAssembly` (validate coverage, freeze, assemble), and this run produced six signed credentials without the server ever holding key material. Reporting 0 would read as 'the platform signs instantly'; it does not sign at all.",
+      "precondition": null,
+      "includes": [],
+      "excludes": [],
+      "notes": null,
+      "detail": null,
+      "samples": null
+    },
+    {
+      "id": "gas.realCeremonyTx",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gas — reale Zeremonie-Transaktionen (claimProduct / setIssuer / anchor, gasUsed aus Receipts)",
+      "design": "A",
+      "unit": "gas",
+      "state": "measured",
+      "provenance": "chain",
+      "value": {
+        "claimProduct": {
+          "count": 1,
+          "gasUsed": [
+            82041
+          ]
+        },
+        "setIssuer": {
+          "count": 4,
+          "gasUsed": [
+            69675,
+            69663,
+            69675,
+            69675
+          ]
+        },
+        "anchor": {
+          "count": 1,
+          "gasUsed": [
+            44324
+          ]
+        },
+        "totalGas": 405053,
+        "totalCostPol": 0.01215159
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "real gasUsed and the real effectiveGasPrice paid, from mined receipts on Polygon Amoy"
+      ],
+      "excludes": [
+        "contract deployment (paid once per chain — see gas.deployment)"
+      ],
+      "notes": "The FIRST Design A ceremony transactions that really happened, and the row measure-rq3 lists as unavailable with the precondition 'one Design A publication driven end to end'. Cross-check them against gas.totalTx (Foundry, cold slots): a live signature's bytes differ per key and a zero calldata byte costs 4 gas against 16, so the live figure moves by a few gas.",
+      "detail": {
+        "receipts": {
+          "claimProduct#1": {
+            "txHash": "0x288613b16dd25808ce64a59a93e5197df6ec1f9588aaaa00a2611f02e3ee8972",
+            "gasUsed": 82041,
+            "effectiveGasPriceWei": 30000000063,
+            "effectiveGasPriceGwei": 30,
+            "costPol": 0.00246123,
+            "blockNumber": 45749462,
+            "status": "success",
+            "outboxStatus": "confirmed"
+          },
+          "setIssuer#1": {
+            "txHash": "0xf75aafa15cc96e351f5d9dfcc156b9c70d30d8465ab11149a5ec8ea82726ae4a",
+            "gasUsed": 69675,
+            "effectiveGasPriceWei": 30000000063,
+            "effectiveGasPriceGwei": 30,
+            "costPol": 0.00209025,
+            "blockNumber": 45749477,
+            "status": "success",
+            "outboxStatus": "confirmed"
+          },
+          "setIssuer#2": {
+            "txHash": "0x5661cefca1d5097c106bf8d94bc32a91be478854eee6ce17c597626dcfe4170a",
+            "gasUsed": 69663,
+            "effectiveGasPriceWei": 30000000063,
+            "effectiveGasPriceGwei": 30,
+            "costPol": 0.00208989,
+            "blockNumber": 45749492,
+            "status": "success",
+            "outboxStatus": "confirmed"
+          },
+          "setIssuer#3": {
+            "txHash": "0x0ed8b9c57a54043167ed82515845f72d72b6f413467936f3e0960701e7778bb0",
+            "gasUsed": 69675,
+            "effectiveGasPriceWei": 30000000063,
+            "effectiveGasPriceGwei": 30,
+            "costPol": 0.00209025,
+            "blockNumber": 45749507,
+            "status": "success",
+            "outboxStatus": "confirmed"
+          },
+          "setIssuer#4": {
+            "txHash": "0x11fb404b469889cf096f25df94a99964dba386a6d8b0616c4a74390a446b9ac9",
+            "gasUsed": 69675,
+            "effectiveGasPriceWei": 30000000063,
+            "effectiveGasPriceGwei": 30,
+            "costPol": 0.00209025,
+            "blockNumber": 45749522,
+            "status": "success",
+            "outboxStatus": "confirmed"
+          },
+          "anchor#1": {
+            "txHash": "0x85581b9e1b27bbf01ffe81a94812a5ea1ce4b013ba057cb60095b76019e981e1",
+            "gasUsed": 44324,
+            "effectiveGasPriceWei": 30000000063,
+            "effectiveGasPriceGwei": 30,
+            "costPol": 0.00132972,
+            "blockNumber": 45749537,
+            "status": "success",
+            "outboxStatus": "confirmed"
+          }
+        },
+        "passportId": "dpp_60faf481d57ca83d",
+        "productDid": "did:web:trustdpp.co:prod_60faf481d57ca83d"
+      },
+      "samples": null
+    },
+    {
+      "id": "anchor.timeToConfirm",
+      "category": "Verankerung  (nicht in §13 versprochen — Zugabe)",
+      "metric": "Time-to-Anchor (Outbox-Queue → bestätigter Receipt)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "platform",
+      "value": null,
+      "dist": {
+        "n": 1,
+        "min": 23836,
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "iqr": null,
+        "p95": null,
+        "max": 23836,
+        "mean": 23836,
+        "stddev": null
+      },
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "outbox queue wait (the relayer's 15 s poll interval)",
+        "transaction broadcast",
+        "Polygon Amoy block time and the relayer's confirmation observation (another poll tick)"
+      ],
+      "excludes": [
+        "the publish itself — the clock starts when the AnchorTx row is created"
+      ],
+      "notes": "Read from the stored createdAt/confirmedAt, exactly as measure-rq3 reads it — this row is here so the run artifact is self-contained, not because it is measured differently. DOMINATED by the relayer's 15 s poll cadence, which is an implementation choice, not a property of the chain: two poll ticks account for most of it.",
+      "detail": {
+        "rows": 1
+      },
+      "samples": [
+        23836
+      ]
+    },
+    {
+      "id": "verification.designA.singleRun",
+      "category": "Graph-Verifikations-Latenz  (RQ3 §13)",
+      "metric": "Graph-Verifikation — Design A, EINE Ausführung (kein Sample)",
+      "design": "A",
+      "unit": "ms",
+      "state": "measured",
+      "provenance": "independent",
+      "value": {
+        "ms": 1230.258,
+        "verdict": "VERIFIED"
+      },
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "one `node scripts/verify-passport.mjs <bundle> --rpc … --anchor-tx …` subprocess, end to end"
+      ],
+      "excludes": [
+        "any repetition — n = 1 is not a distribution and is not reported as one"
+      ],
+      "notes": "The DISTRIBUTION belongs to measure-rq3, which repeats the verifier N ≥ 30 times with warmups. Fill verification.designA.local / .full with:  node scripts/measure-rq3.mjs --b-bundle /Users/abdelrahmanaljabali/Desktop/DPP/dev/backend_dpp/scripts/out/design-a-export-dpp_60faf481d57ca83d-v1.json",
+      "detail": {
+        "bundlePath": "/Users/abdelrahmanaljabali/Desktop/DPP/dev/backend_dpp/scripts/out/design-a-export-dpp_60faf481d57ca83d-v1.json",
+        "exitCode": 0
+      },
+      "samples": null
+    },
+    {
+      "id": "gas.perActorDid.observed",
+      "category": "Gas & Kosten  (RQ3 §13)",
+      "metric": "Gaskosten pro Akteur-DID — beobachtet",
+      "design": "A",
+      "unit": "gas",
+      "state": "measured",
+      "provenance": "chain",
+      "value": 0,
+      "dist": null,
+      "reason": null,
+      "precondition": null,
+      "includes": [
+        "5 did:ethr identities minted and bound during this run"
+      ],
+      "excludes": [],
+      "notes": "measure-rq3 carries this as `structural` (a did:ethr is derived from the address, so no registry transaction exists). This run OBSERVED it: five organisations acquired working, resolvable issuer identities and the outbox recorded no transaction for any of them. The structural claim and the observation agree, which is the point of recording both.",
+      "detail": {
+        "dids": [
+          "did:ethr:0x13882:0xb147280bcdc2de966e8e2131bedb1d02a1997360",
+          "did:ethr:0x13882:0xa79046e84dac70b21540c3c96d6ad42e82d1bd0b",
+          "did:ethr:0x13882:0x6852dd9c3daca8e000888a79d573f9ecda76e049",
+          "did:ethr:0x13882:0x05677c59c52a22c86af7045bdbffe2082220ef4f",
+          "did:ethr:0x13882:0x2db23ef4401b08e09b5a1ddbaa95882e5d2aa1a6"
+        ]
+      },
+      "samples": null
+    }
+  ]
+}

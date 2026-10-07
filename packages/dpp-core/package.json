@@ -1,0 +1,11 @@
+{
+  "name": "@trustdpp/dpp-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Canonical, framework-agnostic ESPR DPP field catalog + rules engine. Single source of truth shared by frontend (UX) and backend (authority).",
+  "type": "module",
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts"
+  }
+}
