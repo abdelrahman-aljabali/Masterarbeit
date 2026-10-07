@@ -28,7 +28,7 @@ cd Masterarbeit
 | What | Command | Result when this repository was published (7 October 2026) |
 |---|---|---|
 | Contract build and tests (Sec. 7.6) | `cd contracts && forge test` | 66 passed, 0 failed |
-| Reproducible bytecode (Sec. 7.6) | `cd contracts && forge build` | runtime bytecode byte-identical to the development repository's build; that build's comparison with the deployed code is `evidence/2026-09-19_bytecode-equality.json` (and `.py`) |
+| Reproducible bytecode (Sec. 7.6) | `cd contracts && forge build` | the same runtime bytecode as the build compared with the deployed contract in `evidence/2026-09-19_bytecode-equality.json` (and `.py`) |
 | Verifier self-test (Sec. 6.3) | `node backend_dpp/scripts/verify-passport.mjs --self-test` | PASS |
 | Verifier, offline (RQ2) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --offline --as-of 2026-08-24T12:00:00Z` | 32 passed, 20 skipped (the chain checks), INCOMPLETE by design |
 | Verifier, online on Polygon Amoy (RQ1, RQ2) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --rpc https://polygon-amoy.drpc.org` | 52 passed, VERIFIED |
