@@ -80,12 +80,10 @@ Notes:
 | Sec. 4.4, 7.4 | The ceremony driver and the measurement harness | [`backend_dpp/scripts/seed-design-a.ts`](backend_dpp/scripts/seed-design-a.ts), [`backend_dpp/scripts/measure-rq3.mjs`](backend_dpp/scripts/measure-rq3.mjs) |
 | Ch. 7, App. A | Every dated artifact | [`evidence/`](evidence/) |
 
-## Commit hashes in the thesis
+## Provenance
 
-The thesis and the evidence files cite commits of the private development repository
-(`88fabf4`, `0b7df64`, `7a7f396`, `5d84f5d`, `f8d7902`, `489a358`, `9051cf9`). This repository
-is a snapshot without that history. [`COMMITS.md`](COMMITS.md) states, for every cited commit,
-what it produced and which files here have changed since.
+This repository reflects the state of 7 October 2026. Commit identifiers inside the evidence
+headers refer to the prototype's development history.
 
 ## What is not here
 
