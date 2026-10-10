@@ -1,0 +1,77 @@
+{
+  "tool": "did-jwt cross-check",
+  "library": {
+    "name": "did-jwt",
+    "version": "8.0.18",
+    "source": "npm registry, unmodified"
+  },
+  "takenAt": "2026-10-10T10:58:47.009Z",
+  "node": "v25.1.0",
+  "bundle": {
+    "path": "2026-10-10_designA-browser-export-dpp_38e8491ab51db46c-v8.json",
+    "passportId": "dpp_38e8491ab51db46c",
+    "version": 8,
+    "credentials": 6
+  },
+  "results": [
+    {
+      "index": 0,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x98f3e07840c49ad1d6ff42a43791d54111e15f06",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 1,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x98f3e07840c49ad1d6ff42a43791d54111e15f06",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 2,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x98f3e07840c49ad1d6ff42a43791d54111e15f06",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 3,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x80596ad7600c399f1e126015c910650354f88c73",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 4,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0x9026d5789a6bbdca8a6349a4b2dc0ee00ff849c6",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    },
+    {
+      "index": 5,
+      "alg": "ES256K-R",
+      "typ": "vc+jwt",
+      "issuer": "did:ethr:0x13882:0xfb5086e2eee7df9ed27a12b39f0be63c22532bac",
+      "acceptedByDidJwt": true,
+      "error": null,
+      "tamperedPayloadRejected": true
+    }
+  ],
+  "summary": {
+    "accepted": 6,
+    "of": 6,
+    "tamperedRejected": 6
+  }
+}

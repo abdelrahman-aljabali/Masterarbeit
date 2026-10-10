@@ -25,7 +25,7 @@ git clone --recurse-submodules https://github.com/abdelrahman-aljabali/Masterarb
 cd Masterarbeit
 ```
 
-| What | Command | Result when this repository was published (7 October 2026) |
+| What | Command | Result on 10 October 2026 (`evidence/2026-10-10_repository-reproduction.txt`) |
 |---|---|---|
 | Contract build and tests (Sec. 7.6) | `cd contracts && forge test` | 66 passed, 0 failed |
 | Reproducible bytecode (Sec. 7.6) | `cd contracts && forge build` | the same runtime bytecode as the build compared with the deployed contract in `evidence/2026-09-19_bytecode-equality.json` (and `.py`) |
@@ -33,6 +33,7 @@ cd Masterarbeit
 | Verifier, offline (RQ2) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --offline --as-of 2026-08-24T12:00:00Z` | 32 passed, 20 skipped (the chain checks), INCOMPLETE by design |
 | Verifier, online on Polygon Amoy (RQ1, RQ2) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --rpc https://polygon-amoy.drpc.org` | 52 passed, VERIFIED |
 | Verifier, Polygon main network (Sec. 7.5) | see below | 52 passed, VERIFIED |
+| Verifier on the browser-signed passport (Sec. 7.3) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-10-10_designA-browser-export-dpp_38e8491ab51db46c-v8.json --rpc https://polygon-amoy.drpc.org` | 52 passed, VERIFIED (two of its six credentials were signed through the key infrastructure in the browser on 6 October 2026) |
 | Tamper suite (RQ1) | `npm install`, then `node backend_dpp/scripts/tamper-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --rpc https://polygon-amoy.drpc.org --out-dir /tmp/tamper` | 15 mutations, none accepted (see note) |
 
 Main-network verification of the replicated passport:

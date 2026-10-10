@@ -1,0 +1,31 @@
+Fresh-clone reproduction of the thesis repository, 2026-10-10T10:59:14Z
+git clone --recurse-submodules https://github.com/abdelrahman-aljabali/Masterarbeit.git
+repository HEAD: 2324535
+
+== forge test (contracts/)
+forge Version: 1.7.1
+Suite result: ok. 66 passed; 0 failed; 0 skipped; finished in 265.18ms (2.00s CPU time)
+Ran 1 test suite in 273.03ms (265.18ms CPU time): 66 tests passed, 0 failed, 0 skipped (66 total tests)
+
+== runtime bytecode vs development build
+identical: True length 8074 bytes
+
+== verifier self-test
+crypto self-test: PASS (keccak256 ×2, sha256, ES256K-R recovery, EIP-2 high-s refusal, merkle ×2)
+
+== verifier, 24 Aug bundle, offline
+  32 passed · 0 failed · 20 skipped
+  INCOMPLETE
+  A skipped check is NOT a passed check — this verifier did not establish those facts.
+
+== verifier, 24 Aug bundle, online (polygon-amoy.drpc.org)
+  52 passed · 0 failed · 0 skipped
+  VERIFIED
+
+== verifier, main-network bundle (polygon.drpc.org)
+  52 passed · 0 failed · 0 skipped
+  VERIFIED
+
+== tamper suite (without the unpublished demonstration keys)
+! .design-a-actors.json is absent — the mutations that need a REAL, AUTHORIZED
+  15 mutations · 0 diverging · 0 not caught at all

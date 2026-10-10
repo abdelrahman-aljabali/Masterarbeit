@@ -1,0 +1,21 @@
+{
+  "tool": "actor balance check (R5)",
+  "takenAt": "2026-10-10T11:04:15.320264Z",
+  "chainId": 80002,
+  "rpc": "https://polygon-amoy.drpc.org",
+  "block": 49807762,
+  "actors": [
+    {
+      "role": "supplier (weaving), browser session 6 Oct",
+      "address": "0xfb5086e2eee7df9ed27a12b39f0be63c22532bac",
+      "balanceWei": 0,
+      "transactionCount": 0
+    },
+    {
+      "role": "operator (brand), browser session 6 Oct",
+      "address": "0x98f3e07840c49ad1d6ff42a43791d54111e15f06",
+      "balanceWei": 0,
+      "transactionCount": 0
+    }
+  ]
+}
