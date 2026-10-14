@@ -83,7 +83,7 @@ Notes:
 
 ## Provenance
 
-This repository reflects the state of 7 October 2026. Commit identifiers inside the evidence
+This repository reflects the state of 10 October 2026. Commit identifiers inside the evidence
 headers refer to the prototype's development history.
 
 ## What is not here
