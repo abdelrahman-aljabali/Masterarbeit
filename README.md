@@ -14,8 +14,6 @@ reproduction artifact**, not a deployable platform. The passport editor, supplie
 dashboards, authentication, database and deployment configuration are part of the product the
 prototype was built in and are not included (thesis, Chapter 6).
 
-The final PDF is in [`thesis/`](thesis/), with its LaTeX sources in [`thesis/latex/`](thesis/latex/).
-
 ## What you can reproduce
 
 Requirements: Node.js ≥ 20, [Foundry](https://getfoundry.sh) 1.7.1 for the contracts, git.
