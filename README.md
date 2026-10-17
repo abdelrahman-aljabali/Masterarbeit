@@ -23,10 +23,10 @@ git clone --recurse-submodules https://github.com/abdelrahman-aljabali/Masterarb
 cd Masterarbeit
 ```
 
-| What | Command | Result on 10 October 2026 (`evidence/2026-10-10_repository-reproduction.txt`) |
+| What | Command | Result from a fresh clone on 17 October 2026 (`evidence/2026-10-17_repository-reproduction.txt`) |
 |---|---|---|
 | Contract build and tests (Sec. 7.6) | `cd contracts && forge test` | 66 passed, 0 failed |
-| Reproducible bytecode (Sec. 7.6) | `cd contracts && forge build` | the same runtime bytecode as the build compared with the deployed contract in `evidence/2026-09-19_bytecode-equality.json` (and `.py`) |
+| Reproducible bytecode (Sec. 7.6) | `cd contracts && forge build && python3 ../evidence/2026-09-19_bytecode-equality.py` | 8,074 bytes, equal to the deployed contract outside its 7 immutable slots, no `CALLER` opcode (the script rewrites its JSON with the new run) |
 | Verifier self-test (Sec. 6.3) | `node backend_dpp/scripts/verify-passport.mjs --self-test` | PASS |
 | Verifier, offline (RQ2) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --offline --as-of 2026-08-24T12:00:00Z` | 32 passed, 20 skipped (the chain checks), INCOMPLETE by design |
 | Verifier, online on Polygon Amoy (RQ1, RQ2) | `node backend_dpp/scripts/verify-passport.mjs evidence/2026-08-24_designA-export-dpp_f3bea69cca545292-v1.json --rpc https://polygon-amoy.drpc.org` | 52 passed, VERIFIED |
@@ -81,7 +81,7 @@ Notes:
 
 ## Provenance
 
-This repository reflects the state of 10 October 2026. Commit identifiers inside the evidence
+The tag `thesis-submission` marks the version that matches the submitted thesis. Commit identifiers inside the evidence
 headers refer to the prototype's development history.
 
 ## What is not here
