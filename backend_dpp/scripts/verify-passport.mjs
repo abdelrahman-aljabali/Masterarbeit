@@ -4,7 +4,8 @@
  * Verifies a published TrustDPP passport export **from outside the platform**,
  * using nothing but an export file, an EVM JSON-RPC endpoint, and Node's
  * standard library. This is the tool that produces both columns of the thesis's
- * headline comparison:
+ * headline comparison: `--offline` (the bytes alone) and the default online
+ * run (bytes plus the chain).
  */
 
 import { readFileSync } from "node:fs";
@@ -395,7 +396,8 @@ class ChainUnreachable extends Error {}
 
 /**
  * Endpoints fail in two ways that look alike in a message string and must be
- * handled oppositely:
+ * handled oppositely: a range refusal shrinks the block window, a rate refusal
+ * backs off and retries the same request.
  */
 const RANGE_ERROR = /block range|range should|up to a \d+ block|query returned more than|too many results|exceeds? .{0,20}block|logs matched/i;
 const RATE_ERROR = /rate limit|compute unit|throughput|capacity|too many requests|429|slow down|exceeded.*(second|quota)/i;

@@ -95,7 +95,7 @@ function anchor(bytes32 productId, bytes32 merkleRoot, uint64 version, uint256 n
   `version` — is deliberate; ordering comes from block/log index plus the off-chain snapshot.
 - **Immutable.** No upgradeability, no proxy, no admin key, no owner. A thesis artifact has to be
   maximally auditable, so it deploys immutable and is redeployed if wrong. The registry is tiny
-  (6,235 bytes runtime).
+  (8,074 bytes runtime).
 - **Custom errors, not revert strings.** Cheaper, and gas is a measured quantity here.
 
 ### Security decisions
@@ -162,7 +162,7 @@ forge install --no-git OpenZeppelin/openzeppelin-contracts@v5.4.0
 
 ```sh
 forge build            # compile
-forge test -vv         # 51 tests, all green
+forge test -vv         # 66 tests, all green
 forge fmt --check      # formatting gate (skips src/vendor/)
 forge snapshot         # writes .gas-snapshot + snapshots/TrustAnchorRegistry.json
 forge coverage
@@ -197,41 +197,30 @@ second copy.
 
 ## Gas (thesis measurement)
 
-Measured with cold storage slots (`vm.coolSlot` before each call), i.e. what a relayer actually pays
-for a **standalone** transaction. `TOTAL TX` adds the EIP-2028 intrinsic cost: 21 000 base + 16 gas
-per non-zero calldata byte + 4 per zero byte. Reproduce with
-`forge test --match-test test_Gas_PerOperation -vv`.
+The thesis reports gas from real transaction receipts, not from in-test estimates (thesis
+Table 7.5). The receipts are recorded in `../evidence/`:
 
-| Operation      | Execution | Intrinsic + calldata | **Total tx** |
-| -------------- | --------: | -------------------: | -----------: |
-| `claimProduct` |    51 805 |               23 516 |   **75 321** |
-| `setIssuer`    |    36 767 |               23 668 |   **60 435** |
-| `anchor`       |    14 633 |               23 812 |   **38 445** |
-| `anchor` (warm slots, execution only) | 7 833 | — | — |
+| Figure | Gas | Source |
+| ------ | --: | ------ |
+| `TrustAnchorRegistry` deployment (Polygon main network, 23 September 2026) | 1 802 590 | `evidence/2026-09-23_polygon-receipts-gas.json` |
+| One publication, batched path (`claimProduct` + `setIssuers` + `anchor`) | 267 008 | `evidence/2026-09-17_receipts-gas.json` (`paths.batched`) |
+| One publication, per-issuer path (`claimProduct` + 4 × `setIssuer` + `anchor`) | 405 053 | `evidence/2026-09-17_receipts-gas.json` (`paths.perIssuer`) |
 
-The `Total tx` column is corroborated three independent ways: the in-test calculation above,
-`forge test --gas-report` (which reports 75 321 / 60 435 / 38 445 for the three functions), and a
-real transaction sent to a deployed instance on a local node — `cast send` reported `gasUsed`
-75 321 for `claimProduct` and 38 445 for `anchor`, exact matches. (`setIssuer` measured 60 423 live
-rather than 60 435: signature bytes differ per key, and a zero calldata byte costs 4 gas against 16
-for a non-zero one, so the figure moves by a few gas depending on the signature.)
+The per-transaction receipts behind each total are listed in the same files. The recurring
+per-publication cost is `anchor` (44 324 to 44 336 gas on these receipts); anchors are events, not storage,
+so a publication writes no anchor slot.
 
-Reading of the numbers: `claimProduct` pays two zero→non-zero `SSTORE`s (controller + the signer's
-first nonce), `setIssuer` pays one, and `anchor` pays none — its only write is the nonce update, and
-the rest is `ecrecover` (3 000) plus the log. **The recurring per-publish cost is `anchor`, and more
-than 60 % of it is calldata and the flat transaction fee, not contract execution.** That is the
-event-log design paying off: a storage-based anchor would add ~20 000 gas per publish.
+`forge test --match-test test_Gas -vv` runs the in-test gas checks (`test_Gas_PerOperation`,
+`test_Gas_SetIssuersVersusFourSetIssuerCalls`).
 
-Deployment cost: 1 406 231 gas for `TrustAnchorRegistry`.
-
-Contract sizes: `TrustAnchorRegistry` 6 235 B runtime / 7 157 B initcode; `EthereumDIDRegistry`
-6 273 B / 6 301 B.
+Contract size: `TrustAnchorRegistry` 8 074 B runtime, byte-equal to the deployed Amoy instance
+modulo immutables (`evidence/2026-09-19_bytecode-equality.json`).
 
 ---
 
 ## Test suite
 
-51 tests in `test/TrustAnchorRegistry.t.sol`. EIP-712 digests are reconstructed in the test from
+66 tests in `test/TrustAnchorRegistry.t.sol`. EIP-712 digests are reconstructed in the test from
 literals rather than read off the contract, so an encoding bug cannot hide by being mirrored.
 
 Coverage highlights:

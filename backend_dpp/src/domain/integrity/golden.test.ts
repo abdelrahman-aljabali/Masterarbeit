@@ -21,7 +21,7 @@ describe("stableStringify (canonical serializer)", () => {
   // Old behavior: `{k: undefined}` → the literal text `{"k":undefined}` (not JSON)
   // and any Date → `{}` (all Dates aliased to identical bytes). Both were
   // silent-corruption hazards. New behavior: undefined/function values throw; Date
-  // serializes as its ISO instant. CHAIN COMPATIBILITY:
+  // serializes as its ISO instant.
   it("hardened: undefined inside an object THROWS (was literal `undefined` text)", () => {
     expect(() => stableStringify({ k: undefined })).toThrow(/unserializable/);
   });

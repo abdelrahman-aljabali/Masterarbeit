@@ -14,7 +14,8 @@ import crypto from "crypto";
  * as `{}` — every Date collapsed to the same bytes, so two records differing
  * only in a Date field hashed identically). - `undefined`/function values INSIDE
  * objects throw (previously the template emitted the literal `undefined` — not
- * JSON, and a silent aliasing hazard). Chain compatibility:
+ * JSON, and a silent aliasing hazard). The change is deliberate and pinned in
+ * `golden.test.ts`.
  */
 export function stableStringify(value: unknown): string {
   if (value instanceof Date) return JSON.stringify(value.toISOString());

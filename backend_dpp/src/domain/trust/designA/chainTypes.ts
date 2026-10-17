@@ -1,8 +1,10 @@
 /**
  * ─── Design A chain vocabulary — the half with no chain client in it ──────────
  * Everything in this file is a TYPE, a VALIDATOR, an ERROR or a PURE FUNCTION
- * over strings. It imports nothing — not `ethers`, not `config`, not Prisma. Two
- * structural reasons, both load-bearing:
+ * over strings. It imports nothing — not `ethers`, not `config`, not Prisma. Both
+ * gateways (the ethers one and the in-memory fake) run the same validators, so
+ * both reject the same bytes, and code that only needs the types never pulls in
+ * a chain client.
  */
 
 // ── Primitive aliases ────────────────────────────────────────────────────────
@@ -269,11 +271,14 @@ export function latestAnchor(matches: readonly AnchorRecord[]): AnchorRecord | n
 
 /**
  * ── The result of SEARCHING for an anchor, which is not the same thing as an
+ * anchor. ──
+ *
  * An anchor lives in an event LOG, and reading logs on a public endpoint is a
  * bounded, best-effort operation: every provider caps `eth_getLogs` (Alchemy's
  * Amoy free tier at TEN blocks, publicnode and dRPC at 10 000), so a search that
  * has to sweep a chain's history can run out of budget before it runs out of
- * blocks. A bare `AnchorRecord | null` cannot express that:
+ * blocks. A bare `AnchorRecord | null` cannot express that, so the lookup also
+ * reports how much of the range it covered.
  */
 export interface AnchorLookup {
   /** The newest matching `Anchored` log SEEN, or null if none was seen. */

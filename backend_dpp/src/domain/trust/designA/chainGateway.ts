@@ -74,7 +74,8 @@ export {
  * Design A's entire chain surface is these six methods. ESLint forbids `ethers`
  * (and `viem`, `web3`, `@web3auth/*`, `jose`, `did-jwt*`, `ethr-did*`) anywhere
  * outside `domain/trust/designA/`, and inside that folder the one-importer rule
- * is this file. That buys three things the thesis actually needs:
+ * is this file. That keeps the chain surface small enough to audit, and lets
+ * the in-memory `FakeChainGateway` stand in for it in tests.
  */
 export interface ChainGateway {
   /**
@@ -201,7 +202,8 @@ const DEFAULT_ANCHOR_SCAN_MAX_REQUESTS = 200;
 /**
  * Two endpoint refusals that look alike in a message string and must be handled
  * OPPOSITELY (the lesson is `scripts/verify-passport.mjs`'s, learned against
- * real endpoints):
+ * real endpoints): a range refusal shrinks the block window, a rate refusal
+ * must not.
  */
 const RANGE_ERROR = /block range|range should|up to a \d+ block|query returned more than|too many results|exceeds? .{0,20}block|logs matched/i;
 const RATE_ERROR = /rate limit|compute unit|throughput|capacity|too many requests|429|slow down|exceeded.*(second|quota)/i;
@@ -908,7 +910,8 @@ const TX_HASH_RE = /^0x[0-9a-fA-F]{64}$/;
  * Strip anything URL-shaped. RPC endpoints carry API keys in their path or
  * subdomain, and this is not theoretical: ethers' `assertOk()` puts
  * `info.requestUrl` — the FULL endpoint including the key — into `error.message`
- * for every non-2xx response, so `${err.name}:
+ * for every non-2xx response, so logging `${err.name}: ${err.message}` as is
+ * would leak the key.
  */
 function redactUrls(text: string): string {
   return text.replace(/\b(?:https?|wss?):\/\/\S+/gi, "[endpoint redacted]");

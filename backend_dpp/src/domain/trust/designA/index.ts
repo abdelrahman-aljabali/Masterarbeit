@@ -48,8 +48,8 @@ export class DesignATrust implements TrustProvider {
   }
 
   /**
-   * **Products keep a `did:web` subject in BOTH designs — a deliberate, documented
-   * deviation from thesis Entscheidung 4.**
+   * **Products keep a `did:web` subject in BOTH designs** (thesis Sec. 5.2); only
+   * organizations get a `did:ethr`, and that is minted elsewhere, so `org` returns null.
    */
   async mintDid(kind: "org" | "product", id: string): Promise<MintedDid | null> {
     if (kind === "org") return null;
@@ -161,8 +161,6 @@ export class DesignATrust implements TrustProvider {
     );
   }
 
-  /** No platform signature — the evidence is on chain. See `anchor.ts` for the
-   *  full reasoning; the short version is that A removes the self-attestation. */
   /**
    * The chain decides who may publish. Asked once per DISTINCT issuer, at publish,
    * over the whole set — so the refusal names every unauthorized issuer rather
@@ -263,6 +261,8 @@ export class DesignATrust implements TrustProvider {
     };
   }
 
+  /** No platform signature — the evidence is on chain. See `anchor.ts` for the
+   *  full reasoning; the short version is that A removes the self-attestation. */
   commitChainHead(prisma: PrismaClient, orgId: string): Promise<ChainHeadCommitment> {
     return commitChainHeadUnsigned(prisma, orgId);
   }
@@ -284,17 +284,18 @@ export class DesignATrust implements TrustProvider {
   }
 
   /**
-   * Rotation lives in the org's wallet and on ERC-1056, not here — exactly as
-   * the interface documentation already promised. `changeOwner` on the registry
-   * re-points the DID at a new address; the DID string is unchanged, so
-   * everything previously signed keeps verifying while the old key stops being
-   * able to assert.
+   * Rotation belongs in the org's wallet and on ERC-1056, not here. It is designed
+   * but not built (thesis Sec. 5.4): `changeOwner` would re-point the DID at a new
+   * address with the DID string unchanged, but the verifier checks the current
+   * key, so credentials signed by the previous key would then fail the
+   * issuer-key-current check.
    */
   async rotateSigningKey(_prisma: PrismaClient, subjectId: string): Promise<{ fragment: string }> {
     throw new HttpError(
       501,
-      "Design A cannot rotate a key the platform does not hold. Rotate in the org's wallet via the " +
-        "ERC-1056 registry (changeOwner); the did:ethr identifier is unchanged and prior signatures keep verifying.",
+      "Design A cannot rotate a key the platform does not hold, and rotation is designed but not built. " +
+        "ERC-1056 changeOwner keeps the did:ethr identifier, but credentials signed by the previous key " +
+        "would then fail the issuer-key-current check.",
       { subjectId },
     );
   }

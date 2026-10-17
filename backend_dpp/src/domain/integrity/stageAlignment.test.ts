@@ -6,8 +6,9 @@ import { DPP_STAGES, getStageById, stagesForSector, supplierStagesFor } from "..
 /**
  * ─── Supply Chain Taxonomy V2 alignment (AA-PAR-TAX-501-V2.0, July 2026) ──────
  * Pins the stage ladder to the harmonized apparel-alliance taxonomy (Aii,
- * Cascale, Textile Exchange, ZDHC) the EPRS study also follows. Two invariants
- * matter enough to freeze:
+ * Cascale, Textile Exchange, ZDHC) the EPRS study also follows. The tests below
+ * freeze the official tier codes, the weaving stage and its credential, and the
+ * signed-bytes hygiene of derived fields.
  */
 
 describe("taxonomy V2 tier codes", () => {

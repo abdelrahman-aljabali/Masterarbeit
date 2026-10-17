@@ -9,7 +9,7 @@ import { buildVcEnvelope } from "./vc.js";
 /**
  * ─── Credential lifecycle end-to-end ──────────────────────────────────────────
  * The signing/verification claims this platform makes to the outside world,
- * exercised against a real database:
+ * exercised against a real database: signing, tampering, and revocation.
  */
 
 const hasDb = !!process.env.DATABASE_URL;

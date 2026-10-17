@@ -181,18 +181,18 @@ is not caught is reported as a finding.
 
 Every mutation is verified twice — `--offline` (bytes only: `version-hash`,
 `merkle-root`, ES256K-R recovery) and against the chain (adds ERC-1056
-resolution, the authorization root, the anchor). The two columns are §16's table
-as a measurement: which mutations does the chain catch that the bytes cannot?
+resolution, the authorization root, the anchor). The two columns answer one
+question: which mutations does the chain catch that the bytes cannot? (Thesis
+Sec. 7.2 (RQ1) and Table 7.1.)
 
 Mutations ending `-rehashed` also recompute the platform's own `hash`, because a
 platform altering its own database would. Five mutations are invisible offline
-once it does, and only the anchor refuses — which is §15's *"a matching
-`version-hash` proves nothing against the platform"* made empirical.
+once it does, and only the anchor refuses: a matching `version-hash` proves
+nothing against the platform.
 
 Exit `0` every mutation behaved as catalogued · `1` one diverged, in either
-direction · `2` usage. The archived run, with the verbatim transcripts and the
-findings it produced, is
-`Masterarbeit/planning_schreiben/thesis_notes_citations/NEGATIVE_RESULTS_INDEX.md`.
+direction · `2` usage. The archived runs, with their verbatim transcripts, are
+in `evidence/` (`*_designA-tamper-suite*.json` / `.txt`).
 
 **Two mutations are not caught**, and both are re-signed with a genuinely
 authorized supplier key: a credential whose `credentialSubject.id` names a
@@ -215,9 +215,8 @@ node scripts/measure-rq3.mjs --help
 ```
 
 The quantitative half of the evaluation. RQ3 asks what the decentralised
-architecture costs against the baseline, and §24 of `THESIS_MASTER.md` currently
-answers with estimates and the sentence *„Alle Zahlenwerte sind Schätzungen."*
-This is the instrument that replaces them.
+architecture costs against the baseline. This is the instrument that measures it
+(thesis Sec. 4.4 and 7.4).
 
 It is a **measurement** tool, not a verifier — but it keeps the directory's
 zero-import rule anyway. Two things fall out of that: the verification-latency
@@ -257,7 +256,7 @@ thing for free" rather than "Design B does not do this".
 
 ### Distributions
 
-§12 of the thesis commits to **N ≥ 30, median + IQR**, so `--n` defaults to 30
+The thesis commits to **N ≥ 30, median + IQR** (Sec. 4.4), so `--n` defaults to 30
 and every latency reports n / min / p25 / median / p75 / IQR / p95 / max / mean /
 stddev. Percentiles use method R-7 (linear interpolation, the NumPy/Excel
 default), stated in the JSON so it is reproducible. `--warmup` (default 3) runs
@@ -289,8 +288,7 @@ with `contracts/README.md` to the gas.
 
 `--pol-usd` is **required** for the dollar column and is never fetched: a rate
 scraped from a price API at run time is unciteable and irreproducible in a
-thesis. Same for `--web3auth-usd-per-maw`, which §13 promises as an RQ3 row and
-which is a published list price to be cited, not a quantity anything can observe.
+thesis. Same for `--web3auth-usd-per-maw`, an RQ3 row that is a published list price to be cited, not a quantity anything can observe.
 
 ### Time-to-anchor comes free
 
@@ -320,7 +318,7 @@ node scripts/measure-rq3.mjs --n 30 --n-network 30 \
   --b-prod-url https://app.trustdpp.co/api/public/passports/dpp_806e2c79e92bb84e
 ```
 
-§15 scopes the empirical comparison to the **deployed** status quo, so the
+The thesis scopes the empirical comparison to the **deployed** status quo (Sec. 4.2), so the
 baseline has to come from deployed infrastructure. What production serves today
 is the flattened public projection, **not** a full evidence bundle — `/export`
 exists in the working tree but is not deployed. That matters and is stamped on
@@ -505,11 +503,11 @@ the anchoring transaction hash attached from the chain so it verifies directly:
 node scripts/verify-passport.mjs scripts/out/design-a-export-<id>-v1.json --rpc <url>
 ```
 
-Two measurement ids are deliberately **not** the ones §13 names —
+Two measurement ids are deliberately **not** the ones the RQ3 metrics name —
 `onboarding.designA.headless` and `signing.designA.ceremony.headless`. Both of
-§13's rows begin at a human action in a browser ("Google-Login bis did:ethr
+those metrics begin at a human action in a browser ("Google-Login bis did:ethr
 registriert", "Sign-Button → VC auf dem Server"); this script has no browser, no
 OAuth redirect and no tKey reconstruction, so what it measures is the protocol
 and platform component of those spans — a strict lower bound. Publishing it
-under the promised id would answer §13's primary metric with a number that
+under the metric's own id would answer it with a number that
 excludes the part the metric exists to question.

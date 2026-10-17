@@ -14,7 +14,8 @@ import { statusEntryFor } from "./statusList.js";
  * a typo silently changed term IRIs in newly signed credentials — a semantic
  * break no test could catch, flagged as the top standards risk in the 2026-07
  * compliance review. v3 defines every term explicitly and demotes `@vocab` to a
- * QUARANTINE namespace. This suite is the tripwire:
+ * QUARANTINE namespace. This suite is the tripwire: an undefined term lands in
+ * quarantine, and the frozen context bytes must not change.
  */
 
 const DOCS = new Map<string, unknown>([[CONTEXT_URL_V3, DPP_CONTEXT_V3]]);

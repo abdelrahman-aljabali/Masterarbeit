@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * ─── RQ3 measurement harness (thesis artifact) ────────────────────────────────
- * RQ3 asks the only question in this thesis with a numeric answer:
+ * RQ3 asks the only question in this thesis with a numeric answer: what the
+ * decentralised design costs against the baseline in time, gas and money.
  */
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
@@ -441,7 +442,7 @@ function measureVerification(cfg, bundle) {
     samples: cfg.keepSamples ? offline.samples.map(round) : null,
   });
 
-  // ── Full: adds the network. See the anchor-window note above.
+  // ── Full: adds the network. See the block-window note below.
   if (!cfg.rpcUrl) {
     unavailable({
       id: `verification.design${design}.full`,
@@ -456,7 +457,11 @@ function measureVerification(cfg, bundle) {
   }
 
   /*
-   * inverts a measurement:
+   * The block window. Design B has no anchor, so its window is a single block
+   * and the anchor search costs almost nothing. Design A without a recorded
+   * anchor transaction searches from the registry's deployment block, not from
+   * genesis. Without these bounds the row would time a log sweep, not a
+   * verification.
    */
   const block = cfg.deployment?.blockNumber;
   const fullArgs = ["--rpc", cfg.rpcUrl];

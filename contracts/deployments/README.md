@@ -28,7 +28,7 @@ verify.
 | File            | Chain                       | Status                                             |
 | --------------- | --------------------------- | -------------------------------------------------- |
 | `amoy.json`     | Polygon Amoy (80002)        | Design A target. Written by `script/Deploy.s.sol`. |
-| `polygon.json`  | Polygon mainnet (137)       | Not deployed. Would reuse the *canonical* ERC-1056. |
+| `polygon.json`  | Polygon mainnet (137)       | Deployed 23 September 2026 (block 94303476), verified on Polygonscan. Reuses the *canonical* ERC-1056, so `ethereumDidRegistryTx` is empty. |
 | `anvil.json`    | Local anvil (31337)         | Throwaway; regenerate freely, do not commit.        |
 
 ## Shape

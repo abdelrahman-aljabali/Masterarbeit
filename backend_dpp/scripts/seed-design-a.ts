@@ -2,7 +2,8 @@
 /**
  * ─── The Design A ceremony, driven end to end (demo + RQ3 instrument) ─────────
  * Every step of Design A is built and individually verified. Nothing had ever
- * run as ONE sequence. This script is that sequence:
+ * run as ONE sequence. This script is that sequence: it onboards the actors,
+ * runs the signing ceremony, publishes, anchors, and verifies the result.
  */
 
 import { spawnSync } from "node:child_process";
@@ -1465,7 +1466,9 @@ function provenance(chainId: number, registry: string, startBlock: number) {
  * The rule is measure-rq3's, inherited verbatim: **a number that was not
  * measured is null**, and a number that was measured under different conditions
  * than the row promises gets a DIFFERENT id rather than the promised one. Two
- * rows here are deliberately NOT the ids §13 names:
+ * rows here are deliberately NOT the ids the RQ3 metrics name:
+ * `onboarding.designA.headless` and `signing.designA.ceremony.headless`. They
+ * run without a browser, so they measure a lower bound of those metrics.
  */
 
 async function recordMeasurements(ctx: {

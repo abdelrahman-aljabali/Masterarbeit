@@ -7,7 +7,9 @@ import { serializeCall, deserializeCall } from "./outbox.js";
 /**
  * ─── `SetIssuers`: three encoders, one digest ─────────────────────────────────
  * The batch authorization is the first payload in this system with a DYNAMIC
- * ARRAY member, and it is hashed by three independent implementations:
+ * ARRAY member, and it is hashed by three independent implementations: our
+ * `typedData.ts`, ethers' `TypedDataEncoder`, and the Solidity contract (via its
+ * golden vector). All three must agree on one digest.
  */
 
 /** Fixed inputs, matching the Solidity golden-vector test member for member. */

@@ -10,7 +10,7 @@ import { SCHEMA_URL_V2, CONTEXT_URL_V3 } from "./trustUrls.js";
  * ─── credentialSchema conformance ─────────────────────────────────────────────
  * Every credential this platform signs points at
  * `/schemas/dpp-tier-credential.v2.json` and invites a verifier to validate
- * against it. Nothing checked that the invitation was honest:
+ * against it. Nothing checked that the invitation was honest; these tests do.
  */
 
 const ajv = new Ajv2020({ strict: false, allErrors: true });

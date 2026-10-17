@@ -6,7 +6,8 @@ import { DesignBTrust } from "./designB.js";
  * ─── The ONLY legal doorway into the trust layer ──────────────────────────────
  * Everything outside `domain/trust/` imports from THIS file and nothing else
  * (ESLint `no-restricted-imports` enforces it — a bypass is a build error). Two
- * kinds of exports live here:
+ * kinds of exports live here: the seam's types and pure helpers, and the active
+ * design's provider.
  */
 
 export type { TrustProvider, ChainHeadCommitment, CredentialVerdict, MintedDid, RevocableCredential } from "./TrustProvider.js";

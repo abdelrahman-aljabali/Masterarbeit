@@ -204,7 +204,7 @@ async function connectTrustingState(web3auth: Web3Auth): Promise<ConnectResult |
  * path normally does this, and a salvaged connect never takes that path, so the
  * first rescued supplier landed in their portal with the login modal still over
  * it. `loginModal.closeModal()` is the SDK's own public door, but this is
- * cosmetic cleanup on a rescue path:
+ * cosmetic cleanup on a rescue path, so a failure is logged and never thrown.
  */
 function closeLoginModal(web3auth: Web3Auth): void {
   try {

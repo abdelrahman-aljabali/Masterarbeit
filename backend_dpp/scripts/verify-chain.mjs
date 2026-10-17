@@ -3,7 +3,8 @@
  * ─── Standalone audit-chain verifier (thesis artifact) ────────────────────────
  * Independently verifies a TrustDPP organization's tamper-evident audit chain
  * using NOTHING but Node's built-in crypto + fetch — no TrustDPP code, no npm
- * dependencies. This is the point of the design:
+ * dependencies. This is the point of the design: the check must not trust the
+ * platform it is checking.
  */
 import crypto from "node:crypto";
 

@@ -44,7 +44,9 @@ import type { VerifiedApproval } from "../../workflow/chainNodes.js";
 /**
  * ─── Design A's authenticated HTTP surface — the ceremony ─────────────────────
  * Everything an ACTOR has to sign with a key this platform does not hold, and
- * the endpoints that hand them the exact bytes to sign. Four flows:
+ * the endpoints that hand them the exact bytes to sign. Four flows: credential
+ * upload, review decisions, the signed chain head, and the chain writes (claim,
+ * issuer authorization, anchor, publish plan).
  */
 
 const workflowPublish = () => import("../../workflow/publish.js");
@@ -280,9 +282,11 @@ export const createDesignARoutes = (
       });
     }
 
-    // 3 + 4 — the chain-dependent half. Both fold in as CHECKS (monotone
-    // downward), so neither can rescue anything and both are visible in the
-    // refusal. An unreachable chain is a refusal too, never an assumption.
+    // 3 — the chain-dependent half: the issuer key must still be current in the
+    // resolved DID document. It folds in as a CHECK (monotone downward), so it
+    // cannot rescue anything and is visible in the refusal. An unreachable chain
+    // is a refusal too, never an assumption. Issuer authorization is not checked
+    // here; assertIssuersMayPublish enforces it at publication.
     const gateway = gatewayOf();
     try {
       const document = await resolveDidEthr(gateway, issuerDid);
@@ -291,18 +295,11 @@ export const createDesignARoutes = (
         ok: documentAuthorizesAddress(document, verification.signerAddress, chain()),
         detail: "the resolved DID document no longer authorizes this address to assert",
       });
-      /*
-       * It used to be, and it made the contributor carry the operator's decision: a
-       * supplier filled their fields, reconstructed their key, signed, and read
-       * "Credential rejected" — for a permission they cannot grant themselves and have
-       * no way to obtain. The refusal was correct and pointed at the wrong person.
-       */
     } catch (err) {
       logger.warn({ err, issuerDid }, "design-a: attestation upload could not reach the chain");
       throw new HttpError(
         503,
-        "The chain could not be read, so this credential's issuer authorization could not be checked. " +
-          "Refusing rather than storing an unauthorized attestation.",
+        "The issuer key could not be checked against the chain; try again.",
       );
     }
     if (!verification.verdict.verified) {
@@ -312,7 +309,7 @@ export const createDesignARoutes = (
       });
     }
 
-    // 5 + 6 — the content. Rebuilt from the database, never from the request.
+    // 4 + 5 — the content. Rebuilt from the database, never from the request.
     const { prepared, byRole } = await (await workflowPublish()).currentRoleSnapshots(prisma, passport.id);
     const snap = byRole.get(body.role);
     if (!snap) {
@@ -1217,7 +1214,8 @@ export const createDesignARoutes = (
      * `nonceOf` reports what has been MINED. A row sitting in the outbox is a
      * signature over the current value that has not landed, so a plan built now
      * would assign that same value to its first step — two payloads for one nonce,
-     * one of which reverts. Scoped to the ORG, not the passport:
+     * one of which reverts. Scoped to the ORG, not the passport, because the nonce
+ * belongs to the org's signing address and every passport shares it.
      */
     const inFlight = await prisma.anchorTx.findMany({
       where: { orgId, status: { in: ["pending", "sent"] } },

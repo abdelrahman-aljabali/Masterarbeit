@@ -309,7 +309,7 @@ function buildCatalogue(ctx) {
     add({
       id: "typ-cross-protocol-rehashed",
       title: "A genuine supplier signature, minted under a different `typ` and served as a credential",
-      promise: "§14 — cross-protocol replay of the actor's general-purpose secp256k1 key",
+      promise: "Threat model (Sec. 4.3) — cross-protocol replay of the actor's general-purpose secp256k1 key",
       change: (b) => {
         const i = ctx.farmIndex;
         const t = splitToken(tokenOf(b.credentials[i]));
@@ -563,8 +563,9 @@ function main() {
   const actors = existsSync(ACTORS_FILE) ? JSON.parse(readFileSync(ACTORS_FILE, "utf8")).actors : null;
   if (!actors) {
     process.stderr.write(
-      "! .design-a-actors.json is absent — the mutations that need a REAL, AUTHORIZED\n" +
-        "  supplier key (cross-product transplant, expiry, cross-protocol replay) are omitted.\n\n",
+      "! .design-a-actors.json is absent — the four mutations that need a REAL, AUTHORIZED\n" +
+        "  supplier key (cross-protocol replay, login-token replay, cross-product transplant,\n" +
+        "  expired credential) are omitted.\n\n",
     );
   }
 

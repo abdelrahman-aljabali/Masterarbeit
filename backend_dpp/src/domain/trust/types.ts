@@ -11,7 +11,8 @@
 /**
  * The two designs do not produce the same KIND of artefact, and the seam used to
  * pretend they did (`Record<string, unknown>` on every credential parameter and
- * return) — finding H2 of the W3C compliance review:
+ * return) — finding H2 of the W3C compliance review. The types below name each
+ * shape.
  */
 
 /** A JSON-LD `@context`: one IRI, or an array of IRIs / inline context objects. */

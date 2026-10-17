@@ -16,7 +16,8 @@ import { verifySignedCredential } from "./sign.js";
  * ─── BitstringStatusList: concurrency + serving contract ──────────────────────
  * The two tests that matter here are REGRESSION tests for silent data races that
  * shipped. Both mutations used to be read-modify-write round trips under
- * Postgres' default READ COMMITTED isolation:
+ * Postgres' default READ COMMITTED isolation, so concurrent writers could hand out
+ * the same index or lose each other's revocation bits.
  */
 
 const hasDb = !!process.env.DATABASE_URL;

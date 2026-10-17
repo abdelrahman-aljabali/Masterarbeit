@@ -8,7 +8,7 @@ import { didWebHost } from "./did.js";
 /**
  * ─── External chain verifiability (P4-4) ──────────────────────────────────────
  * The audit chain is only tamper-EVIDENT to someone who can recompute it. These
- * helpers power the public export + the SIGNED chain head:
+ * helpers power the public export and the SIGNED chain head.
  */
 
 export interface SignedChainHead {
