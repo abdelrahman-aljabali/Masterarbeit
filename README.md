@@ -91,8 +91,6 @@ headers refer to the prototype's development history.
 - Environment files, API keys, the relayer key and the demonstration actors' private keys. No
   file here contains a private key; the only key-like constant is the public self-test vector
   for private key 1 in the verifier.
-- The two screen recordings of the browser session of 6 October 2026 (684 MB); the step-by-step
-  count is `evidence/2026-10-06_r4-browser-session.md`.
 
 The e-mail addresses that appear in `evidence/` belong to demonstration organizations and are
 part of signed, published credentials; changing them would break the signatures under study.
