@@ -50,6 +50,10 @@ Notes:
   skip and the verdict becomes INCOMPLETE, never VERIFIED. Re-run, or use another endpoint.
   `polygon-amoy.drpc.org` and `polygon.drpc.org` gave complete runs on 7 October 2026; pruned
   endpoints that drop old receipts are handled by a log scan (Sec. 6.3).
+- **Log scans need an endpoint that accepts wide `eth_getLogs` ranges.** By 23 October 2026 the
+  free drpc plan rejected large ranges, so paths that scan the log (`--authorization-at`, a bundle
+  without an anchor hint) can end INCOMPLETE there. Narrow the range with `--from-block` and
+  `--to-block`, or use an archive endpoint. The commands in the table above do not depend on it.
 - **Tamper suite: 15 of 19.** Four mutations (cross-protocol replay, login-token replay,
   cross-product transplant, expired credential) re-sign with a real, authorized demonstration
   supplier key. Those keys are not published, so the script omits the four and says so. The
@@ -59,6 +63,12 @@ Notes:
   only to mint its forgeries.
 - Running the ceremony driver (`seed-design-a.ts`) or the measurement harness requires the full
   platform and is not reproducible from this repository; their outputs are in `evidence/`.
+- The TypeScript sources under `backend_dpp/`, `frontend_dpp/` and `packages/` import modules of
+  the surrounding application that are not included, so they and their `*.test.ts` files are for
+  reading; the contract tests, the verifier and the tamper suite are the runnable parts.
+- The two main-network latency files of 23 September 2026 record `"chainId": 80002` in their
+  provenance header, and the main-network transcript labels chain 137 "(amoy)". Both runs used
+  chain 137; the label is a leftover default of the timing script.
 
 ## Where each claim lives
 
@@ -93,7 +103,8 @@ headers refer to the prototype's development history.
   for private key 1 in the verifier.
 
 The e-mail addresses that appear in `evidence/` belong to demonstration organizations and are
-part of signed, published credentials; changing them would break the signatures under study.
+part of signed, published credentials, where changing them would break the signatures under
+study, or to throwaway test accounts created for the recorded browser session.
 
 ## License
 

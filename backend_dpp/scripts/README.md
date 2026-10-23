@@ -23,7 +23,7 @@ independence, so the rule for this directory is absolute.
 | --- | --- | --- |
 | `verify-chain.mjs` | an organization's audit chain: every event hash recomputes, and the signed chain head matches the export's tip | the platform (HTTP) |
 | `verify-passport.mjs` | a published passport export: credential signatures, issuer DID resolution, on-chain authorization, and the Merkle anchor | an export file + an EVM JSON-RPC endpoint |
-| `tamper-passport.mjs` | *attacks* rather than verifies: mutates a real export sixteen ways and records what `verify-passport.mjs` catches, offline and against the chain | an export file (+ an endpoint for the online half) |
+| `tamper-passport.mjs` | *attacks* rather than verifies: mutates a real export nineteen ways and records what `verify-passport.mjs` catches, offline and against the chain | an export file (+ an endpoint for the online half) |
 | `measure-rq3.mjs` | *measures* rather than verifies: produces RQ3's quantitative table — verification latency, gas, time-to-anchor, onboarding and signing latency, A against B | the above, plus a database or a running platform |
 | `seed-design-a.ts` | *drives* rather than verifies: runs the whole Design A ceremony end to end and produces a real published, anchored passport plus the timings measure-rq3 consumes | a Design A stack, Redis, and a funded relayer on Amoy |
 
@@ -174,7 +174,7 @@ is that a reader can trust its ✗ — but until this one existed, nothing in th
 repository had ever made it produce one, so a verifier that agrees was
 indistinguishable from a verifier that always agrees.
 
-It takes a real published, anchored export, mutates it sixteen ways, runs the
+It takes a real published, anchored export, mutates it nineteen ways, runs the
 **untouched** verifier against each as a subprocess, and reports what was caught,
 by which check, at which exit code. It never edits the verifier: a mutation that
 is not caught is reported as a finding.
